@@ -31,5 +31,6 @@ public class Exerc_6 {
         } else {
             System.out.println("REPROVADO!");
         }
+        entradaValor.close();
     }
 }

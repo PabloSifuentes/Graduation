@@ -18,5 +18,6 @@ public class Exerc_5 {
         } else {
             System.out.println("Numero superiro que zero: " + numero);
         }
+        entrada.close();
     }
 }

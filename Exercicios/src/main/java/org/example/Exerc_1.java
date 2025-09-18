@@ -62,5 +62,6 @@ public class Exerc_1 {
                                     default:
                                         break;
         }
+        entradaValor.close();
     }
 }

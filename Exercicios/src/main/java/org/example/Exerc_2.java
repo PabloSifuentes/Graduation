@@ -17,5 +17,6 @@ public class Exerc_2 {
         else {
             System.out.println(idade + " é Menor de Idade!");
         }
+        valorEntrada.close();
     }
 }

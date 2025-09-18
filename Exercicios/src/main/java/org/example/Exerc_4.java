@@ -33,5 +33,6 @@ public class Exerc_4 {
        catch (DateTimeException e){
            System.out.println("⚠ Campo inválido! User formato (dd/MM/yyyy):");
        }
+       entrada.close();
     }
 }

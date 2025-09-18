@@ -19,5 +19,6 @@ public class Exerc_3 {
         } else {
             System.out.println("Valor não alcançado!");
         }
+        entrada.close();
     }
 }
