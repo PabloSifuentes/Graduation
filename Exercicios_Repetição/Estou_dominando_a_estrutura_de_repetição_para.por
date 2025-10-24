@@ -8,7 +8,6 @@ programa
 		escreva("Defina uma quantidade que deseja aparecer a mensagem 'Estou dominando a estrutura de repetição para!': ")
 		leia(quantidade)
 
-
 		para(inteiro i = 1; i <= quantidade; i++){
 			escreva(i + " - Estou dominando a estrutura de repetição para!\n")
 		}
@@ -23,7 +22,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 313; 
+ * @POSICAO-CURSOR = 192; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
