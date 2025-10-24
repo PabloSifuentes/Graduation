@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 programa
 {
 	
@@ -9,24 +8,13 @@ programa
 		}
 	}
 }
-=======
-programa
-{
-	
-	funcao inicio()
-	{
-		para(inteiro i = 1; i <= 100; i+=2){
-			escreva(i+"\n")
-		}
-	}
-}
->>>>>>> f34ff5b827cf45f956e5f4274493604aa4c5ad92
+
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 73; 
+ * @POSICAO-CURSOR = 0; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;

@@ -1,21 +1,14 @@
-<<<<<<< HEAD
 programa
 {
 	
 	funcao inicio()
 	{
-=======
-programa
-{
 	
-	funcao inicio()
-	{
->>>>>>> f34ff5b827cf45f956e5f4274493604aa4c5ad92
 		inteiro num[10], maior = 0, menor = 0
 
 			escreva("Informe 10 Valores: \n")
 		para(inteiro i = 0; i < 10; i++){
-			escreva("Valor " + i+1 + "º = ")
+			escreva("Valor " , i+1 , "º = ")
 			leia(num[i])
 
 			maior = num[0]
@@ -46,7 +39,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 78; 
+ * @POSICAO-CURSOR = 176; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
