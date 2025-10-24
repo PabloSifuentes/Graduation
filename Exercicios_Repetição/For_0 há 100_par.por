@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 programa
 {
 	
@@ -8,6 +9,18 @@ programa
 		}
 	}
 }
+=======
+programa
+{
+	
+	funcao inicio()
+	{
+		para(inteiro i = 0; i <= 100; i+=2){
+			escreva(i+"\n")
+		}
+	}
+}
+>>>>>>> f34ff5b827cf45f956e5f4274493604aa4c5ad92
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.

@@ -1,12 +1,23 @@
+<<<<<<< HEAD
 programa
 {
+=======
+programa
+{
+>>>>>>> f34ff5b827cf45f956e5f4274493604aa4c5ad92
 //	Realizar a leitura de um valor inteiro até que o utilizador informe um número dentro do intervalo
 //[1, 5]. Caso o valor informado seja menor ou igual à zero ou maior ou igual a cinco deve-se
 //solicitar novamente um valor inteiro. Ao final, apresentar uma mensagem informando a opção
 //escolhida pelo usuário, exemplo: “Você escolheu a opção um!”
+<<<<<<< HEAD
 	
 	funcao inicio()
 	{
+=======
+	
+	funcao inicio()
+	{
+>>>>>>> f34ff5b827cf45f956e5f4274493604aa4c5ad92
 		inteiro valor, i = 0
 		real segundo = 1.5, contador = 0.0
 

@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 programa
 {
 	
 	funcao inicio()
 	{
+=======
+programa
+{
+	
+	funcao inicio()
+	{
+>>>>>>> f34ff5b827cf45f956e5f4274493604aa4c5ad92
 		inteiro num[10], maior = 0, menor = 0
 
 			escreva("Informe 10 Valores: \n")

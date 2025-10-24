@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 programa
 {
 	
 	funcao inicio()
 	{
+=======
+programa
+{
+	
+	funcao inicio()
+	{
+>>>>>>> f34ff5b827cf45f956e5f4274493604aa4c5ad92
 		inteiro n = 1, soma = 0
 
 		faca{
@@ -14,7 +22,11 @@ programa
 		enquanto(n < 100)
 		escreva("A soma dos valores impares é: " +soma)
 		}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f34ff5b827cf45f956e5f4274493604aa4c5ad92
 /* $$$ Portugol Studio $$$ 
  * 
  * Esta seção do arquivo guarda informações do Portugol Studio.
