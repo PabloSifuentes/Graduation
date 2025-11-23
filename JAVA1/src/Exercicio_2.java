@@ -11,189 +11,33 @@ public class Exercicio_2 {
 
         Scanner entradaDados = new Scanner(System.in);
 
-        boolean controleQuantidade = true;
+        double creditos = 0;
+        boolean controle = true;
 
-        System.out.println("Informe as quantidades de Vasilhames em Litros (L)!\n");
+        while(controle){
 
-        while(controleQuantidade == true) {
+        System.out.println("Informe os litros de cada Vasilhames!\nVasilhames:");
+        double litro = entradaDados.nextDouble();
+        System.out.println("Quandidade de Vasilhames:");
+        int quantidade = entradaDados.nextInt();
 
-            System.out.println("Quantos Vasilhames são dê 1 à 10?! ");
-            int quantidadeVasilhames = entradaDados.nextInt();
-
-            switch (quantidadeVasilhames) {
-                case 1:
-                    System.out.println("Informe quantidade de litros do Vasilhame: ");
-                    double vasilhamesLitros = entradaDados.nextDouble();
-
-                    if (vasilhamesLitros <= 1.0) {
-                        double valor = 0.10;
-                        System.out.printf("Valor total do Crédito obtido: " + valor);
-                        controleQuantidade = false;
-                    } else if (vasilhamesLitros > 1.0) {
-                        double valor = 0.25;
-                        System.out.printf("Valor total do Crédito obtido: " + valor);
-                        controleQuantidade = false;
-                    } else {
-                        System.out.printf("ERRO!\nPrecisa Informar um valor!");
-                    }
-                    break;
-                case 2:
-                    System.out.println("Informe quantidade de litros do Vasilhame: ");
-                    vasilhamesLitros = entradaDados.nextDouble();
-
-                    if (vasilhamesLitros <= 1.0) {
-                        double valorTotal = 0.10 * 2;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else if (vasilhamesLitros > 1.0) {
-                        double valorTotal = 0.25 * 2;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else {
-                        System.out.printf("ERRO!\nPrecisa Informar um valor!");
-                    }
-                    break;
-                case 3:
-                    System.out.println("Informe quantidade de litros do Vasilhame: ");
-                    vasilhamesLitros = entradaDados.nextDouble();
-
-                    if (vasilhamesLitros <= 1.0) {
-                        double valorTotal = 0.10 * 3;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else if (vasilhamesLitros > 1.0) {
-                        double valorTotal = 0.25 * 3;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else {
-                        System.out.printf("ERRO!\nPrecisa Informar um valor!");
-                    }
-                    break;
-                case 4:
-                    System.out.println("Informe quantidade de litros do Vasilhame: ");
-                    vasilhamesLitros = entradaDados.nextDouble();
-
-                    if (vasilhamesLitros <= 1.0) {
-                        double valorTotal = 0.10 * 4;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else if (vasilhamesLitros > 1.0) {
-                        double valorTotal = 0.25 * 4;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else {
-                        System.out.printf("ERRO!\nPrecisa Informar um valor!");
-                    }
-                    break;
-                case 5:
-                    System.out.println("Informe quantidade de litros do Vasilhame: ");
-                    vasilhamesLitros = entradaDados.nextDouble();
-
-                    if (vasilhamesLitros <= 1.0) {
-                        double valorTotal = 0.10 * 5;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else if (vasilhamesLitros > 1.0) {
-                        double valorTotal = 0.25 * 5;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else {
-                        System.out.printf("ERRO!\nPrecisa Informar um valor!");
-                    }
-                    break;
-                case 6:
-                    System.out.println("Informe quantidade de litros do Vasilhame: ");
-                    vasilhamesLitros = entradaDados.nextDouble();
-
-                    if (vasilhamesLitros <= 1.0) {
-                        double valorTotal = 0.10 * 6;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else if (vasilhamesLitros > 1.0) {
-                        double valorTotal = 0.25 * 6;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else {
-                        System.out.printf("ERRO!\nPrecisa Informar um valor!");
-                    }
-                    break;
-                case 7:
-                    System.out.println("Informe quantidade de litros do Vasilhame: ");
-                    vasilhamesLitros = entradaDados.nextDouble();
-
-                    if (vasilhamesLitros <= 1.0) {
-                        double valorTotal = 0.10 * 7;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else if (vasilhamesLitros > 1.0) {
-                        double valorTotal = 0.25 * 7;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else {
-                        System.out.printf("ERRO!\nPrecisa Informar um valor!");
-                    }
-                    break;
-                case 8:
-                    System.out.println("Informe quantidade de litros do Vasilhame: ");
-                    vasilhamesLitros = entradaDados.nextDouble();
-
-                    if (vasilhamesLitros <= 1.0) {
-                        double valorTotal = 0.10 * 8;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else if (vasilhamesLitros > 1.0) {
-                        double valorTotal = 0.25 * 8;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else {
-                        System.out.printf("ERRO!\nPrecisa Informar um valor!");
-                    }
-                    break;
-                case 9:
-                    System.out.println("Informe quantidade de litros do Vasilhame: ");
-                    vasilhamesLitros = entradaDados.nextDouble();
-
-                    if (vasilhamesLitros <= 1.0) {
-                        double valorTotal = 0.10 * 9;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else if (vasilhamesLitros > 1.0) {
-                        double valorTotal = 0.25 * 9;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else {
-                        System.out.printf("ERRO!\nPrecisa Informar um valor!");
-                    }
-                    break;
-                case 10:
-                    System.out.println("Informe quantidade de litros do Vasilhame: ");
-                    vasilhamesLitros = entradaDados.nextDouble();
-
-                    if (vasilhamesLitros <= 1.0) {
-                        double valorTotal = 0.10 * 10;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else if (vasilhamesLitros > 1.0) {
-                        double valorTotal = 0.25 * 10;
-                        System.out.printf("Valor total do Crédito obtido: " + valorTotal);
-                        controleQuantidade = false;
-                    } else {
-                        System.out.printf("ERRO!\nPrecisa Informar um valor!");
-                    }
-                    break;
-                default:
-                    System.out.println("Erro, opção inválida.\nTente Novamente");
-                    controleQuantidade = true;
-            }
+        if(litro <= 1.0){
+         double valorTotal = 0.10 * quantidade;
+         creditos += valorTotal;
+        } else if(litro > 1.0){
+            double valorTotal = 0.25 * quantidade;
+            creditos += valorTotal;
         }
 
+            System.out.println("Deseja continuar com a Reciclagem?\n[1] - SIM\n[2] - NÃO");
+            int opcao = entradaDados.nextInt();
 
-
-
-
-
-
-
-
+            if(opcao == 1){
+                controle = true;
+            } else{
+                controle = false;
+            }
+        }
+        System.out.println("Total de Créditos obtidos: " +creditos);
     }
 }
