@@ -1,7 +1,7 @@
 public class Tabela_de_Potencia {
     public static void main(String[] args) {
 
-        System.out.println("Selecione a turma: \n" +
+        System.out.println("Tabela de Potência: \n" +
                 "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┑");
         System.out.println("┃   Número         Quadrado         Cubo    ┃");
         System.out.println("┃━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┃");
