@@ -1,41 +1,81 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-        int value = 147, value2 = 6, divisores = 0;
+        Scanner inputData = new Scanner(System.in);
 
-        if(value % 2 == 0){
-            System.out.println("É Par");
-        } else {
-            System.out.println("É Impar");
-        }
+        int[] value = new int[100];
+        int[] totalPrimos = new int[100];
+        int maiorPrimo = totalPrimos[0], menorPrimo = totalPrimos[0], count = 0;
 
-        if(value % 3 == 0){
-            System.out.println("É multiplo por 3");
-        } else {
-            System.out.println("Não é multiplo por 3");
-        }
+        for (int i = 0; i < 100; i++) {
+            System.out.print("\nInforme um número: ");
+            value[i] = inputData.nextInt();
 
-        if(value2 >= 100 && value2 <= 200){
-            System.out.println("Dentro do Intervalo");
-        } else{
-            System.out.println("Fora do Intervalo");
-        }
+            int numero = value[i];
+            int divisores = 0;
 
-        if(value <= 1){
-            System.out.println("O número " +value+ " não é primo");
-        } else {
-            for(int i = 2; i < value; i++){
-                if(value % i == 0){
-                    divisores += 1;
+            System.out.println("╔◥━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◤╗");
+            System.out.printf("║              Número: %-10d         ║\n", numero);
+            System.out.println("╟◣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◢╢");
+
+            // 1 — Par ou ímpar
+            if (numero % 2 == 0) {
+                System.out.println("║   ➤ É Par                              ║");
+            } else {
+                System.out.println("║   ➤ É Ímpar                            ║");
+            }
+
+            // 2 — Múltiplo de 3
+            if (numero % 3 == 0) {
+                System.out.println("║   ➤ É múltiplo de 3                    ║");
+            } else {
+                System.out.println("║   ➤ Não é múltiplo de 3                ║");
+            }
+
+            // 3 — Intervalo 100–200
+            if (numero >= 100 && numero <= 200) {
+                System.out.println("║   ➤ Está dentro do intervalo 100–200   ║");
+            } else {
+                System.out.println("║   ➤ Fora do intervalo 100–200          ║");
+            }
+
+            // 4 — Número primo
+            if (numero <= 1) {
+                System.out.println("║   ➤ Não é primo                       ║");
+            } else {
+                for (int j = 2; j < numero; j++) {
+                    if (numero % j == 0) {
+                        divisores++;
+                    }
+                }
+                if (divisores == 0) {
+                    System.out.println("║   ➤ É primo                            ║");
+                    totalPrimos[count] = numero;
+                    if (count == 0) {
+                        maiorPrimo = numero;
+                        menorPrimo = numero;
+                    } else {
+                        if (numero > maiorPrimo) {
+                            maiorPrimo = numero;
+                        }
+                        if (numero < menorPrimo) {
+                            menorPrimo = numero;
+                        }
+                    }
+                    count++;
+                } else {
+                    System.out.println("║   ➤ Não é primo                        ║");
                 }
             }
-            if(divisores == 0){
-                System.out.println("O número " +value+ " é primo");
-            } else{
-                System.out.println("O número " +value+ " não é primo");
-            }
+
+            System.out.println("╚◢━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◣╝");
         }
+
+        System.out.println("O Primo maior é " + maiorPrimo);
+        System.out.println("O Primo menor é " + menorPrimo);
+
+
     }
 }
