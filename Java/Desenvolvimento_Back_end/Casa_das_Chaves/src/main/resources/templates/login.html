@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Casa das Chaves</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h2>Login</h2>
+
+        <form th:action="@{/login}" th:object="${loginDto}" method="post">
+
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" th:field="*{email}" id="email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" th:field="*{senha}" id="senha" placeholder="Digite sua senha" required>
+            </div>
+
+            <button type="submit" class="btn-login">Entrar</button>
+
+            <div class="form-footer">
+                <p>Não tem uma conta?
+                    <a th:href="@{/cadastro}">Cadastre-se aqui</a>
+                </p>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
