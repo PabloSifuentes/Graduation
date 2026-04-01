@@ -1,0 +1,631 @@
+/* ===== RESET E ESTILOS GLOBAIS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== HEADER FIXO ===== */
+.header-fixo {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 2rem;
+}
+
+.container-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Logo */
+.logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #4a5568;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: #667eea;
+}
+
+.logo i {
+    color: #fbbf24;
+    font-size: 2rem;
+}
+
+/* Menu Navegação */
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+
+.nav-menu a:hover,
+.nav-menu a.ativo {
+    color: #667eea;
+}
+
+/* Área do usuário */
+.acoes-usuario {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.carrinho-icon {
+    position: relative;
+}
+
+.carrinho-icon a {
+    color: #4a5568;
+    font-size: 1.5rem;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.carrinho-icon a:hover {
+    color: #667eea;
+}
+
+.contador-carrinho {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background: #e53e3e;
+    color: white;
+    border-radius: 50%;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+    min-width: 18px;
+    text-align: center;
+}
+
+.btn-logout {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid #e2e8f0;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: #fee2e2;
+    border-color: #f56565;
+    color: #c53030;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    margin-top: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 4rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    backdrop-filter: blur(5px);
+}
+
+.container-hero h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.container-hero p {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primario {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primario:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== PRODUTOS EM DESTAQUE ===== */
+.produtos-destaque {
+    padding: 4rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.produtos-destaque h2 {
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.card-produto {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.imagem-produto {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #f7fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-produto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card-produto:hover .img-produto {
+    transform: scale(1.05);
+}
+
+.info-produto {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.info-produto h3 {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.preco {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #667eea;
+    margin: 0.5rem 0;
+}
+
+.btn-adicionar {
+    background: #4a5568;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-adicionar:hover {
+    background: #667eea;
+    transform: scale(1.02);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: rgba(0, 0, 0, 0.8);
+    color: #e2e8f0;
+    padding: 2rem 1rem;
+    margin-top: auto;
+}
+
+.container-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.footer-info p {
+    margin: 0.3rem 0;
+}
+
+.redes-sociais {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.redes-sociais a {
+    color: #e2e8f0;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.redes-sociais a:hover {
+    color: #667eea;
+    transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .container-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-menu ul {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .acoes-usuario {
+        justify-content: center;
+    }
+
+    .hero {
+        margin-top: 140px;
+        padding: 2rem 1rem;
+    }
+
+    .container-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .container-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .grid-produtos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu ul {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+    /* ===== SLIDER / CARROSSEL HERO ===== */
+    .hero-slider {
+        margin-top: 80px;
+        position: relative;
+        width: 90%;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 70vh;
+        min-height: 500px;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .slider-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: 20px;
+    }
+
+    /* Slides container */
+    .slides {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Cada slide individual */
+    .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+        background: linear-gradient(135deg, rgba(102, 126, 234, 0.92) 0%, rgba(118, 75, 162, 0.92) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        backdrop-filter: blur(2px);
+    }
+
+    /* Slide ativo */
+    .slide.active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+    }
+
+    /* Conteúdo do slide */
+    .slide-content {
+        max-width: 800px;
+        padding: 2rem;
+        color: white;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .slide-content h1,
+    .slide-content h2 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        font-weight: 700;
+    }
+
+    .slide-content p {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.6;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .slide-destaque {
+        font-size: 1.3rem !important;
+        font-weight: bold;
+        margin-top: 1rem !important;
+        color: #ffd966;
+    }
+
+    /* Botões do slider */
+    .btn-slider {
+        display: inline-block;
+        background: white;
+        color: #667eea;
+        padding: 0.8rem 2rem;
+        margin-top: 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-slider:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        background: #f7fafc;
+        color: #764ba2;
+    }
+
+    /* Indicadores (bolinhas) */
+    .slider-indicators {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 12px;
+        z-index: 10;
+        padding: 8px 15px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 30px;
+        backdrop-filter: blur(5px);
+    }
+
+    .indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .indicator.active {
+        background: white;
+        width: 25px;
+        border-radius: 5px;
+    }
+
+    .indicator:hover {
+        background: rgba(255, 255, 255, 0.8);
+        transform: scale(1.2);
+    }
+
+    /* Botões de navegação */
+    .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(5px);
+        color: white;
+        border: none;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slider-btn:hover {
+        background: rgba(255, 255, 255, 0.5);
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev-btn {
+        left: 20px;
+    }
+
+    .next-btn {
+        right: 20px;
+    }
+
+    /* Responsividade do slider */
+    @media (max-width: 768px) {
+        .hero-slider {
+            margin-top: 140px;
+            height: 60vh;
+            min-height: 450px;
+        }
+
+        .slide-content h1,
+        .slide-content h2 {
+            font-size: 1.8rem;
+        }
+
+        .slide-content p {
+            font-size: 1rem;
+        }
+
+        .slide-destaque {
+            font-size: 1.1rem !important;
+        }
+
+        .btn-slider {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .slider-btn {
+            width: 35px;
+            height: 35px;
+            font-size: 1rem;
+        }
+
+        .prev-btn {
+            left: 10px;
+        }
+
+        .next-btn {
+            right: 10px;
+        }
+
+        .slider-indicators {
+            bottom: 15px;
+            gap: 8px;
+        }
+
+        .indicator {
+            width: 8px;
+            height: 8px;
+        }
+
+        .indicator.active {
+            width: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-slider {
+            height: 55vh;
+            min-height: 400px;
+        }
+
+        .slide-content h1,
+        .slide-content h2 {
+            font-size: 1.5rem;
+        }
+
+        .slide-content p {
+            font-size: 0.9rem;
+        }
+
+        .slide-destaque {
+            font-size: 1rem !important;
+        }
+
+        .btn-slider {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+        }
+    }
+}

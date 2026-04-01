@@ -9,5 +9,4 @@ public class CasaDasChavesApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CasaDasChavesApplication.class, args);
 	}
-
 }

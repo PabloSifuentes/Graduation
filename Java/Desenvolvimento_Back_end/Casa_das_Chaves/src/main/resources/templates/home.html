@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Casa das Chaves - Sua segurança em nossas mãos</title>
+    <!-- Link para o CSS externo usando Thymeleaf -->
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <!-- Ícones para redes sociais e menu (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- ========================= HEADER FIXO ========================= -->
+<header class="header-fixo">
+    <div class="container-header">
+        <!-- Logo com ícone e texto -->
+        <div class="logo">
+            <a th:href="@{/home}">
+                <i class="fas fa-key"></i> <!-- Ícone de chave -->
+                <span>Casa das Chaves</span>
+            </a>
+        </div>
+
+        <!-- Menu de navegação (links com th:href para compatibilidade futura) -->
+        <nav class="nav-menu">
+            <ul>
+                <li><a th:href="@{/home}" class="ativo">Início</a></li>
+                <li><a th:href="@{/sobre}">Sobre Nós</a></li>
+                <li><a th:href="@{/produtos}">Produtos</a></li>
+                <li><a th:href="@{/servicos}">Serviços</a></li>
+                <li><a th:href="@{/contato}">Contato</a></li>
+            </ul>
+        </nav>
+
+        <!-- Área do Carrinho e Logout -->
+        <div class="acoes-usuario">
+            <div class="carrinho-icon">
+                <a th:href="@{/carrinho}">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="contador-carrinho" id="contadorCarrinho">0</span>
+                </a>
+            </div>
+            <div class="logout">
+                <a th:href="@{/logout}">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ========================= CONTEÚDO PRINCIPAL ========================= -->
+<main>
+
+    <!-- ========================= HERO SECTION COM SLIDER ========================= -->
+    <section class="hero-slider">
+        <div class="slider-container">
+            <!-- Slides -->
+            <div class="slides">
+                <!-- Slide 1 - Boas-vindas -->
+                <div class="slide active">
+                    <div class="slide-content">
+                        <h1 th:text="'Bem-vindo à Casa das Chaves!'">Bem-vindo à Casa das Chaves!</h1>
+                        <p>Segurança e confiança ao seu alcance.</p>
+                        <a th:href="@{/produtos}" class="btn-slider">Conheça Nossos Produtos</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 - Novidades -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2>Novidades em Segurança!</h2>
+                        <p>Fechaduras digitais e controles automotivos de última geração!</p>
+                        <p class="slide-destaque">Conheça nossos lançamentos exclusivos</p>
+                        <a th:href="@{/produtos}" class="btn-slider">Ver Produtos</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 - Região de Atendimento -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2>Atendemos toda a região!</h2>
+                        <p>Vale do Itajaí – SC</p>
+                        <p class="slide-destaque">Blumenau, Gaspar, Indaial e região</p>
+                        <a th:href="@{/contato}" class="btn-slider">Entre em Contato</a>
+                    </div>
+                </div>
+
+                <!-- Slide 4 - Inovação -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2>Inovação em Serviços</h2>
+                        <p>Solicite cópias de chaves online e retire na loja</p>
+                        <p class="slide-destaque">Agende seu atendimento direto pelo site!</p>
+                        <a th:href="@{/servicos}" class="btn-slider">Agendar Serviço</a>
+                    </div>
+                </div>
+
+                <!-- Slide 5 - Fidelização -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2>Programa Fidelidade</h2>
+                        <p>Casa das Chaves</p>
+                        <p class="slide-destaque">Acumule pontos e ganhe descontos exclusivos!</p>
+                        <a th:href="@{/sobre}" class="btn-slider">Saiba Mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Indicadores (bolinhas) -->
+            <div class="slider-indicators">
+                <span class="indicator active" data-slide="0"></span>
+                <span class="indicator" data-slide="1"></span>
+                <span class="indicator" data-slide="2"></span>
+                <span class="indicator" data-slide="3"></span>
+                <span class="indicator" data-slide="4"></span>
+            </div>
+
+            <!-- Botões de navegação -->
+            <button class="slider-btn prev-btn" aria-label="Slide anterior">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-btn next-btn" aria-label="Próximo slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Seção de Produtos em Destaque (cards estáticos) -->
+    <section class="produtos-destaque">
+        <div class="container-produtos">
+            <h2>Produtos em Destaque</h2>
+            <div class="grid-produtos">
+                <!-- Card 1 -->
+                <div class="card-produto">
+                    <div class="imagem-produto">
+                        <img th:src="@{/images/chave-copia.jpg}" alt="Cópia de Chave" class="img-produto">
+                    </div>
+                    <div class="info-produto">
+                        <h3 th:text="'Cópia de Chave Residencial'">Cópia de Chave Residencial</h3>
+                        <p class="preco">R$ 15,90</p>
+                        <button class="btn-adicionar" data-nome="Cópia de Chave Residencial" data-preco="15.90">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-produto">
+                    <div class="imagem-produto">
+                        <img th:src="@{/images/controle-portao.jpg}" alt="Controle de Portão" class="img-produto">
+                    </div>
+                    <div class="info-produto">
+                        <h3 th:text="'Controle Universal Portão'">Controle Universal Portão</h3>
+                        <p class="preco">R$ 89,90</p>
+                        <button class="btn-adicionar" data-nome="Controle Universal Portão" data-preco="89.90">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-produto">
+                    <div class="imagem-produto">
+                        <img th:src="@{/images/cadeado.jpg}" alt="Cadeado Segurança" class="img-produto">
+                    </div>
+                    <div class="info-produto">
+                        <h3 th:text="'Cadeado Reforçado'">Cadeado Reforçado</h3>
+                        <p class="preco">R$ 45,90</p>
+                        <button class="btn-adicionar" data-nome="Cadeado Reforçado" data-preco="45.90">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card-produto">
+                    <div class="imagem-produto">
+                        <img th:src="@{/images/kit-fechadura.jpg}" alt="Kit Fechadura" class="img-produto">
+                    </div>
+                    <div class="info-produto">
+                        <h3 th:text="'Kit Fechadura Segurança'">Kit Fechadura Segurança</h3>
+                        <p class="preco">R$ 129,90</p>
+                        <button class="btn-adicionar" data-nome="Kit Fechadura Segurança" data-preco="129.90">Adicionar ao Carrinho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="footer">
+    <div class="container-footer">
+        <div class="footer-info">
+            <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span> Casa das Chaves. Todos os direitos reservados.</p>
+            <p>Contato: contato@casadaschaves.com.br | (11) 99999-1234</p>
+        </div>
+        <div class="redes-sociais">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Script JS externo com Thymeleaf -->
+<script th:src="@{/js/home.js}"></script>
+</body>
+</html>

@@ -32,7 +32,7 @@ public class AuthController {
 
         if (usuarioSessao.getId() != 0L) {
             ControleSessao.registrar(request, usuarioSessao);
-            return "redirect:/dashboard";
+            return "redirect:/home";
         }
         return "redirect:/login?erro";
 
