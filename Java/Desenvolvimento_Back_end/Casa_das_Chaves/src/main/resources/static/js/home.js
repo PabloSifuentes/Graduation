@@ -1,75 +1,34 @@
 /**
  * =====================================================
  * SLIDER / CARROSSEL AUTOMÁTICO - CASA DAS CHAVES
+ * VERSÃO MINIMALISTA (SEM BOTÕES DE NAVEGAÇÃO)
  * =====================================================
  */
 
-class HeroSlider {
+class HeroSliderMinimal {
     constructor() {
-        // Elementos do DOM
-        this.slides = document.querySelectorAll('.slide');
-        this.indicators = document.querySelectorAll('.indicator');
-        this.prevBtn = document.querySelector('.prev-btn');
-        this.nextBtn = document.querySelector('.next-btn');
-        this.sliderContainer = document.querySelector('.hero-slider');
+        // Elementos do DOM para o Modelo 4
+        this.slides = document.querySelectorAll('.slide-minimal');
+        this.sliderContainer = document.querySelector('.hero-slider-minimal');
 
         // Configurações
         this.currentSlide = 0;
         this.slideInterval = null;
         this.intervalTime = 6000;
         this.isPlaying = true;
-        this.isTransitioning = false;
 
         // Inicialização
         this.init();
     }
 
     init() {
-        if (this.slides.length === 0) return;
-        this.setupEventListeners();
+        if (this.slides.length === 0) {
+            console.log('Nenhum slide encontrado para o Modelo 4');
+            return;
+        }
         this.startAutoSlide();
         this.setupHoverPause();
-        console.log(`Slider inicializado com ${this.slides.length} slides`);
-    }
-
-    setupEventListeners() {
-        if (this.nextBtn) {
-            this.nextBtn.addEventListener('click', () => {
-                if (this.isTransitioning) return;
-                this.nextSlide();
-                this.resetAutoSlide();
-            });
-        }
-
-        if (this.prevBtn) {
-            this.prevBtn.addEventListener('click', () => {
-                if (this.isTransitioning) return;
-                this.prevSlide();
-                this.resetAutoSlide();
-            });
-        }
-
-        this.indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                if (this.isTransitioning) return;
-                if (index !== this.currentSlide) {
-                    this.goToSlide(index);
-                    this.resetAutoSlide();
-                }
-            });
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                if (this.isTransitioning) return;
-                this.prevSlide();
-                this.resetAutoSlide();
-            } else if (e.key === 'ArrowRight') {
-                if (this.isTransitioning) return;
-                this.nextSlide();
-                this.resetAutoSlide();
-            }
-        });
+        console.log(`Slider Minimalista inicializado com ${this.slides.length} slides`);
     }
 
     setupHoverPause() {
@@ -86,50 +45,15 @@ class HeroSlider {
         });
     }
 
-    showSlide(index) {
-        this.isTransitioning = true;
-
-        this.slides.forEach(slide => {
-            slide.classList.remove('active');
-        });
-
-        this.indicators.forEach(indicator => {
-            indicator.classList.remove('active');
-        });
-
-        this.slides[index].classList.add('active');
-
-        if (this.indicators[index]) {
-            this.indicators[index].classList.add('active');
-        }
-
-        this.currentSlide = index;
-
-        setTimeout(() => {
-            this.isTransitioning = false;
-        }, 800);
-    }
-
     nextSlide() {
-        let nextIndex = this.currentSlide + 1;
-        if (nextIndex >= this.slides.length) {
-            nextIndex = 0;
-        }
-        this.showSlide(nextIndex);
-    }
+        // Remove active do slide atual
+        this.slides[this.currentSlide].classList.remove('active');
 
-    prevSlide() {
-        let prevIndex = this.currentSlide - 1;
-        if (prevIndex < 0) {
-            prevIndex = this.slides.length - 1;
-        }
-        this.showSlide(prevIndex);
-    }
+        // Calcula próximo slide
+        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
 
-    goToSlide(index) {
-        if (index >= 0 && index < this.slides.length) {
-            this.showSlide(index);
-        }
+        // Adiciona active ao próximo slide
+        this.slides[this.currentSlide].classList.add('active');
     }
 
     startAutoSlide() {
@@ -138,7 +62,7 @@ class HeroSlider {
         }
 
         this.slideInterval = setInterval(() => {
-            if (this.isPlaying && !this.isTransitioning) {
+            if (this.isPlaying) {
                 this.nextSlide();
             }
         }, this.intervalTime);
@@ -151,13 +75,6 @@ class HeroSlider {
         }
     }
 
-    resetAutoSlide() {
-        if (this.isPlaying) {
-            this.stopAutoSlide();
-            this.startAutoSlide();
-        }
-    }
-
     destroy() {
         this.stopAutoSlide();
         this.isPlaying = false;
@@ -166,9 +83,9 @@ class HeroSlider {
 
 // Aguarda o DOM carregar antes de inicializar
 document.addEventListener('DOMContentLoaded', function() {
-    const sliderSection = document.querySelector('.hero-slider');
+    const sliderSection = document.querySelector('.hero-slider-minimal');
     if (sliderSection) {
-        window.heroSlider = new HeroSlider();
+        window.heroSlider = new HeroSliderMinimal();
     }
 });
 

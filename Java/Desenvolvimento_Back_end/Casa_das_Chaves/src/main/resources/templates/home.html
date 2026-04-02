@@ -11,119 +11,123 @@
 </head>
 <body>
 
-<!-- ========================= HEADER FIXO ========================= -->
+<!-- ========================= HEADER FIXO DE DUAS LINHAS ========================= -->
 <header class="header-fixo">
-    <div class="container-header">
-        <!-- Logo com ícone e texto -->
-        <div class="logo">
-            <a th:href="@{/home}">
-                <i class="fas fa-key"></i>
-                <span>Casa das Chaves</span>
-            </a>
-        </div>
 
-        <!-- Menu de navegação -->
-        <nav class="nav-menu">
-            <ul>
-                <li><a th:href="@{/home}" class="ativo">Início</a></li>
-                <li><a th:href="@{/sobre}">Sobre Nós</a></li>
-                <li><a th:href="@{/produtos}">Produtos</a></li>
-                <li><a th:href="@{/servicos}">Serviços</a></li>
-                <li><a th:href="@{/contato}">Contato</a></li>
-            </ul>
-        </nav>
-
-        <!-- Área do Carrinho e Logout -->
-        <div class="acoes-usuario">
-            <div class="carrinho-icon">
-                <a th:href="@{/carrinho}">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="contador-carrinho" id="contadorCarrinho">0</span>
+    <!-- PRIMEIRA LINHA: Logo, Busca e Ações do Usuário -->
+    <div class="header-top">
+        <div class="container-header">
+            <!-- Logo -->
+            <div class="logo">
+                <a th:href="@{/home}">
+                    <i class="fas fa-key"></i>
+                    <span>Casa das <span class="logo-highlight">Chaves</span></span>
                 </a>
             </div>
-            <div class="logout">
-                <a th:href="@{/logout}" class="btn-logout">
-                    <i class="fas fa-sign-out-alt"></i> Sair
+
+            <div class="search-box-neo">
+                <form th:action="@{/produtos}" method="get" class="search-form-neo">
+                    <input type="text" name="search" placeholder="Buscar..." class="search-input-neo">
+                    <button type="submit" class="search-btn-neo">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Ações do Usuário (Carrinho + Logout) -->
+            <div class="carrinho-icon-v5">
+                <a th:href="@{/carrinho}">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="carrinho-details">
+                        <span class="carrinho-label-v5">Meu Carrinho</span>
+                        <span class="carrinho-value">
+                <span class="contador-carrinho-v5" id="contadorCarrinho5">0</span> itens
+            </span>
+                    </div>
                 </a>
+            </div>
+
+            <!-- Área do Cliente - Modelo 2 -->
+            <div class="cliente-icon-simple">
+                <a th:href="@{/minha-conta}" aria-label="Minha Conta">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+
+                <div class="logout">
+                    <a th:href="@{/logout}" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Sair</span>
+                    </a>
+                </div>
+        </div>
+    </div>
+
+    <!-- SEGUNDA LINHA: Menu de Navegação Principal -->
+    <div class="header-bottom">
+        <div class="container-header">
+            <nav class="nav-menu">
+                <ul>
+                    <li><a th:href="@{/home}" class="ativo">Início</a></li>
+                    <li><a th:href="@{/sobre}">Sobre Nós</a></li>
+                    <li><a th:href="@{/produtos}">Produtos</a></li>
+                    <li><a th:href="@{/servicos}">Serviços</a></li>
+                    <li><a th:href="@{/contato}">Contato</a></li>
+                </ul>
+            </nav>
+
+            <!-- Opcional: Ícones de contato rápido na segunda linha -->
+            <div class="header-contacts">
+                <a href="tel:47999991234"><i class="fas fa-phone"></i> (47) 99999-1234</a>
+                <a href="https://wa.me/5547999991234" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             </div>
         </div>
     </div>
-</header>
 
+    <!-- Menu Mobile (Hambúrguer) - aparece apenas em telas pequenas -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+</header>
 <!-- ========================= CONTEÚDO PRINCIPAL ========================= -->
 <main>
 
-    <!-- HERO SECTION COM SLIDER -->
-    <section class="hero-slider">
-        <div class="slider-container">
-            <!-- Slides -->
-            <div class="slides">
-                <!-- Slide 1 - Boas-vindas -->
-                <div class="slide active">
-                    <div class="slide-content">
-                        <h1 th:text="'Bem-vindo à Casa das Chaves!'">Bem-vindo à Casa das Chaves!</h1>
-                        <p>Segurança e confiança ao seu alcance.</p>
-                        <a th:href="@{/produtos}" class="btn-slider">Conheça Nossos Produtos</a>
-                    </div>
-                </div>
-
-                <!-- Slide 2 - Novidades -->
-                <div class="slide">
-                    <div class="slide-content">
-                        <h2>Novidades em Segurança!</h2>
-                        <p>Fechaduras digitais e controles automotivos de última geração!</p>
-                        <p class="slide-destaque">Conheça nossos lançamentos exclusivos</p>
-                        <a th:href="@{/produtos}" class="btn-slider">Ver Produtos</a>
-                    </div>
-                </div>
-
-                <!-- Slide 3 - Região de Atendimento -->
-                <div class="slide">
-                    <div class="slide-content">
-                        <h2>Atendemos toda a região!</h2>
-                        <p>Vale do Itajaí – SC</p>
-                        <p class="slide-destaque">Blumenau, Gaspar, Indaial e região</p>
-                        <a th:href="@{/contato}" class="btn-slider">Entre em Contato</a>
-                    </div>
-                </div>
-
-                <!-- Slide 4 - Inovação -->
-                <div class="slide">
-                    <div class="slide-content">
-                        <h2>Inovação em Serviços</h2>
-                        <p>Solicite cópias de chaves online e retire na loja</p>
-                        <p class="slide-destaque">Agende seu atendimento direto pelo site!</p>
-                        <a th:href="@{/servicos}" class="btn-slider">Agendar Serviço</a>
-                    </div>
-                </div>
-
-                <!-- Slide 5 - Fidelização -->
-                <div class="slide">
-                    <div class="slide-content">
-                        <h2>Programa Fidelidade</h2>
-                        <p>Casa das Chaves</p>
-                        <p class="slide-destaque">Acumule pontos e ganhe descontos exclusivos!</p>
-                        <a th:href="@{/sobre}" class="btn-slider">Saiba Mais</a>
-                    </div>
-                </div>
+    <!-- MODELO 4 - Hero Minimalista (Sem Indicadores) -->
+    <section class="hero-slider-minimal">
+        <div class="slide-minimal active">
+            <div class="slide-content-minimal">
+                <h1>Bem-vindo à <span style="color: #fbbf24;">Casa das Chaves</span>!</h1>
+                <p>Segurança e confiança ao seu alcance.</p>
+                <a th:href="@{/produtos}" class="btn-slider-minimal">Conheça Nossos Produtos</a>
             </div>
-
-            <!-- Indicadores (bolinhas) -->
-            <div class="slider-indicators">
-                <span class="indicator active" data-slide="0"></span>
-                <span class="indicator" data-slide="1"></span>
-                <span class="indicator" data-slide="2"></span>
-                <span class="indicator" data-slide="3"></span>
-                <span class="indicator" data-slide="4"></span>
+        </div>
+        <div class="slide-minimal">
+            <div class="slide-content-minimal">
+                <h2>Novidades em <span style="color: #fbbf24;">Segurança</span>!</h2>
+                <p>Fechaduras digitais e controles automotivos de última geração!</p>
+                <a th:href="@{/produtos}" class="btn-slider-minimal">Ver Produtos</a>
             </div>
-
-            <!-- Botões de navegação -->
-            <button class="slider-btn prev-btn" aria-label="Slide anterior">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="slider-btn next-btn" aria-label="Próximo slide">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+        </div>
+        <div class="slide-minimal">
+            <div class="slide-content-minimal">
+                <h2>Atendemos toda a <span style="color: #fbbf24;">região!</span></h2>
+                <p>Vale do Itajaí – SC | Blumenau, Gaspar, Indaial e região</p>
+                <a th:href="@{/contato}" class="btn-slider-minimal">Entre em Contato</a>
+            </div>
+        </div>
+        <div class="slide-minimal">
+            <div class="slide-content-minimal">
+                <h2>Inovação em <span style="color: #fbbf24;">Serviços</span></h2>
+                <p>Solicite cópias de chaves online e retire na loja</p>
+                <a th:href="@{/servicos}" class="btn-slider-minimal">Agendar Serviço</a>
+            </div>
+        </div>
+        <div class="slide-minimal">
+            <div class="slide-content-minimal">
+                <h2>Programa <span style="color: #fbbf24;">Fidelidade</span></h2>
+                <p>Acumule pontos e ganhe descontos exclusivos!</p>
+                <a th:href="@{/sobre}" class="btn-slider-minimal">Saiba Mais</a>
+            </div>
         </div>
     </section>
 
