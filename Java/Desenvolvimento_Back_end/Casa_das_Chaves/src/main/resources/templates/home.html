@@ -34,32 +34,54 @@
                 </form>
             </div>
 
-            <!-- Ações do Usuário (Carrinho + Logout) -->
-            <div class="carrinho-icon-v5">
-                <a th:href="@{/carrinho}">
-                    <i class="fas fa-shopping-cart"></i>
-                    <div class="carrinho-details">
-                        <span class="carrinho-label-v5">Meu Carrinho</span>
-                        <span class="carrinho-value">
-                <span class="contador-carrinho-v5" id="contadorCarrinho5">0</span> itens
-            </span>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Área do Cliente - Modelo 2 -->
-            <div class="cliente-icon-simple">
-                <a th:href="@{/minha-conta}" aria-label="Minha Conta">
-                    <i class="fas fa-user"></i>
-                </a>
-            </div>
-
-                <div class="logout">
-                    <a th:href="@{/logout}" class="btn-logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span>Sair</span>
+            <!-- Ações do Usuário (Carrinho + Minha Conta com Dropdown) -->
+            <div class="acoes-usuario">
+                <!-- Carrinho -->
+                <div class="carrinho-icon-v5">
+                    <a th:href="@{/carrinho}">
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="carrinho-details">
+                            <span class="carrinho-label-v5">Meu Carrinho</span>
+                            <span class="carrinho-value">
+                    <span class="contador-carrinho-v5" id="contadorCarrinho5">0</span> itens
+                </span>
+                        </div>
                     </a>
                 </div>
+
+                <!-- Área do Cliente com DROPDOWN (janelinha suspensa) -->
+                <div class="cliente-dropdown">
+                    <div class="cliente-icon">
+                        <i class="fas fa-user"></i>
+                        <span class="cliente-label">Minha Conta</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+
+                    <div class="dropdown-menu">
+                        <a th:href="@{/minha-conta}" class="dropdown-item">
+                            <i class="fas fa-id-card"></i>
+                            <span>Meu Perfil</span>
+                        </a>
+                        <a th:href="@{/meus-pedidos}" class="dropdown-item">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Meus Pedidos</span>
+                        </a>
+                        <a th:href="@{/favoritos}" class="dropdown-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Meus Favoritos</span>
+                        </a>
+                        <a th:href="@{/enderecos}" class="dropdown-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Meus Endereços</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a th:href="@{/logout}" class="dropdown-item logout-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Sair</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

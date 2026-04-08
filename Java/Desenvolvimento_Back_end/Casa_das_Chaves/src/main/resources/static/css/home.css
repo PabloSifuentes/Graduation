@@ -1,4 +1,6 @@
-/* ===== RESET E ESTILOS GLOBAIS ===== */
+/* ============================================
+   RESET E ESTILOS GLOBAIS
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -15,7 +17,9 @@ body {
     line-height: 1.6;
 }
 
-/* ===== HEADER FIXO ===== */
+/* ============================================
+   HEADER FIXO
+   ============================================ */
 .header-fixo {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(5px);
@@ -25,7 +29,6 @@ body {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 0;
 }
 
 .container-header {
@@ -36,6 +39,21 @@ body {
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+}
+
+/* Primeira Linha */
+.header-top {
+    padding: 0.8rem 2rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Segunda Linha - Menu */
+.header-bottom {
+    background: #1a3c5e;
+}
+
+.header-bottom .container-header {
+    justify-content: space-between;
 }
 
 /* Logo */
@@ -59,39 +77,72 @@ body {
     font-size: 2rem;
 }
 
-/* Menu Navegação */
+/* ============================================
+   MENU NAVEGAÇÃO
+   ============================================ */
 .nav-menu ul {
     display: flex;
     list-style: none;
     gap: 2rem;
     flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: #4a5568;
     font-weight: 500;
     transition: color 0.3s ease;
     font-size: 1rem;
 }
 
-.nav-menu a:hover,
-.nav-menu a.ativo {
+/* Menu na primeira linha (quando usado) */
+.header-top .nav-menu a {
+    color: #4a5568;
+}
+
+.header-top .nav-menu a:hover,
+.header-top .nav-menu a.ativo {
     color: #667eea;
 }
 
-/* Área do usuário */
+/* Menu na segunda linha (fundo escuro) */
+.header-bottom .nav-menu a {
+    color: white;
+    padding: 1rem 0;
+    display: inline-block;
+}
+
+.header-bottom .nav-menu a:hover,
+.header-bottom .nav-menu a.ativo {
+    color: #fbbf24;
+}
+
+.header-bottom .nav-menu a.ativo {
+    position: relative;
+}
+
+.header-bottom .nav-menu a.ativo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #fbbf24;
+    border-radius: 3px 3px 0 0;
+}
+
+/* ============================================
+   ÁREA DO USUÁRIO
+   ============================================ */
 .acoes-usuario {
     display: flex;
     align-items: center;
     gap: 1.5rem;
 }
 
-/* MODELO 5 - Carrinho Premium */
-.carrinho-icon-v5 {
-    position: relative;
-}
-
+/* Carrinho Premium */
 .carrinho-icon-v5 a {
     color: #4a5568;
     text-decoration: none;
@@ -103,7 +154,6 @@ body {
     padding: 0.5rem 1.2rem;
     border-radius: 50px;
     border: 1px solid #e2e8f0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .carrinho-icon-v5 a:hover {
@@ -136,39 +186,227 @@ body {
     font-weight: 700;
 }
 
-.contador-carrinho-v5 {
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
 .carrinho-icon-v5 a:hover .carrinho-label-v5,
 .carrinho-icon-v5 a:hover .carrinho-value {
     color: white;
 }
 
-.btn-logout {
+/* ============================================
+   DROPDOWN MINHA CONTA (OTIMIZADO)
+   ============================================ */
+.cliente-dropdown {
+    position: relative;
+}
+
+.cliente-icon {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: none;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
     border: 1px solid #e2e8f0;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    text-decoration: none;
-    color: #4a5568;
-    font-weight: 500;
+    cursor: pointer;
     transition: all 0.3s ease;
+    color: #4a5568;
 }
 
-.btn-logout:hover {
-    background: #fee2e2;
-    border-color: #f56565;
+.cliente-icon i:first-child {
+    font-size: 1.1rem;
+}
+
+.cliente-icon .cliente-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.cliente-icon i:last-child {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.cliente-icon:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.cliente-icon:hover i:last-child {
+    transform: rotate(180deg);
+}
+
+/* Menu Dropdown */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    min-width: 220px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border: 1px solid #e2e8f0;
+}
+
+.cliente-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Seta do Dropdown */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 20px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+}
+
+.dropdown-menu::after {
+    content: '';
+    position: absolute;
+    top: -9px;
+    right: 19px;
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 9px solid #e2e8f0;
+    z-index: -1;
+}
+
+/* Itens do Dropdown */
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: #4a5568;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.dropdown-item i {
+    width: 20px;
+    font-size: 1rem;
+    color: #667eea;
+}
+
+.dropdown-item:hover {
+    background: #f7fafc;
+    color: #667eea;
+    padding-left: 1.25rem;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 0.5rem 0;
+}
+
+.logout-item {
+    color: #e53e3e;
+}
+
+.logout-item i {
+    color: #e53e3e;
+}
+
+.logout-item:hover {
+    background: #fff5f5;
     color: #c53030;
 }
 
-/* ===== MODELO 4 - HERO MINIMALISTA (SEM BOTÕES) ===== */
+/* ============================================
+   CAMPO DE PESQUISA
+   ============================================ */
+.search-box-neo {
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-form-neo {
+    display: flex;
+    position: relative;
+}
+
+.search-input-neo {
+    width: 100%;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    background: #e0e5ec;
+    box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+    transition: all 0.3s ease;
+}
+
+.search-input-neo:focus {
+    outline: none;
+    box-shadow: inset 9px 9px 16px #a3b1c6, inset -9px -9px 16px #ffffff;
+}
+
+.search-btn-neo {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #e0e5ec;
+    border: none;
+    border-radius: 50px;
+    color: #667eea;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn-neo:hover {
+    box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+}
+
+/* ============================================
+   CONTATOS RÁPIDOS
+   ============================================ */
+.header-contacts {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.header-contacts a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.header-contacts a:hover {
+    color: #fbbf24;
+}
+
+/* ============================================
+   SLIDER / CARROSSEL
+   ============================================ */
 .hero-slider-minimal {
-    margin-top: 0;
     position: relative;
     width: 100%;
     height: 70vh;
@@ -195,31 +433,34 @@ body {
     z-index: 1;
 }
 
-/* Imagens de fundo */
-/* Fundo da imagem 100% visível */
+/* Slides Backgrounds */
 .slide-minimal:nth-child(1) {
     background-image: url('/images/slide-bg-1.jpg');
     background-size: cover;
     background-position: center;
 }
+
 .slide-minimal:nth-child(2) {
     background: linear-gradient(135deg, rgba(26, 71, 42, 0.85), rgba(45, 106, 79, 0.85)), url('/images/slide-bg-2.jpg');
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
 }
+
 .slide-minimal:nth-child(3) {
     background: linear-gradient(135deg, rgba(92, 46, 46, 0.85), rgba(139, 58, 58, 0.85)), url('/images/slide-bg-3.jpg');
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
 }
+
 .slide-minimal:nth-child(4) {
     background: linear-gradient(135deg, rgba(26, 60, 94, 0.85), rgba(42, 90, 138, 0.85)), url('/images/slide-bg-4.jpg');
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
 }
+
 .slide-minimal:nth-child(5) {
     background: linear-gradient(135deg, rgba(26, 60, 94, 0.85), rgba(118, 75, 162, 0.85)), url('/images/slide-bg-5.jpg');
     background-size: cover;
@@ -227,7 +468,6 @@ body {
     background-blend-mode: overlay;
 }
 
-/* Efeito vidro apenas no container do texto */
 .slide-content-minimal {
     max-width: 800px;
     padding: 2.5rem;
@@ -237,17 +477,6 @@ body {
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     text-align: center;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .slide-content-minimal h1,
@@ -281,7 +510,9 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* ===== PRODUTOS EM DESTAQUE ===== */
+/* ============================================
+   PRODUTOS EM DESTAQUE
+   ============================================ */
 .produtos-destaque {
     padding: 4rem 1rem;
     max-width: 1200px;
@@ -384,7 +615,9 @@ body {
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
-/* ===== FOOTER ===== */
+/* ============================================
+   FOOTER
+   ============================================ */
 .footer {
     background: rgba(0, 0, 0, 0.8);
     color: #e2e8f0;
@@ -423,141 +656,9 @@ body {
     transform: translateY(-2px);
 }
 
-/* ===== CAMPO DE PESQUISA - MODELO 6 NEUMORFISMO ===== */
-.search-box-neo {
-    flex: 1;
-    max-width: 400px;
-}
-
-.search-form-neo {
-    display: flex;
-    position: relative;
-}
-
-.search-input-neo {
-    width: 100%;
-    padding: 0.8rem 1.2rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    background: #e0e5ec;
-    box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
-    transition: all 0.3s ease;
-}
-
-.search-input-neo:focus {
-    outline: none;
-    box-shadow: inset 9px 9px 16px #a3b1c6, inset -9px -9px 16px #ffffff;
-}
-
-.search-btn-neo {
-    position: absolute;
-    right: 6px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #e0e5ec;
-    border: none;
-    border-radius: 50px;
-    color: #667eea;
-    width: 38px;
-    height: 38px;
-    cursor: pointer;
-    box-shadow: 5px 5px 10px #a3b1c6, -5px -5px 10px #ffffff;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search-btn-neo:hover {
-    box-shadow: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
-}
-
 /* ============================================
-   HEADER DE DUAS LINHAS
+   BOTÃO MOBILE
    ============================================ */
-
-/* Primeira Linha */
-.header-top {
-    padding: 0.8rem 2rem;
-    border-bottom: 1px solid #e2e8f0;
-}
-
-/* Segunda Linha - Menu */
-.header-bottom {
-    background: #1a3c5e;
-    padding: 0;
-}
-
-.header-bottom .container-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-/* Menu na segunda linha (fundo escuro) */
-.header-bottom .nav-menu ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-}
-
-.header-bottom .nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    font-size: 1rem;
-    padding: 1rem 0;
-    display: inline-block;
-}
-
-.header-bottom .nav-menu a:hover,
-.header-bottom .nav-menu a.ativo {
-    color: #fbbf24;
-}
-
-.header-bottom .nav-menu a.ativo {
-    position: relative;
-}
-
-.header-bottom .nav-menu a.ativo::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: #fbbf24;
-    border-radius: 3px 3px 0 0;
-}
-
-/* Contatos rápidos na segunda linha */
-.header-contacts {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.header-contacts a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: color 0.3s ease;
-}
-
-.header-contacts a:hover {
-    color: #fbbf24;
-}
-
-/* Botão do menu mobile */
 .mobile-menu-btn {
     display: none;
     position: fixed;
@@ -573,6 +674,8 @@ body {
     cursor: pointer;
     z-index: 1001;
     transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
 }
 
 .mobile-menu-btn:hover {
@@ -580,60 +683,45 @@ body {
     color: #1a3c5e;
 }
 
-/* Ajuste do main para não ficar embaixo do header */
+/* ============================================
+   AJUSTES GERAIS
+   ============================================ */
 main {
     margin-top: 130px;
 }
 
+/* Animações */
+@keyframes dropdownFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cliente-dropdown:hover .dropdown-menu {
+    animation: dropdownFadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* ============================================
-   RESPONSIVIDADE
+   RESPONSIVIDADE (OTIMIZADA)
    ============================================ */
 
-/* Responsividade do Modelo 4 */
-@media (max-width: 768px) {
-    .hero-slider-minimal {
-        height: 60vh;
-        min-height: 450px;
-    }
-
-    .slide-content-minimal h1,
-    .slide-content-minimal h2 {
-        font-size: 1.8rem;
-    }
-
-    .slide-content-minimal p {
-        font-size: 1rem;
-    }
-
-    .btn-slider-minimal {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-slider-minimal {
-        height: 55vh;
-        min-height: 400px;
-    }
-
-    .slide-content-minimal h1,
-    .slide-content-minimal h2 {
-        font-size: 1.5rem;
-    }
-
-    .slide-content-minimal p {
-        font-size: 0.9rem;
-    }
-
-    .btn-slider-minimal {
-        padding: 0.5rem 1.2rem;
-        font-size: 0.85rem;
-        margin-top: 1rem;
-    }
-}
-
-/* Responsividade do Header de Duas Linhas */
+/* Tablet */
 @media (max-width: 992px) {
     .header-top .container-header {
         flex-wrap: wrap;
@@ -644,12 +732,10 @@ main {
         order: 3;
         max-width: 100%;
         width: 100%;
-        margin: 0.5rem 0;
     }
 
     .header-bottom .container-header {
         flex-direction: column;
-        padding: 0;
     }
 
     .header-bottom .nav-menu {
@@ -659,7 +745,6 @@ main {
     .header-bottom .nav-menu ul {
         justify-content: center;
         padding: 0.5rem;
-        flex-wrap: wrap;
         gap: 1rem;
     }
 
@@ -672,11 +757,10 @@ main {
     }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
     .mobile-menu-btn {
         display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     .header-bottom {
@@ -708,7 +792,7 @@ main {
     .header-bottom .nav-menu a {
         display: block;
         padding: 0.8rem 1rem;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .header-bottom .nav-menu a.ativo::after {
@@ -726,49 +810,82 @@ main {
         gap: 0.5rem;
     }
 
+    /* Ajuste dropdown no mobile */
+    .cliente-icon .cliente-label,
+    .cliente-icon i:last-child {
+        display: none;
+    }
+
+    .cliente-icon {
+        padding: 0.5rem;
+    }
+
+    .dropdown-menu {
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .dropdown-menu::before,
+    .dropdown-menu::after {
+        display: none;
+    }
+
     main {
         margin-top: 70px;
     }
+
+    /* Ajuste slider mobile */
+    .hero-slider-minimal {
+        height: 60vh;
+        min-height: 450px;
+    }
+
+    .slide-content-minimal h1,
+    .slide-content-minimal h2 {
+        font-size: 1.8rem;
+    }
+
+    .slide-content-minimal p {
+        font-size: 1rem;
+    }
+
+    .btn-slider-minimal {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
 }
 
+/* Mobile Pequeno */
 @media (max-width: 480px) {
     .logo a span {
         font-size: 1.2rem;
     }
 
-    .btn-logout span {
-        display: none;
-    }
-
-    .btn-logout {
-        padding: 0.4rem 0.8rem;
-    }
-
     .acoes-usuario {
         gap: 0.8rem;
     }
-}
 
-/* CSS para Modelo 2 */
-.cliente-icon-simple a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4a5568;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #f7fafc;
-}
+    .hero-slider-minimal {
+        height: 55vh;
+        min-height: 400px;
+    }
 
-.cliente-icon-simple a:hover {
-    color: #667eea;
-    background: #edf2f7;
-    transform: translateY(-2px);
-}
+    .slide-content-minimal h1,
+    .slide-content-minimal h2 {
+        font-size: 1.5rem;
+    }
 
-.cliente-icon-simple i {
-    font-size: 1.2rem;
+    .slide-content-minimal p {
+        font-size: 0.9rem;
+    }
+
+    .btn-slider-minimal {
+        padding: 0.5rem 1.2rem;
+        font-size: 0.85rem;
+        margin-top: 1rem;
+    }
 }
