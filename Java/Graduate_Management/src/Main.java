@@ -12,11 +12,11 @@ public class Main {
             try {
 
                 System.out.println("Nome do Aluno:");
-                String nome = entrada.next();
+                String nome = entrada.nextLine();
                 matricula.setNomeAluno(nome);
 
                 System.out.println("Disciplina:");
-                String disciplina = entrada.next();
+                String disciplina = entrada.nextLine();
                 matricula.setNomeDisciplina(disciplina);
 
                 System.out.println("Insirá a primeria nota!");
@@ -34,6 +34,9 @@ public class Main {
                 double mediaMain = calcularMedia.media(matricula);
                 System.out.println("A média do aluno é: " + String.format("%.2f", mediaMain));
                 controleNotas = false;
+
+                calcularMedia.exibirMatricula(matricula);
+                calcularMedia.mediaPonderada(matricula);
 
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
