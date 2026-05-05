@@ -22,7 +22,7 @@ public class Matricula {
     }
 
     public boolean setNomeAluno(String nomeAluno) {
-        if(nomeAluno == null && nomeAluno.isEmpty()) {
+        if(nomeAluno == null || nomeAluno.isEmpty()) {
         throw new IllegalArgumentException("Erro!!!\nCampo não pode estar vazio.");
         }
 
