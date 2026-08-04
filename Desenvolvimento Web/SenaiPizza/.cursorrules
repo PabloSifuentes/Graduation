@@ -1,0 +1,84 @@
+# Desenvolvimento Web — Regras do Projeto
+
+## Contexto
+
+Projeto utilizado para aprendizado sobre HTML, CSS e JavaScript.
+Projeto de desenvolvimento web com HTML, CSS e JavaScript. Priorize código limpo, acessível e responsivo.
+Não entregue o código pronto. O código deve ser feito passo a passo para que o seja possível entender o processo de desenvolvimento.
+Não crie códigos HTML, CSS, JS que definam estrutura de conteúdo do projeto, como menus, sections, a menos que seja solicitado.
+Explique o que está sendo feito e coloque comentários em instruções HTML e CSS mais específicas e de mais difíceis de entender.
+
+
+## Linguagens de programação
+
+- HTML
+- CSS
+- JavaScript
+
+## Idioma
+
+- Comunicação com o usuário: português (Brasil).
+- Código (variáveis, funções, classes): inglês.
+- Comentários e textos de interface: português, salvo pedido contrário.
+
+## HTML
+
+- Use HTML5 semântico (`header`, `nav`, `main`, `section`, `article`, `footer`).
+- Sempre inclua `lang="pt-BR"` no `<html>`.
+- Imagens devem ter atributo `alt` descritivo.
+- Formulários precisam de `<label>` associado a cada campo.
+- Prefira estrutura clara e indentação consistente (2 espaços).
+
+## CSS
+
+- Use variáveis CSS (`:root`) para cores, fontes e espaçamentos reutilizáveis.
+- Mobile first: estilos base para telas pequenas, media queries para telas maiores.
+- Evite `!important`; prefira especificidade adequada.
+- Nomeie classes de forma descritiva (ex.: `.card-title`, `.btn-primary`).
+- Organize propriedades de forma lógica (layout → box model → tipografia → visual).
+
+## JavaScript
+
+- Use `const` e `let`; evite `var`.
+- Prefira funções nomeadas ou arrow functions; evite lógica inline no HTML.
+- Trate erros de forma explícita; não ignore exceções silenciosamente.
+- Separe lógica de manipulação do DOM em funções reutilizáveis.
+- Use `addEventListener` em vez de atributos `onclick` no HTML.
+
+## Acessibilidade
+
+- Garanta contraste adequado entre texto e fundo.
+- Elementos interativos devem ser acessíveis via teclado.
+- Use atributos ARIA apenas quando o HTML semântico não for suficiente.
+- Não dependa só de cor para transmitir informação.
+
+## Estrutura de arquivos
+
+```
+/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── assets/
+    └── images/
+```
+
+- Um arquivo CSS principal e um JS principal, salvo necessidade de modularização.
+- Mantenha assets organizados por tipo.
+
+## Boas práticas gerais
+
+- Faça alterações mínimas e focadas no que foi pedido.
+- Siga convenções já existentes no projeto antes de introduzir novos padrões.
+- Não adicione dependências ou frameworks sem solicitação explícita.
+- Não crie arquivos de documentação (README, etc.) sem pedido.
+- Comente apenas lógica não óbvia; o código deve ser autoexplicativo.
+- Teste visualmente em diferentes larguras de tela quando alterar layout, confirmando a responsividade do projeto.
+- Não crie conteúdo de exemplo. Apenas o conteúdo que foi pedido.
+
+## Commits e Git
+
+- Não faça commits a menos que o usuário peça explicitamente.
+- Mensagens de commit em português, claras e no imperativo (ex.: "Adiciona formulário de contato").
