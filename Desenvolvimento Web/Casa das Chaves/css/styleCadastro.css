@@ -1,0 +1,443 @@
+/* ============================================
+   RESET E CONFIGURAÇÕES GERAIS
+   ============================================ */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+body {
+    background: radial-gradient(ellipse at center, #a8a8a8 0%, #000000 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ============================================
+   CONTAINER PRINCIPAL
+   ============================================ */
+.cadastro-container {
+    width: 100%;
+    max-width: 480px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* ============================================
+   CARD DE CADASTRO
+   ============================================ */
+.cadastro-card {
+    background: linear-gradient(145deg, #494949, #0d0d0d);
+    padding: 40px 32px 36px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 163, 89, 0.15);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(212, 163, 89, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+/* ============================================
+   LOGO
+   ============================================ */
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 100px;
+    filter: drop-shadow(0 4px 20px rgba(212, 163, 89, 0.2));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-img:hover {
+    transform: scale(1.08);
+    border-color: #d4a359;
+    filter: drop-shadow(0 0 40px rgba(212, 163, 89, 0.6));
+    box-shadow:
+        0 0 30px rgba(212, 163, 89, 0.3),
+        0 0 60px rgba(212, 163, 89, 0.15),
+        inset 0 0 30px rgba(212, 163, 89, 0.1);
+}
+
+/* ============================================
+   TÍTULOS E TEXTOS
+   ============================================ */
+.cadastro-card h1 {
+    margin-bottom: 4px;
+    font-size: 28px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 0%, #d4a359 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitulo {
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 28px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+}
+
+/* ============================================
+   SELETOR PESSOA FÍSICA / EMPRESA
+   ============================================ */
+.seletor-wrapper {
+    position: relative;
+    display: flex;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.seletor-bg {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    background: linear-gradient(135deg, #d4a359, #c09148);
+    border-radius: 10px;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(212, 163, 89, 0.25);
+}
+
+.seletor-btn {
+    flex: 1;
+    padding: 10px 8px;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.seletor-btn.ativo {
+    color: #0a0a0a;
+}
+
+.seletor-btn:hover:not(.ativo) {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   GRUPOS DE CAMPOS
+   ============================================ */
+.grupo-campos {
+    display: none;
+    opacity: 0;
+    transform: translateX(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    animation: fadeSlideIn 0.35s ease forwards;
+}
+
+.grupo-campos.ativo {
+    display: block;
+}
+
+/* ============================================
+   CAMPOS COM ÍCONES (ESTILO LOGIN)
+   ============================================ */
+.campo {
+    margin-bottom: 18px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 6px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.input-group {
+    position: relative;
+    margin-top: 0;
+}
+
+.input-group .input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 18px;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 48px 14px 48px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    position: relative;
+    z-index: 1;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.input-group input:hover {
+    border-color: rgba(212, 163, 89, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.input-group input:focus {
+    border-color: #d4a359;
+    box-shadow:
+        0 0 0 4px rgba(212, 163, 89, 0.1),
+        0 8px 24px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-1px);
+}
+
+.input-group input:focus~.input-icon {
+    color: #d4a359;
+}
+
+.input-group input:not(:placeholder-shown)~.input-icon {
+    color: rgba(212, 163, 89, 0.7);
+}
+
+/* ============================================
+   BOTÃO DE MOSTRAR SENHA
+   ============================================ */
+.password-toggle {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px;
+    transition: all 0.3s ease;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle:hover {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.password-toggle:active {
+    transform: translateY(-50%) scale(0.9);
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid #d4a359;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+.input-group input:focus~.password-toggle {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   BOTÃO CADASTRAR
+   ============================================ */
+.btn-cadastrar {
+    width: 100%;
+    padding: 14px;
+    margin-top: 8px;
+    background: linear-gradient(135deg, #d4a359 0%, #c09148 100%);
+    color: #0a0a0a;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-cadastrar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-cadastrar:hover {
+    background: linear-gradient(135deg, #e0b06a 0%, #d4a359 100%);
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 30px rgba(212, 163, 89, 0.3),
+        0 4px 15px rgba(212, 163, 89, 0.15);
+}
+
+.btn-cadastrar:hover::before {
+    left: 100%;
+}
+
+.btn-cadastrar:active {
+    transform: translateY(0px) scale(0.98);
+    box-shadow: 0 4px 15px rgba(212, 163, 89, 0.2);
+}
+
+.btn-cadastrar:focus-visible {
+    outline: 2px solid #d4a359;
+    outline-offset: 3px;
+}
+
+/* ============================================
+   LINK DE LOGIN
+   ============================================ */
+.link {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.2px;
+}
+
+.link a {
+    color: #d4a359;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.link a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: linear-gradient(90deg, #d4a359, #e0b06a);
+    transition: width 0.3s ease;
+}
+
+.link a:hover {
+    color: #e0b06a;
+}
+
+.link a:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   ANIMAÇÕES
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ============================================
+   SUPORTE PARA ALTA CONTRASTE
+   ============================================ */
+@media (prefers-contrast: high) {
+    .cadastro-card {
+        border-color: #d4a359;
+        border-width: 2px;
+    }
+
+    .input-group input {
+        border-color: #d4a359;
+        background: #1a1a1a;
+    }
+
+    .input-group input:focus {
+        box-shadow: 0 0 0 3px #d4a359;
+    }
+}
+
+/* ============================================
+   REDUÇÃO DE MOVIMENTO
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVIDADE (MOBILE)
+   ============================================ */
+@media (max-width: 500px) {
+    .cadastro-card {
+        padding: 32px 20px 28px;
+    }
+
+    .seletor-btn {
+        font-size: 12px;
+        padding: 8px 4px;
+    }
+
+    .input-group input {
+        padding: 12px 44px 12px 44px;
+        font-size: 14px;
+    }
+
+    .cadastro-card h1 {
+        font-size: 24px;
+    }
+}
