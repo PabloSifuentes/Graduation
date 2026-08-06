@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Slide Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card" id="card">
+
+            <div class="side left">
+                <div class="form-wrapper">
+                    <h2 class="form-title">Bem-vindo de Volta</h2>
+                    <p class="form-subtitle">Faça login para continuar</p>
+
+                    <form id="loginForm" class="form">
+                        <div class="input-group">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" placeholder="Usuário" required>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" placeholder="Senha" required>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                                Lembrar-me
+                            </label>
+                            <a href="#" class="forgot-link">Esqueceu a senha?</a>
+                        </div>
+
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Entrar
+                        </button>
+                    </form>
+
+                    <p class="switch-text">
+                        Não tem uma conta?
+                        <a href="#" class="switch-link" data-target="register">Cadastre-se</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="side right">
+                <div class="form-wrapper">
+                    <h2 class="form-title">Criar Conta</h2>
+                    <p class="form-subtitle">Comece sua jornada conosco</p>
+
+                    <form id="registerForm" class="form">
+                        <div class="input-group">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" placeholder="Nome Completo" required>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" placeholder="E-mail" required>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-user-tag input-icon"></i>
+                            <input type="text" placeholder="Usuário" required>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" placeholder="Senha" required>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-check-circle input-icon"></i>
+                            <input type="password" placeholder="Confirmar Senha" required>
+                        </div>
+
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            Cadastrar
+                        </button>
+                    </form>
+
+                    <p class="switch-text">
+                        Já tem uma conta?
+                        <a href="#" class="switch-link" data-target="login">Faça login</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="overlay" id="overlay">
+                <div class="overlay-content">
+                    <div class="overlay-left">
+                        <h2 class="overlay-title">Bem-vindo de Volta!</h2>
+                        <p class="overlay-text">
+                            Para manter-se conectado, faça login com seus dados pessoais
+                        </p>
+                        <button class="btn-overlay" id="btnLogin">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Login
+                        </button>
+                    </div>
+                    <div class="overlay-right">
+                        <h2 class="overlay-title">Olá, Amigo!</h2>
+                        <p class="overlay-text">
+                            Cadastre-se e comece sua jornada conosco
+                        </p>
+                        <button class="btn-overlay" id="btnRegister">
+                            <i class="fas fa-user-plus"></i>
+                            Cadastro
+                        </button>
+                    </div>
+                </div>
+                <div class="wave-decoration"></div>
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <p>&copy; 2024 Double Slide. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
