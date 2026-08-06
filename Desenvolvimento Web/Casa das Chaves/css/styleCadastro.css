@@ -113,10 +113,10 @@ body {
     left: 4px;
     width: calc(50% - 4px);
     height: calc(100% - 8px);
-    background: linear-gradient(135deg, #d4a359, #c09148);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.568), transparent);
     border-radius: 10px;
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 16px rgba(212, 163, 89, 0.25);
+    box-shadow: 0 4px 16px rgba(255, 255, 255, 0.295);
 }
 
 .seletor-btn {
