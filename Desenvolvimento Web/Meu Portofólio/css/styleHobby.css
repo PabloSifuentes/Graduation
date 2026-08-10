@@ -1,0 +1,150 @@
+
+   /* RESET BÁSICO */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+   /* CONFIGURAÇÕES GERAIS */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+   /* HEADER */
+
+header {
+    margin-left: 220px;
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    color: #0f172a;
+}
+
+   /* MENU LATERAL */
+
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background-color: #0f172a;
+    padding: 30px 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    margin-bottom: 10px;
+}
+
+nav a {
+    display: block;
+    padding: 10px 15px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+nav a:hover {
+    background-color: #1e293b;
+}
+
+   /* CONTEÚDO PRINCIPAL */
+
+main {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+    padding: 30px 50px;
+}
+
+   /* SEÇÕES */
+
+   section {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 30px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+section h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #1e293b;
+}
+
+   /* TEXTOS */
+
+p {
+    margin-bottom: 15px;
+}
+
+   /* IMAGENS */
+
+section img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.12);
+}
+
+   /* TABELA */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #cbd5e1;
+}
+
+th {
+    background-color: #0f172a;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+   /* LINKS */
+
+a {
+    color: #2563eb;
+}
+
+   /* FOOTER */
+
+footer {
+    margin-left: 220px;
+    padding: 20px;
+    text-align: center;
+    color: #64748b;
+}
