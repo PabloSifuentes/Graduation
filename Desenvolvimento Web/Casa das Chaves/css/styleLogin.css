@@ -130,7 +130,7 @@ label {
 
 .input-group input {
     width: 100%;
-    padding: 14px 48px 14px 48px;  /* ← Espaço para o ícone do olho na direita */
+    padding: 14px 48px 14px 48px;  
     background: rgba(255, 255, 255, 0.04);
     color: #ffffff;
     border: 1.5px solid rgba(255, 255, 255, 0.08);
