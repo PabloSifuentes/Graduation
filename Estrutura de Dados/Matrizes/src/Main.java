@@ -33,13 +33,13 @@ public class Main {
            return x * potencia(x,(n - 1));
        }
 
-//    public static int somarAte(int numero){
-//
-//        if (numero == 1 ){
-//            return 1;
-//        }
-//        return numero + somarAte(numero * numero);
-//    }
+    public static int somarAte(int numero){
+
+        if (numero == 1 ){
+            return 1;
+        }
+        return numero + somarAte(numero * numero);
+    }
 
 
 
