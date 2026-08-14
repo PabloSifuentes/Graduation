@@ -1,4 +1,4 @@
-#feedback {
-    width: 300px;
-    cursor: pointer;
+textarea {
+  resize: vertical; /* Permite esticar apenas para baixo, preservando a largura */
+  width: 88%;       /* Ocupa toda a largura do elemento pai */
 }
