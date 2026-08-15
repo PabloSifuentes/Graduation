@@ -31,23 +31,23 @@
         <section>
 
             <h1>Fale comigo</h1>
-            <p>Insirá as credênciais</p>
+            <p>Insira as credenciais</p>
 
-            <fieldset>
-                <legend>Antes de começar, conte-mos quem você é:</legend>
+            <form>
+                <fieldset>
+                    <legend>Antes de começar, conte-nos quem você é:</legend>
 
-                <label>
-                    <input type="radio" name="perfil" value="recrutador" required>
-                    Recrutador
-                </label>
+                    <label>
+                        <input type="radio" name="perfil" value="recrutador" required>
+                        Recrutador
+                    </label>
 
-                <label>
-                    <input type="radio" name="perfil" value="estudante">
-                    Estudante
-                </label>
-            </fieldset>
+                    <label>
+                        <input type="radio" name="perfil" value="estudante">
+                        Estudante
+                    </label>
+                </fieldset>
 
-            <Form>
                 <div>
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email" placeholder="Seu@email.com" autofocus required>
@@ -56,93 +56,91 @@
                 <div>
                     <label for="cpf">CPF</label>
                     <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-                        placeholder="000.000.000-00">
+                        placeholder="000.000.000-00" required>
                 </div>
 
                 <div>
-                    <label for="data_nascimento">Data de Nascimento</label>
-                    <input type="date" id="data_nascimento" name="data_nascimento" autocomplete="bday" min="1"
-                        aria-describedby="data-help" required>
+                    <label for="data_nascimento">Data de nascimento</label>
+                    <input type="date" id="data_nascimento" name="data_nascimento" autocomplete="bday"
+                        min="1900-01-01" required>
                 </div>
 
-
-
-                <label for="selecione">Qual é seu Hobby favorito?</label>
+                <label for="selecione">Qual é seu hobby favorito?</label>
                 <select id="selecione" name="selecione">
                     <option value="" disabled selected>Escolha uma opção</option>
-                    <option value="automotivo">🏍️ Paixão pelo Automotivo</option>
+                    <option value="automotivo">🏍️ Paixão pelo automotivo</option>
                     <option value="jogos">🎮 Jogos eletrônicos</option>
-                    <option value="desenvolvimento">💻 Descobrindo o Desenvolvimento</option>
+                    <option value="desenvolvimento">💻 Descobrindo o desenvolvimento</option>
                 </select>
 
                 <div>
-                    <legend>Informe as técnologias que mais gosta:</legend>
+                    <legend>Informe as tecnologias de que mais gosta:</legend>
                     <div>
                         <label>
                             <input type="checkbox" name="interesse[]" value="biotecnologia">
                             Biotecnologia
                         </label>
-                    </div>
-                    <div>
-                        <label">
+
+                        <label>
                             <input type="checkbox" name="interesse[]" value="tecnologia_da_informacao">
-                            Técnologia da Informação
-                            </labe>
-                    </div>
-                    <label>
-                        <input type="checkbox" name="interesse[]" value="tecnologia_de_transporte">
-                        Técnologia de Transporte
-                    </label>
-                    <div>
+                            Tecnologia da Informação
+                        </label>
+
+                        <label>
+                            <input type="checkbox" name="interesse[]" value="tecnologia_de_transporte">
+                            Tecnologia de Transporte
+                        </label>
+
                         <label>
                             <input type="checkbox" name="interesse[]" value="internet_das_coisas">
-                            Internet das Coisas(IoT)
+                            Internet das Coisas (IoT)
                         </label>
-                    </div>
-                    <div>
+
                         <label>
                             <input type="checkbox" name="interesse[]" value="inteligencia_artificial">
-                            Inteligência Artificial(IA)
+                            Inteligência Artificial (IA)
                         </label>
-                        <div>
-                            <label>
-                                <input type="checkbox" name="interesse[]" value="energia_limpa">
-                                Energia Limpa
-                            </label>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="password">Senha</label>
-                        <input type="password" id="password" name="password" placeholder="Crie uma senha">
-                    </div>
 
-                    <div>
-                        <label for="confirmarSenha">Confirmar Senha</label>
-                        <input type="text" id="confirmarSenha" name="confirmarSenha" placeholder="••••••••">
+                        <label>
+                            <input type="checkbox" name="interesse[]" value="energia_limpa">
+                            Energia Limpa
+                        </label>
                     </div>
+                </div>
 
-                    <label for="feedback">Feedback <span id="valorAvaliacao"> 5</span>/10</label>
-                    <input type="range" id="feedback" name="feedback" min="0" max="10" value="5">
+                <div>
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Crie uma senha">
+                </div>
 
-                    <div>
-                        <label for="seletorCor">Escolha uma cor</label>
-                        <input type="color" id="seletorCor" name="seletorCor" value="#3b82f6" list="paleta-sugerida">
-                        <datalist id="paleta-sugerida">
-                            <option value="#ef4444"></option>
-                            <option value="#22c55e"></option>
-                            <option value="#3b82f6"></option>
-                            <option value="#eab308"></option>
-                        </datalist>
-                    </div>
+                <div>
+                    <label for="confirmarSenha">Confirmar senha</label>
+                    <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="••••••••">
+                </div>
 
-                    <div class="form-group">
+                <label for="feedback">Feedback <span id="valorAvaliacao"> 5</span>/10</label>
+                <input type="range" id="feedback" name="feedback" min="0" max="10" value="5">
 
-                        <label for="mensagem">Sua Mensagem:</label>
-                        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..."
-                            maxlength="500" required></textarea>
-                        </textarea>
-                    </div>
-            </Form>
+                <div>
+                    <label for="seletorCor">Escolha uma cor</label>
+                    <input type="color" id="seletorCor" name="seletorCor" value="#3b82f6" list="paleta-sugerida">
+                    <datalist id="paleta-sugerida">
+                        <option value="#ef4444"></option>
+                        <option value="#22c55e"></option>
+                        <option value="#3b82f6"></option>
+                        <option value="#eab308"></option>
+                    </datalist>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="mensagem">Sua mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..."
+                        maxlength="500" required></textarea>
+                </div>
+
+                <button type="submit">Enviar</button>
+            </form>
 
             <video controls width="600" poster="assests/imagens/images.jpg">
                 <source src="assests/mp4/Shiny_Metal_Cubes_3D.mp4" type="video/mp4">
