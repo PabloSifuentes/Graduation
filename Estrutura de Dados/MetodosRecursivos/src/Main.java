@@ -5,7 +5,7 @@ public class Main {
 
         Scanner entrada = new Scanner(System.in);
 
-        System.out.println("======Métodos Interativos======");
+        System.out.println("======Métodos Recusivos======");
         System.out.println("Selecione a opção desejada:");
         System.out.println("""
                 [1] - Somar Ate
@@ -32,11 +32,26 @@ public class Main {
                 break;
             case 3:
                 System.out.println("Informe o tamanho do vetor: ");
-                int tamanhoCaracteres = entrada.nextInt();
+                int tamanho = entrada.nextInt();
+
+                int valores[] = new int[tamanho];
+
+                for (int i = 0; i < valores.length; i++) {
+                    System.out.println("Digite o valor da posição " + i + ": ");
+                    valores[i] = entrada.nextInt();
+                }
+
+                soma = somarValoresVetor(valores, 0);
+
+                System.out.println("A soma dos valores do vetor é: " + soma);
+                break;
+            case 4:
+                System.out.println("Informe o tamanho do vetor: ");
+                int tamanhoCaracteres = entrada.next().charAt(0);
 
                 char letras[] = new char[tamanhoCaracteres];
 
-                preencherVetor(letras, entrada, 0);
+                preencherVetorChar(letras, entrada, 0);
 
                 System.out.println("Digite a letra que deseja buscar: ");
                 char letraBuscada = entrada.next().charAt(0);
@@ -44,9 +59,6 @@ public class Main {
                 int quantidade = contarCaracteres(letras, letraBuscada, 0);
 
                 System.out.println("A letra '"+letraBuscada+ "' aparece " +quantidade+ " vez(es) no vetor.");
-                break;
-            case 4:
-
                 break;
             default:
                 System.out.println("ERRO!\n -Precisa selecionar um dos números conforme tabela!");
@@ -68,21 +80,34 @@ public class Main {
         return numero * fatorial(numero - 1);
     }
 
+    public static void preencherVetor(int valor[], Scanner entrada, int posicao){
+        if (posicao == valor.length) {
+            return;
+        }
+        System.out.println("Digite o valor da posição " +posicao+ ": ");
+        valor[posicao] = entrada.nextInt();
+
+        preencherVetor(valor, entrada, posicao + 1);
+    }
 
 
 
+    public static int somarValoresVetor(int valores[], int posicao){
+        if (posicao== valores.length){
+            return 0;
+        }
+        return valores[posicao] + somarValoresVetor(valores, posicao + 1);
+    }
 
 
-
-
-    public static void preencherVetor(char letras[], Scanner entrada, int posicao){
+    public static void preencherVetorChar(char letras[], Scanner entrada, int posicao){
         if (posicao == letras.length) {
             return;
         }
         System.out.println("Digite o caractere da posição " +posicao+ ": ");
         letras[posicao] = entrada.next().charAt(0);
 
-        preencherVetor(letras, entrada, posicao + 1);
+        preencherVetorChar(letras, entrada, posicao + 1);
     }
 
     public static int contarCaracteres(char letras[], char letraBuscada, int posicao){
