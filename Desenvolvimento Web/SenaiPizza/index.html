@@ -4,21 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Jornal Nacional</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>- Noticias -</title>
+    <link rel="stylesheet" href="css/styleNoticias.css">
 </head>
 
 <body>
-    <header>
-        <h1>- Noticias -</h1>
 
-        <h2>PizzasSenai</h2>
-        <p>A melhor pizza da cidade</p>
-        <p>Venha conhecer</p>
-        <img src="/assets/pizza3_tunado.jpg" alt="pizzaSesiSenai" class="header-noticias">
-    </header>
+    <nav class="navbar" id="scanfcode">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <header>
+                    <h1 id="logo">PizzasSenai</h1>
+                </header>
+            </div>
+
+            <ul id="link" class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Cardápio</a></li>
+                        <li><a href="#">Noticias</a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html">Entrar</a></li>
+                <li id="button-link"><a href="cadastro.html">Cadastrar</a></li>
+            </ul>
+        </div>
+
+    </nav>
     <main>
         <section>
+            <p class="destaque">A melhor pizza da cidade</p>
+            <p class="destaque">Venha conhecer</p>
+            <img src="/assets/pizza3_tunado.jpg" alt="pizzaSesiSenai" class="header-noticias">
             <h2>Cardápio</h2>
             <h3>Sabores</h3>
             <div>
