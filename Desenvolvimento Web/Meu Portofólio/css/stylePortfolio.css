@@ -133,3 +133,15 @@ footer {
     color: #64748b;
 }
 
+.experiencia > li {
+    color: rgb(255, 128, 128);
+}
+
+h2 + p {
+    font-weight: bold;
+    color: rgb(10, 10, 255);
+}
+
+h2 ~ p {
+    color: green;
+}
