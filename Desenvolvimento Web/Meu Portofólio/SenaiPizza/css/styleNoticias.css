@@ -1,71 +1,55 @@
-.header-noticias {
-    width: 320px;
-    height: auto;
-    max-width: 100%;
-    object-fit: cover;
-    border-radius: 16%;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-.site-footer {
-    background-color: 1a1a1a;
-    color: #000000;
-    text-align: center;
-    padding: 1.5rem 1 rem;
-    margin-top: 2rem;
-}
-
-.site-footer p {
-    margin: 0;
-    font-size: 0.9rem;
+* {
+    box-sizing: border-box;
 }
 
 body {
     background: #e6e6ff;
-    font-family: 'Encode Sans', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
-#scanfcode {
-    border-radius: 0px;
-    background: #fff;
-    padding: 10px;
-    font-size: 17px;
+header {
+    text-align: center;
+    background-color: #6D2413;
+    color: #C7DD58;
 }
 
-#logo {
-    font-size: 20px;
-    font-weight: bolder;
-    color: #00004d;
-    letter-spacing: 2px;
+header h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2em;
+    padding: 1em;
 }
 
-#link {
-    color: #01325d;
-    margin: 0 20px 0 10px;
-    letter-spacing: 1.5px;
+header p {
+    padding: 0.5em;
 }
 
-#first-link {
-    padding-right: 6px;
-    border-right: solid 1px #ccc;
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #C7DD58;
 }
 
-#button-link,
-#toogle-button {
-    color: #f2f2f2;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(0, 0, 0, .2);
-    border-radius: 2px;
-    background-color: #fa6a48;
-    line-height: 17px;
+nav a {
+    color: #6D2413;
+    text-decoration: none;
+    padding: 1em 2em;
+    width: 100%;
 }
 
-#button-link a {
-    color: #f2f2f2;
+nav a:hover {
+    background-color: #A4E9E8;
+    color: black;
 }
 
-.destaque {
-    font-weight: bold;
+/* Caixa principal do cardápio lado a lado */
+main section {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
 }
 
+main section article {
+    flex: 50%;
+}
