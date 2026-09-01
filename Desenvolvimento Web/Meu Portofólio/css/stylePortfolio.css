@@ -118,20 +118,12 @@ section {
 /* Seletor de Classe (.class) */
 .lista-conquistas {
     list-style-type: square;
-}
-
-.sobre-mim {
-    min-height: 80px;
+    
 }
 
 /* Atributo Simples ([attribute]) */
 [href] {
     font-weight: 500;
-}
-
-/* Atributo com Valor ([attribute=value]) */
-a[href="portfolio.html"] {
-    font-weight: bold;
 }
 
 /* Pseudo-elemento ::after */
