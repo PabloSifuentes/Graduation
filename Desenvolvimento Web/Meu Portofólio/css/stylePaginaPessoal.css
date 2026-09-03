@@ -89,10 +89,143 @@ nav a:hover {
     font-size: 1.1rem;
     font-weight: 500;
     border-radius: 0.8rem;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .item:hover {
     background-color: var(--cor-hover, #e0e0e0);
     transform: translateY(-0.2rem);
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    border-radius: 6rem;
+    overflow: hidden;
+    width: 100%;
+    gap: 3rem;
+}
+
+.card-item h1,
+.card-item h2,
+.card-item p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+}
+
+.card-imagem-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20rem;
+    overflow: hidden;
+    background-color: #634242;
+    border-radius: 0.6rem;
+}
+
+.card-imagem {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-item {
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #000000;
+    box-shadow: 0 4px 6px(0, 0, 0, 0.1);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    padding: 1.5rem;
+    max-width: 350px;
+    width: 100%;
+}
+
+.button {
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #4F46E5;
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+}
+
+footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 2rem 1rem;
+  width: 100%;
+}
+
+.rodape-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 2rem;
+}
+
+.rodape-coluna {
+  flex: 1; 
+}
+
+/* ESQUERDA */
+.rodape-redes {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+}
+
+.icones-redes {
+  display: flex;
+  justify-content: space-around; 
+  width: 100%;
+  max-width: 200px; 
+  margin-top: 0.8rem;
+}
+
+.icones-redes a {
+  color: #3b82f6;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.icones-redes a:hover {
+  color: #60a5fa;
+  transform: translateY(-3px);
+}
+
+/*CENTRO: Texto e Títulos */
+.rodape-centro {
+  text-align: center;
+}
+
+.rodape-centro h3 {
+  margin-bottom: 0.5rem;
+}
+
+.rodape-centro p {
+  margin: 0.3rem 0;
+  color: #ccc;
+}
+
+/* DIREITA: Mapa */
+.rodape-mapa {
+  text-align: center;
+}
+
+.rodape-mapa h3 {
+  margin-bottom: 0.5rem;
 }

@@ -59,6 +59,7 @@ main {
     margin-left: 220px;
     width: calc(100% - 220px);
     padding: 30px 50px;
+    flex: 1;
 }
 
 section {
@@ -207,4 +208,11 @@ legend::after {
 
 .midias h2::before {
     content: "🎬 ";
+}
+
+footer {
+    margin-left: 220px;
+    padding: 20px;
+    text-align: center;
+    color: #64748b;
 }
