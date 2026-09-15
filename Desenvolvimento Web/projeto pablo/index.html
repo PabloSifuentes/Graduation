@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa das Chaves | Segurança, Chaves e Fechaduras</title>
+    <meta name="description"
+        content="Casa das Chaves — soluções em chaves, fechaduras, controles, segurança residencial e automotiva. Experiência e precisão em cada detalhe.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <!-- JSON-LD para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Casa das Chaves",
+      "image": "",
+      "telephone": "",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ENDEREÇO DA EMPRESA"
+      }
+    }
+    </script>
+</head>
+
+<body>
+    <div id="progress-bar"></div>
+
+    <header id="header">
+        <div class="container header-content">
+            <img class="logo_nav" src="assests/imagens/casaDasChaves.png" alt="logo_img">
+            <a href="#" class="logo">Casa das Chaves</a>
+            <nav id="nav">
+                <ul class="menu">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#contato" class="btn btn-primary btn-sm desktop-only">Fale Conosco</a>
+                <button id="btn-mobile" aria-label="Abrir menu" aria-haspopup="true" aria-controls="menu"
+                    aria-expanded="false">
+                    <span id="hamburger"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="inicio" class="hero">
+            <div class="container hero-container">
+                <div class="hero-content" data-anime="fade-up">
+                    <span class="subtitle">SEGURANÇA • CONFIANÇA • PRECISÃO</span>
+                    <h1 class="title-xl">Chaves que abrem portas.<br>Segurança que protege histórias.</h1>
+                    <p class="hero-text">Na Casa das Chaves, unimos experiência, tecnologia e precisão para cuidar da
+                        sua segurança.</p>
+                    <div class="hero-buttons">
+                        <a href="#servicos" class="btn btn-primary">Conheça nossos serviços</a>
+                        <a href="#contato" class="btn btn-secondary">Fale conosco</a>
+                    </div>
+                    <div class="hero-stats">
+                        <span>+10 anos de experiência</span>
+                        <span>Atendimento rápido</span>
+                        <span>Serviço especializado</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-bg" data-anime="scale"></div>
+        </section>
+
+        <!-- SOBRE NÓS -->
+        <section id="sobre" class="section">
+            <div class="container">
+                <div class="section-header center" data-anime="fade-up">
+                    <h2 class="title-lg">Experiência em cada detalhe.</h2>
+                    <p class="section-text">A Casa das Chaves nasceu para oferecer muito mais do que cópias de chaves.
+                        Nosso compromisso é entregar soluções rápidas, precisas e confiáveis para proteger aquilo que
+                        realmente importa.</p>
+                </div>
+                <div class="sobre-grid">
+                    <div class="sobre-img-wrapper" data-anime="fade-in">
+                        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Profissional trabalhando em fechadura" loading="lazy">
+                    </div>
+                    <div class="sobre-content" data-anime="fade-up">
+                        <div class="cards-grid-2">
+                            <div class="feature-card">
+                                <h3>Experiência</h3>
+                                <p>Anos de dedicação no mercado.</p>
+                            </div>
+                            <div class="feature-card">
+                                <h3>Precisão</h3>
+                                <p>Equipamentos de alta tecnologia.</p>
+                            </div>
+                            <div class="feature-card">
+                                <h3>Agilidade</h3>
+                                <p>Soluções rápidas quando você precisa.</p>
+                            </div>
+                            <div class="feature-card">
+                                <h3>Confiança</h3>
+                                <p>Garantia total de segurança.</p>
+                            </div>
+                        </div>
+                        <div class="sobre-stats">
+                            <div><strong id="stat-clientes">+5000</strong><br>Clientes</div>
+                            <div><strong id="stat-anos">10</strong><br>Anos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVIÇOS -->
+        <section id="servicos" class="section bg-secondary">
+            <div class="container">
+                <div class="section-header" data-anime="fade-up">
+                    <h2 class="title-lg">Tudo o que você precisa.<br>Em um só lugar.</h2>
+                </div>
+                <div class="services-grid">
+                    <!-- Gerados via JS estaticamente para exemplo, mas podem ser dinâmicos -->
+                    <div class="service-card" data-anime="fade-up">
+                        <div class="icon">🔑</div>
+                        <h3>Cópia de Chaves</h3>
+                        <p>Cópias precisas para diferentes tipos de chaves residenciais e comerciais.</p>
+                    </div>
+                    <div class="service-card" data-anime="fade-up">
+                        <div class="icon">🚗</div>
+                        <h3>Chaves Automotivas</h3>
+                        <p>Cópias e soluções para chaves de veículos nacionais e importados.</p>
+                    </div>
+                    <div class="service-card" data-anime="fade-up">
+                        <div class="icon">💻</div>
+                        <h3>Chaves Codificadas</h3>
+                        <p>Serviços especializados de programação para chaves codificadas.</p>
+                    </div>
+                    <div class="service-card" data-anime="fade-up">
+                        <div class="icon">🚪</div>
+                        <h3>Abertura de Portas</h3>
+                        <p>Atendimento rápido para situações de emergência 24 horas.</p>
+                    </div>
+                    <div class="service-card" data-anime="fade-up">
+                        <div class="icon">🔒</div>
+                        <h3>Fechaduras</h3>
+                        <p>Venda, instalação e manutenção de fechaduras de alta segurança.</p>
+                    </div>
+                    <div class="service-card" data-anime="fade-up">
+                        <div class="icon">📱</div>
+                        <h3>Fechaduras Digitais</h3>
+                        <p>Soluções modernas com biometria e senha para residências.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUTOS -->
+        <section id="produtos" class="section">
+            <div class="container">
+                <div class="section-header center" data-anime="fade-up">
+                    <h2 class="title-lg">Produtos pensados para sua segurança.</h2>
+                </div>
+
+                <div class="filter-container" data-anime="fade-up">
+                    <button class="filter-btn active" data-filter="Todos">Todos</button>
+                    <button class="filter-btn" data-filter="Chaves">Chaves</button>
+                    <button class="filter-btn" data-filter="Fechaduras">Fechaduras</button>
+                    <button class="filter-btn" data-filter="Fechaduras Digitais">Digitais</button>
+                    <button class="filter-btn" data-filter="Cadeados">Cadeados</button>
+                </div>
+
+                <div id="products-grid" class="products-grid">
+                    <!-- Preenchido via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- DESTAQUE PARALLAX -->
+        <section class="highlight-section parallax" data-anime="fade-in">
+            <div class="container highlight-content">
+                <h2 class="title-xl">Segurança não é detalhe.</h2>
+                <p>É aquilo que protege sua casa, seu negócio e tudo o que importa para você.</p>
+                <a href="#sobre" class="btn btn-primary">Conheça a Casa das Chaves</a>
+            </div>
+        </section>
+
+        <!-- CONTATO -->
+        <section id="contato" class="section bg-secondary">
+            <div class="container">
+                <div class="section-header center" data-anime="fade-up">
+                    <h2 class="title-lg">Precisa de ajuda?</h2>
+                    <p class="section-text">Fale com a Casa das Chaves e encontre a solução ideal.</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info" data-anime="fade-up">
+                        <div class="contact-card">
+                            <h4>📍 Endereço</h4>
+                            <p class="config-endereco">Carregando...</p>
+                        </div>
+                        <div class="contact-card">
+                            <h4>📞 Telefone</h4>
+                            <p class="config-telefone">Carregando...</p>
+                        </div>
+                        <div class="contact-card">
+                            <h4>💬 WhatsApp</h4>
+                            <p class="config-whatsapp-text">Carregando...</p>
+                        </div>
+                        <div class="contact-card">
+                            <h4>🕐 Horário</h4>
+                            <p class="config-horario">Carregando...</p>
+                        </div>
+                        <button class="btn btn-primary btn-whatsapp-direct w-100" style="margin-top: 45px;">Falar pelo
+                            WhatsApp</button>
+                    </div>
+
+                    <div class="contact-form-wrapper" data-anime="fade-up">
+                        <form id="contact-form" class="form">
+                            <div class="form-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mensagem">Mensagem</label>
+                                <textarea id="mensagem" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Enviar Mensagem</button>
+                            <p id="form-feedback" class="feedback-msg"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAPA -->
+        <section class="map-section">
+            <iframe id="map-iframe" src="" width="100%" height="450" style="border:0;" allowfullscreen=""
+                loading="lazy"></iframe>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2 class="logo">Casa das Chaves</h2>
+                <p>Segurança, confiança e precisão em cada detalhe.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Navegação</h3>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contato</h3>
+                <p class="config-telefone"></p>
+                <p class="config-endereco"></p>
+            </div>
+            <div class="footer-social">
+                <h3>Redes Sociais</h3>
+                <div class="social-links">
+                    <a href="#" id="link-instagram" aria-label="Instagram">IG</a>
+                    <a href="#" id="link-facebook" aria-label="Facebook">FB</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="current-year"></span> Casa das Chaves. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL PRODUTO -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Fechar">&times;</button>
+            <div class="modal-grid">
+                <div class="modal-image">
+                    <img id="modal-img" src="" alt="Produto">
+                </div>
+                <div class="modal-info">
+                    <span id="modal-category" class="category-tag"></span>
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-desc"></p>
+                    <button id="modal-btn" class="btn btn-primary w-100">Enviar pelo WhatsApp</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAB WHATSAPP & BACK TO TOP -->
+    <a href="#" id="fab-whatsapp" class="fab-whatsapp btn-whatsapp-direct" aria-label="Falar no WhatsApp">
+        <span class="fab-tooltip">Fale conosco</span>
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+            <path
+                d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.711.927 3.149.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.768-5.77zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.418-.1.824z" />
+        </svg>
+    </a>
+
+    <button id="back-to-top" aria-label="Voltar ao topo">↑</button>
+
+    <script src="js/config.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
