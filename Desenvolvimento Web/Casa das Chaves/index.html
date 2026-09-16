@@ -1,161 +1,353 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <title>Inicio</title>
+    <meta name="description"
+        content="Nexora Tecnologia — Soluções digitais, automação de processos e inteligência artificial para transformar negócios.">
+    <title>Nexora Tecnologia | Tecnologia que transforma negócios</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome (CSS, não é JS) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>CasaDasChaves</h1>
-                <img src="assets/imagens/casaDasChaves.png" alt="Casa das Chaves">
-            </div>
 
-            <div class="">
-                <a href="#" class="itemNav">Inicio</a>
-                <a href="#" class="itemNav">Sobre Nós</a>
-                <a href="#" class="itemNav">Serviços</a>
-                <a href="#" class="itemNav">Produtos</a>
-                <a href="#" class="itemNav">Contato</a>
-            </div>
-            <i class="fa-solid fa-user-plus"></i>
-        </nav>
-    </header>
+    <div class="layout">
 
+        <!-- ===================== HEADER ===================== -->
+        <header class="site-header" role="banner">
+            <div class="header-inner">
 
-    <main>
-        <section>
-            <img src="assets/imagens/introducao.png" alt="imagem">
-
-        </section>
-
-        <section>
-            <h1>SOBRE NÓS</h1>
-            <h2>Mais de 25 anos de experiência, segurança e confiança</h2>
-
-            <p>
-                Desde 2001, a Casa das Chaves atua no mercado oferecendo soluções em segurança para clientes
-                residenciais e automotivos, sempre pautada pela qualidade, precisão e confiança.
-
-                Somos especializados na confecção de chaves convencionais e codificadas, com ampla experiência no
-                segmento automotivo. Também oferecemos uma linha completa de fechaduras, controles para portões,
-                cadeados, pilhas, canivetes automotivos e diversos acessórios, atendendo às diferentes necessidades de
-                nossos clientes.
-
-                Ao longo de nossa trajetória, investimos continuamente em tecnologia, equipamentos modernos e
-                aprimoramento profissional, garantindo maior precisão, agilidade e qualidade em cada serviço realizado.
-
-                Nosso compromisso é proporcionar segurança, praticidade e excelência no atendimento, oferecendo soluções
-                confiáveis e eficientes para proteger o que realmente importa.
-            </p>
-        </section>
-
-        <Section>
-
-            <header>
-                <span>NOSSOS SERVIÇOS</span>
-                <h2>Soluções completas em segurança, chaves e acessórios</h2>
-
-                <p>Na Casa das Chaves, você encontra soluções completas para segurança, praticidade e conveniência.
-                    Trabalhamos com tecnologia, equipamentos modernos e atendimento especializado para oferecer serviços
-                    de
-                    qualidade em chaves, fechaduras, controles e acessórios para residências, empresas e veículos.</p>
-
-            </header>
-
-            <div>
-
-                <article>
-                    <h3>Fechaduras em Geral</h3>
-                    <p>Oferecemos venda e instalação de fechaduras para diferentes aplicações residenciais, comerciais e
-                        automotivas, proporcionando mais segurança e tranquilidade para nossos clientes.</p>
-                </article>
-
-                <article>
-                    <h3>Cópias de Chaves</h3>
-                    <p>Realizamos cópias de chaves convencionais e codificadas, utilizando equipamentos adequados para
-                        garantir precisão, qualidade e agilidade em cada serviço.</p>
-                </article>
-
-                <article>
-                    <h3>Controle e Acessórios</h3>
-                    <p>Dispomos de uma ampla variedade de controles para portões, cadeados, pilhas, canivetes
-                        automotivos e outros acessórios, reunindo praticidade e qualidade em um só lugar.</p>
-                </article>
-
-                <article>
-                    <h3>Cutelaria</h3>
-                    <p>Contamos com opções de facas, canivetes e acessórios de cutelaria, selecionados para atender
-                        diferentes necessidades e preferências de nossos clientes.</p>
-                </article>
-
-            </div>
-
-
-        </Section>
-
-        <section>
-            <span>PRODUTOS</span>
-        </section>
-
-        <section>
-            <span>PRECISA DE UM CHAVEIRO 24H</span>
-            <p>Conte com a Casa das Chaves para serviços de chaveiro 24 horas, com atendimento ágil, seguro e
-                especializado. Estamos preparados para auxiliar em situações que exigem rapidez e eficiência, oferecendo
-                soluções para residências, empresas e veículos a qualquer hora do dia ou da noite.
-            </p>
-            <button>FALAR NO WHASTAPP</button>
-        </section>
-
-        <section>
-            <span>CONTATO</span>
-
-        </section>
-
-        <section>
-            <h2>O que nossos clientes dizem</h2>
-
-            <article></article>
-            <article></article>
-            <article></article>
-        </section>
-
-    </main>
-
-    <footer>
-        <div>
-            <div>
-                <h3>Redes Sociais</h3>
-                <a href="https://www.instagram.com/_pablo_sifuentes_/" target="_blank" aria-label="Instagram">
-                    <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
-                        <path
-                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                    </svg>
+                <a href="index.html" class="logo" aria-label="Nexora Tecnologia — Página inicial">
+                    <span class="logo-mark">N</span>
+                    <span class="logo-text">
+                        <strong>Nexora</strong>
+                        <small>Tecnologia que transforma negócios</small>
+                    </span>
                 </a>
-            </div>
 
-            <div>
-                <h3>CasaDasChaves</h3>
-                <p>Desenvolvedor Web</p>
-                <p>&copy; 2026 | Deselvolvido por Pablo Sifuentes.</p>
+                <!-- Menu mobile: input checkbox + label (SEM JavaScript) -->
+                <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-hidden="true">
+                <label for="menu-toggle" class="menu-btn" aria-label="Abrir menu de navegação">
+                    <span></span><span></span><span></span>
+                </label>
+
+                <!-- ===================== NAV ===================== -->
+                <nav class="main-nav" aria-label="Navegação principal">
+                    <ul>
+                        <li><a href="index.html" class="active">Início</a></li>
+                        <li><a href="#quem-somos">Quem Somos</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#diferenciais">Diferenciais</a></li>
+                        <li><a href="produto.html">Produto</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+
             </div>
-            <div>
-                <h3>Localização</h3>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.026359527376!2d-49.0713788!3d-26.9185732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df18c397078e6b%3A0xb00713be217a6d89!2sSENAI%20Blumenau!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
-                    width="100%" height="150" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+        </header>
+
+        <!-- ===================== HERO ===================== -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-grid">
+
+                <div class="hero-content">
+                    <span class="eyebrow">Soluções digitais inteligentes</span>
+                    <h1 id="hero-title">Transformamos desafios em soluções digitais</h1>
+                    <p>
+                        A Nexora Tecnologia desenvolve soluções digitais inteligentes para empresas
+                        que desejam crescer, automatizar processos e transformar seus resultados.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#servicos" class="btn btn-primary">Conheça nossos serviços</a>
+                        <a href="produto.html" class="btn btn-outline">Conheça nosso produto</a>
+                    </div>
+                </div>
+
+                <figure class="hero-image">
+                    <img src="img/hero.jpg" alt="Equipe Nexora trabalhando em soluções digitais">
+                </figure>
+
             </div>
+        </section>
+
+        <!-- ===================== MAIN + ASIDE (GRID PRINCIPAL) ===================== -->
+        <div class="content-wrapper">
+
+            <main class="site-main" id="main-content">
+
+                <!-- ===================== QUEM SOMOS ===================== -->
+                <section id="quem-somos" class="section quem-somos" aria-labelledby="quem-title">
+                    <header class="section-header">
+                        <span class="eyebrow">Quem Somos</span>
+                        <h2 id="quem-title">Mais de uma década criando tecnologia que gera resultado</h2>
+                    </header>
+
+                    <div class="quem-grid">
+
+                        <figure class="quem-image">
+                            <img src="img/equipe.jpg" alt="Equipe da Nexora Tecnologia reunida em escritório moderno">
+                        </figure>
+
+                        <div class="quem-text">
+                            <p>
+                                Fundada em 2014, a <strong>Nexora Tecnologia</strong> nasceu com o propósito de
+                                aproximar empresas de soluções digitais que realmente funcionam. Começamos como
+                                uma pequena consultoria e hoje somos referência em automação de processos e
+                                inteligência artificial aplicada a negócios.
+                            </p>
+
+                            <div class="mvv">
+                                <article class="mvv-item">
+                                    <h3><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Missão</h3>
+                                    <p>Entregar soluções digitais que simplifiquem processos e ampliem resultados.</p>
+                                </article>
+                                <article class="mvv-item">
+                                    <h3><i class="fa-solid fa-eye" aria-hidden="true"></i> Visão</h3>
+                                    <p>Ser referência nacional em automação inteligente até 2030.</p>
+                                </article>
+                                <article class="mvv-item">
+                                    <h3><i class="fa-solid fa-heart" aria-hidden="true"></i> Valores</h3>
+                                    <p>Ética, inovação, foco no cliente e excelência técnica.</p>
+                                </article>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ===================== SERVIÇOS ===================== -->
+                <section id="servicos" class="section servicos" aria-labelledby="servicos-title">
+                    <header class="section-header">
+                        <span class="eyebrow">Serviços</span>
+                        <h2 id="servicos-title">Soluções completas para sua empresa</h2>
+                        <p>Atuamos em todas as etapas da transformação digital, do diagnóstico à entrega.</p>
+                    </header>
+
+                    <!--
+                        Grid com auto-fit + minmax:
+                        as colunas se ajustam automaticamente ao espaço disponível.
+                    -->
+                    <div class="servicos-grid">
+
+                        <article class="card servico-card">
+                            <i class="fa-solid fa-code" aria-hidden="true"></i>
+                            <h3>Desenvolvimento de Sistemas</h3>
+                            <p>Sistemas web sob medida, escaláveis e integrados ao seu negócio.</p>
+                            <a href="#contato" class="card-link">Saiba mais →</a>
+                        </article>
+
+                        <!--
+                            CARD PREMIUM
+                            grid-column: span 2 → ocupa duas colunas e ganha destaque visual.
+                        -->
+                        <article class="card servico-card servico-premium">
+                            <span class="badge">Premium</span>
+                            <i class="fa-solid fa-brain" aria-hidden="true"></i>
+                            <h3>Inteligência Artificial — Solução Premium</h3>
+                            <p>
+                                Modelos de IA personalizados para prever, classificar e automatizar
+                                decisões dentro da sua empresa.
+                            </p>
+                            <a href="produto.html" class="card-link">Conheça o AI Flow →</a>
+                        </article>
+
+                        <article class="card servico-card">
+                            <i class="fa-solid fa-robot" aria-hidden="true"></i>
+                            <h3>Automação de Processos</h3>
+                            <p>RPA e fluxos inteligentes que eliminam tarefas manuais e repetitivas.</p>
+                            <a href="#contato" class="card-link">Saiba mais →</a>
+                        </article>
+
+                        <article class="card servico-card">
+                            <i class="fa-solid fa-cloud" aria-hidden="true"></i>
+                            <h3>Cloud Computing</h3>
+                            <p>Migração, gestão e otimização de ambientes em nuvem.</p>
+                            <a href="#contato" class="card-link">Saiba mais →</a>
+                        </article>
+
+                        <article class="card servico-card">
+                            <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                            <h3>Segurança Digital</h3>
+                            <p>Proteção de dados, conformidade LGPD e monitoramento contínuo.</p>
+                            <a href="#contato" class="card-link">Saiba mais →</a>
+                        </article>
+
+                        <article class="card servico-card">
+                            <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>
+                            <h3>Consultoria Tecnológica</h3>
+                            <p>Diagnóstico, estratégia e roadmap para sua transformação digital.</p>
+                            <a href="#contato" class="card-link">Saiba mais →</a>
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- ===================== DIFERENCIAIS ===================== -->
+                <section id="diferenciais" class="section diferenciais" aria-labelledby="diferenciais-title">
+                    <header class="section-header">
+                        <span class="eyebrow">Diferenciais</span>
+                        <h2 id="diferenciais-title">Por que escolher a Nexora</h2>
+                    </header>
+
+                    <!--
+                        grid-auto-flow: dense faz o algoritmo do Grid
+                        tentar preencher espaços vazios deixados por itens
+                        que ocupam mais de uma célula.
+                    -->
+                    <div class="diferenciais-grid">
+
+                        <article class="dif-item dif-destaque">
+                            <i class="fa-solid fa-handshake" aria-hidden="true"></i>
+                            <h3>Atendimento personalizado</h3>
+                            <p>Cada projeto é único. Trabalhamos próximos do cliente em todas as etapas.</p>
+                        </article>
+
+                        <article class="dif-item">
+                            <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+                            <h3>Tecnologia de ponta</h3>
+                            <p>Stack moderna e atualizada constantemente.</p>
+                        </article>
+
+                        <article class="dif-item">
+                            <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
+                            <h3>Equipe especializada</h3>
+                            <p>Time multidisciplinar com certificações reconhecidas.</p>
+                        </article>
+
+                        <!-- Item que ocupa 2 colunas -->
+                        <article class="dif-item dif-wide">
+                            <i class="fa-solid fa-headset" aria-hidden="true"></i>
+                            <h3>Suporte contínuo</h3>
+                            <p>Atendimento dedicado, com SLA definido e monitoramento 24/7.</p>
+                        </article>
+
+                        <article class="dif-item">
+                            <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                            <h3>Segurança</h3>
+                            <p>Boas práticas de segurança em todas as camadas.</p>
+                        </article>
+
+                        <article class="dif-item">
+                            <i class="fa-solid fa-arrow-up-right-dots" aria-hidden="true"></i>
+                            <h3>Escalabilidade</h3>
+                            <p>Soluções que crescem junto com sua empresa.</p>
+                        </article>
+
+                        <article class="dif-item">
+                            <i class="fa-solid fa-rocket" aria-hidden="true"></i>
+                            <h3>Inovação</h3>
+                            <p>Investimos em P&D para entregar sempre o melhor.</p>
+                        </article>
+
+                        <!-- Item que ocupa 2 colunas -->
+                        <article class="dif-item dif-wide">
+                            <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                            <h3>Resultados mensuráveis</h3>
+                            <p>Métricas claras, relatórios e acompanhamento de KPIs.</p>
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- ===================== CTA ===================== -->
+                <section class="section cta" aria-labelledby="cta-title">
+                    <div class="cta-grid">
+                        <h2 id="cta-title">Pronto para transformar seu negócio?</h2>
+                        <p>Converse com nossos especialistas e descubra como a Nexora pode ajudar sua empresa.</p>
+                        <a href="#contato" class="btn btn-primary">Fale com um especialista</a>
+                    </div>
+                </section>
+
+
+                <!-- ===================== ASIDE ===================== -->
+                <aside class="site-aside" aria-label="Informações institucionais">
+                    <h2 class="aside-title">Nexora em números</h2>
+
+                    <ul class="aside-stats">
+                        <li>
+                            <strong>10+</strong>
+                            <span>anos de experiência</span>
+                        </li>
+                        <li>
+                            <strong>150+</strong>
+                            <span>projetos entregues</span>
+                        </li>
+                        <li>
+                            <strong>98%</strong>
+                            <span>de satisfação</span>
+                        </li>
+                    </ul>
+
+                    <div class="aside-card">
+                        <h3><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Onde estamos</h3>
+                        <p>Av. Brasil, 1500<br>Florianópolis — SC</p>
+                    </div>
+
+                    <div class="aside-card">
+                        <h3><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contato direto</h3>
+                        <p><a href="mailto:contato@nexora.com.br">contato@nexora.com.br</a></p>
+                        <p><a href="tel:+554833334444">(48) 3333-4444</a></p>
+                    </div>
+                </aside>
+
         </div>
-    </footer>
+        </main>
 
+        <!-- ===================== FOOTER ===================== -->
+        <footer class="site-footer" id="contato" role="contentinfo">
+            <div class="footer-grid">
 
+                <div class="footer-col">
+                    <h3>Nexora Tecnologia</h3>
+                    <p>Tecnologia que transforma negócios.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Endereço</h3>
+                    <address>
+                        Av. Brasil, 1500<br>
+                        Florianópolis — SC — Brasil
+                    </address>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <p><a href="mailto:contato@nexora.com.br">contato@nexora.com.br</a></p>
+                    <p><a href="tel:+554833334444">(48) 3333-4444</a></p>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Redes sociais</h3>
+                    <ul class="social-list">
+                        <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                                Instagram</a></li>
+                        <li><a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                                LinkedIn</a></li>
+                        <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                                Facebook</a></li>
+                        <li><a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                                YouTube</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <p class="footer-copy">&copy; 2026 Nexora Tecnologia. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
 
 </body>
 

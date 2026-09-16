@@ -1,0 +1,923 @@
+/* ============================================================
+   NEXORA TECNOLOGIA — FOLHA DE ESTILO PRINCIPAL
+   Projeto 100% HTML5 + CSS3 (ZERO JavaScript)
+   Foco: CSS Grid avançado, responsividade e semântica.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. VARIÁVEIS GLOBAIS (identidade visual)
+   ------------------------------------------------------------ */
+:root {
+    --primary:   #2563eb;
+    --secondary: #38bdf8;
+    --dark:      #0f172a;
+    --light:     #f1f5f9;
+    --white:     #ffffff;
+    --text:      #1e293b;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.10);
+    --shadow-lg: 0 20px 50px rgba(15, 23, 42, 0.15);
+
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --container: 1200px;
+}
+
+/* ------------------------------------------------------------
+   2. RESET / BASE
+   ------------------------------------------------------------ */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text);
+    background: var(--light);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+address { font-style: normal; }
+
+h1, h2, h3 { line-height: 1.2; color: var(--dark); font-weight: 700; }
+h1 { font-size: clamp(1.9rem, 4vw + 1rem, 3.2rem); }
+h2 { font-size: clamp(1.5rem, 2.5vw + 1rem, 2.3rem); }
+h3 { font-size: clamp(1.05rem, 1vw + 0.8rem, 1.3rem); }
+
+p  { color: var(--text); }
+
+/* Foco visível para acessibilidade */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+label:focus-visible {
+    outline: 3px solid var(--secondary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ------------------------------------------------------------
+   3. LAYOUT PRINCIPAL COM grid-template-areas
+   ------------------------------------------------------------ */
+.layout {
+    display: grid;
+    /*
+     * grid-template-areas permite definir visualmente
+     * a estrutura principal da página em 2 colunas:
+     * header/hero/nav ocupam tudo, main+aside dividem,
+     * e footer fecha.
+     */
+    grid-template-columns: minmax(0, 1fr) 320px;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+        "header header"
+        "hero   hero"
+        "main   aside"
+        "footer footer";
+    min-height: 100vh;
+    gap: 0;
+}
+
+/* Elementos associados às áreas do grid */
+.site-header      { grid-area: header; }
+.hero             { grid-area: hero;   }
+.content-wrapper  { grid-area: main; display: contents; }
+.site-main        { grid-area: main; }
+.site-aside       { grid-area: aside; }
+.site-footer      { grid-area: footer; }
+
+/* ------------------------------------------------------------
+   4. HEADER + NAV (Grid)
+   ------------------------------------------------------------ */
+.site-header {
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    max-width: var(--container);
+    margin-inline: auto;
+    padding: 1rem 1.25rem;
+    /*
+     * Grid do header: logo à esquerda, nav à direita.
+     * repeat() e minmax() garantem distribuição inteligente.
+     */
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.logo {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-mark {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+.logo-text { display: grid; }
+.logo-text strong { font-size: 1.15rem; color: var(--dark); letter-spacing: -0.3px; }
+.logo-text small  { font-size: 0.72rem; color: var(--text); opacity: 0.7; }
+
+/* Menu principal (desktop: grade horizontal) */
+.main-nav ul {
+    /* Desktop: navegação em grade horizontal */
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.5rem;
+    justify-content: end;
+}
+
+.main-nav a {
+    display: inline-block;
+    padding: 0.55rem 0.95rem;
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--dark);
+    transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* ---- Menu mobile (checkbox) ---- */
+.menu-toggle { display: none; }
+
+.menu-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: var(--light);
+    cursor: pointer;
+    place-items: center;
+    gap: 5px;
+    padding: 0.6rem;
+    justify-self: end;
+}
+
+.menu-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--dark);
+    border-radius: 2px;
+    transition: transform var(--transition), opacity var(--transition);
+}
+
+/* ------------------------------------------------------------
+   5. HERO
+   ------------------------------------------------------------ */
+.hero {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 120%);
+    color: var(--white);
+    padding: clamp(2.5rem, 6vw, 5rem) 1.25rem;
+}
+
+.hero-grid {
+    max-width: var(--container);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+.hero-content { display: grid; gap: 1.2rem; }
+.hero-content h1 { color: var(--white); }
+.hero-content p  { color: rgba(255,255,255,0.88); font-size: 1.05rem; }
+
+.hero-sub { font-size: 1.15rem; font-weight: 500; color: var(--secondary) !important; }
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--secondary);
+    margin-bottom: 0.4rem;
+}
+
+.hero-actions {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.75rem;
+    justify-content: start;
+    margin-top: 0.5rem;
+}
+
+/* Botões */
+.btn {
+    display: inline-grid;
+    place-items: center;
+    padding: 0.85rem 1.6rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform var(--transition), box-shadow var(--transition),
+                background var(--transition), color var(--transition);
+}
+
+.btn-primary {
+    background: var(--secondary);
+    color: var(--dark);
+}
+
+.btn-primary:hover {
+    background: var(--white);
+    color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(56, 189, 248, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border-color: rgba(255,255,255,0.5);
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: var(--white);
+    transform: translateY(-3px);
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
+    aspect-ratio: 4 / 3;
+}
+
+/* ------------------------------------------------------------
+   6. ÁREA DE CONTEÚDO (main + aside) — Grid
+   ------------------------------------------------------------ */
+.content-wrapper {
+    max-width: var(--container);
+    margin-inline: auto;
+    padding: clamp(2rem, 4vw, 4rem) 1.25rem;
+    /*
+     * Grid de duas colunas: main flexível + aside fixo.
+     * No mobile, vira uma única coluna.
+     */
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: start;
+}
+
+.site-main { display: grid; gap: clamp(2.5rem, 5vw, 4rem); }
+
+/* ------------------------------------------------------------
+   7. SEÇÕES GENÉRICAS
+   ------------------------------------------------------------ */
+.section { scroll-margin-top: 90px; }
+
+.section-header {
+    display: grid;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+    max-width: 720px;
+}
+
+.section-header p { color: var(--text); opacity: 0.85; }
+
+/* ------------------------------------------------------------
+   8. QUEM SOMOS
+   ------------------------------------------------------------ */
+.quem-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: center;
+}
+
+.quem-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.quem-text { display: grid; gap: 1.2rem; }
+
+.mvv {
+    display: grid;
+    /* auto-fit + minmax: 3 colunas responsivas que se ajustam */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.mvv-item {
+    background: var(--white);
+    padding: 1.1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 0.4rem;
+    border-top: 4px solid var(--primary);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.mvv-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.mvv-item h3 { font-size: 1rem; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 0.5rem; }
+.mvv-item h3 i { color: var(--primary); }
+.mvv-item p  { font-size: 0.9rem; }
+
+/* ------------------------------------------------------------
+   9. SERVIÇOS
+   ------------------------------------------------------------ */
+.servicos-grid {
+    /*
+     * auto-fit + minmax: as colunas se ajustam ao espaço disponível.
+     * Em telas grandes formam 3 colunas; em telas médias, 2; no mobile, 1.
+     */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-auto-rows: minmax(220px, auto);
+    gap: 1.25rem;
+}
+
+.card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 1.6rem;
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 0.7rem;
+    align-content: start;
+    transition: transform var(--transition), box-shadow var(--transition);
+    border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.servico-card i {
+    font-size: 1.8rem;
+    color: var(--primary);
+    background: rgba(37, 99, 235, 0.08);
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-md);
+}
+
+.card-link {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.92rem;
+    align-self: end;
+    transition: gap var(--transition), color var(--transition);
+}
+
+.card-link:hover { color: var(--dark); }
+
+/* --- CARD PREMIUM ---
+ * Este card ocupa duas colunas, recebendo maior destaque visual.
+ * No mobile, voltamos para 1 coluna (grid-column: auto).
+ */
+.servico-premium {
+    grid-column: span 2;
+    background: linear-gradient(135deg, var(--dark), var(--primary));
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.servico-premium h3,
+.servico-premium p,
+.servico-premium .card-link { color: var(--white); }
+
+.servico-premium i {
+    color: var(--secondary);
+    background: rgba(255,255,255,0.1);
+}
+
+.servico-premium .card-link:hover { color: var(--secondary); }
+
+.badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--secondary);
+    color: var(--dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+}
+
+/* ------------------------------------------------------------
+   10. DIFERENCIAIS — grid-auto-flow: dense
+   ------------------------------------------------------------ */
+.diferenciais-grid {
+    /*
+     * grid-auto-flow: dense tenta preencher espaços vazios
+     * deixados por elementos que ocupam mais de uma célula.
+     */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-auto-rows: minmax(150px, auto);
+    grid-auto-flow: dense;
+    gap: 1rem;
+}
+
+.dif-item {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+    border-left: 4px solid var(--secondary);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.dif-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.dif-item i {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.dif-item h3 { font-size: 1.05rem; }
+.dif-item p  { font-size: 0.9rem; }
+
+/* Item destacado (2 colunas) */
+.dif-destaque {
+    grid-column: span 2;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    border-left-color: var(--dark);
+}
+
+.dif-destaque h3,
+.dif-destaque p { color: var(--white); }
+.dif-destaque i { color: var(--white); }
+
+/* Item que ocupa 2 colunas (largura) */
+.dif-wide { grid-column: span 2; }
+
+/* ------------------------------------------------------------
+   11. CTA (index e produto)
+   ------------------------------------------------------------ */
+.cta {
+    background: linear-gradient(135deg, var(--dark), var(--primary));
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+}
+
+.cta-grid {
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    max-width: 720px;
+    margin-inline: auto;
+}
+
+.cta h2, .cta p { color: var(--white); }
+
+/* ------------------------------------------------------------
+   12. ASIDE
+   ------------------------------------------------------------ */
+.site-aside {
+    display: grid;
+    gap: 1.2rem;
+    align-content: start;
+    position: sticky;
+    top: 100px;
+}
+
+.aside-title {
+    font-size: 1.1rem;
+    color: var(--dark);
+}
+
+.aside-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    background: var(--white);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.aside-stats li { display: grid; gap: 0.2rem; }
+
+.aside-stats strong {
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.aside-stats span { font-size: 0.78rem; color: var(--text); opacity: 0.8; }
+
+.aside-card {
+    background: var(--white);
+    padding: 1.1rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 0.4rem;
+}
+
+.aside-card h3 {
+    font-size: 0.95rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--dark);
+}
+
+.aside-card h3 i { color: var(--primary); }
+.aside-card p { font-size: 0.88rem; }
+.aside-card a { color: var(--primary); font-weight: 500; }
+.aside-card a:hover { color: var(--dark); }
+
+/* ------------------------------------------------------------
+   13. PÁGINA PRODUTO — grids específicos
+   ------------------------------------------------------------ */
+.hero-produto { background: linear-gradient(135deg, var(--dark), var(--secondary) 140%); }
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.feature-card {
+    background: var(--white);
+    padding: 1.4rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.feature-card i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: rgba(37, 99, 235, 0.08);
+    border-radius: var(--radius-sm);
+}
+
+.feature-card h3 { font-size: 1rem; }
+.feature-card p  { font-size: 0.88rem; }
+
+/* Benefícios */
+.beneficios-grid {
+    display: grid;
+    /*
+     * Desktop: 3 colunas; tablet: 2; mobile: 1
+     * (a responsividade é controlada via breakpoints mais abaixo)
+     */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.beneficio-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 0.6rem;
+    justify-items: start;
+    border-bottom: 4px solid var(--secondary);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.beneficio-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.beneficio-card i {
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.beneficio-card h3 { font-size: 1rem; }
+
+/* Depoimentos */
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.depoimento-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 1.4rem;
+    box-shadow: var(--shadow-sm);
+    display: grid;
+    gap: 0.4rem;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.depoimento-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.depoimento-card img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--secondary);
+}
+
+.depoimento-card h3 { font-size: 1rem; }
+.depoimento-card .cargo { font-size: 0.8rem; opacity: 0.75; }
+.depoimento-card .estrelas { color: #f59e0b; letter-spacing: 2px; font-size: 0.95rem; }
+.depoimento-card blockquote {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text);
+    border-left: 3px solid var(--secondary);
+    padding-left: 0.75rem;
+}
+
+/* ------------------------------------------------------------
+   14. FOOTER
+   ------------------------------------------------------------ */
+.site-footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.85);
+    padding: 2.5rem 1.25rem 1.5rem;
+}
+
+.footer-grid {
+    max-width: var(--container);
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.footer-col h3 {
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+    position: relative;
+    padding-bottom: 0.4rem;
+}
+
+.footer-col h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 32px;
+    height: 3px;
+    background: var(--secondary);
+    border-radius: 2px;
+}
+
+.footer-col p, .footer-col address, .footer-col li {
+    font-size: 0.88rem;
+    line-height: 1.8;
+}
+
+.footer-col a { color: var(--secondary); transition: color var(--transition); }
+.footer-col a:hover { color: var(--white); }
+
+.social-list { display: grid; gap: 0.4rem; }
+.social-list a { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 0.5rem; }
+.social-list i { font-size: 1.1rem; }
+
+.footer-copy {
+    max-width: var(--container);
+    margin: 2rem auto 0;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+}
+
+/* ============================================================
+   15. RESPONSIVIDADE — 3 BREAKPOINTS OBRIGATÓRIOS
+   ============================================================ */
+
+/* ---------- TABLET: 768px a 1023px ---------- */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .layout {
+        /* Tablet: ainda duas colunas, aside mais estreito */
+        grid-template-columns: minmax(0, 1fr) 260px;
+        grid-template-areas:
+            "header header"
+            "hero   hero"
+            "main   aside"
+            "footer footer";
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;   /* empilha texto e imagem */
+    }
+
+    .quem-grid { grid-template-columns: 1fr; }
+
+    .beneficios-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .depoimentos-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .servico-premium { grid-column: span 2; }
+    .dif-destaque    { grid-column: span 2; }
+    .dif-wide        { grid-column: span 2; }
+}
+
+/* ---------- MOBILE: até 767px ---------- */
+@media (max-width: 767px) {
+
+    .layout {
+        /* Mobile: tudo em uma coluna */
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "hero"
+            "main"
+            "aside"
+            "footer";
+    }
+
+    /* --- Menu mobile via checkbox (SEM JavaScript) --- */
+    .menu-btn { display: grid; }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        box-shadow: var(--shadow-md);
+        padding: 0.75rem 1.25rem 1.25rem;
+        display: none;          /* escondido por padrão */
+        border-top: 1px solid var(--light);
+    }
+
+    /* Quando o checkbox é marcado, o nav aparece */
+    #menu-toggle:checked ~ .main-nav {
+        display: block;
+    }
+
+    /* Feedback visual do botão hambúrguer */
+    #menu-toggle:checked ~ .menu-btn span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    #menu-toggle:checked ~ .menu-btn span:nth-child(2) {
+        opacity: 0;
+    }
+    #menu-toggle:checked ~ .menu-btn span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .main-nav ul {
+        display: grid;                /* navegação vertical em grade */
+        grid-auto-flow: row;
+        gap: 0.25rem;
+    }
+
+    .main-nav a {
+        display: block;
+        padding: 0.75rem 1rem;
+        width: 100%;
+    }
+
+    /* --- Hero empilhado --- */
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-actions { grid-auto-flow: row; justify-content: stretch; }
+    .hero-actions .btn { width: 100%; }
+
+    /* --- Quem somos --- */
+    .quem-grid { grid-template-columns: 1fr; }
+
+    .mvv { grid-template-columns: 1fr; }
+
+    /* --- Serviços: card premium volta a 1 coluna --- */
+    .servicos-grid { grid-template-columns: 1fr; }
+    .servico-premium {
+        grid-column: auto;   /* evita quebra do layout no mobile */
+        grid-row: auto;
+    }
+
+    /* --- Diferenciais: itens grandes voltam a 1 coluna --- */
+    .diferenciais-grid { grid-template-columns: 1fr; }
+    .dif-destaque,
+    .dif-wide {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    /* --- Benefícios / depoimentos / footer em 1 coluna --- */
+    .beneficios-grid   { grid-template-columns: 1fr; }
+    .depoimentos-grid  { grid-template-columns: 1fr; }
+    .footer-grid       { grid-template-columns: 1fr; }
+
+    /* --- Aside deixa de ser sticky --- */
+    .site-aside { position: static; }
+    .aside-stats { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- DESKTOP: a partir de 1024px ---------- */
+@media (min-width: 1024px) {
+
+    .layout {
+        grid-template-columns: minmax(0, 1fr) 340px;
+        grid-template-areas:
+            "header header"
+            "hero   hero"
+            "main   aside"
+            "footer footer";
+    }
+
+    /* No desktop o menu é uma grade horizontal */
+    .main-nav ul {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 0.5rem;
+    }
+
+    .menu-btn { display: none; }
+}
+
+/* ---------- Preferências do usuário ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (prefers-contrast: high) {
+    .card, .aside-card, .feature-card, .beneficio-card, .depoimento-card {
+        border: 2px solid var(--dark);
+    }
+    .btn-primary { border-color: var(--dark); }
+}
