@@ -1,6 +1,6 @@
-public class ListaComArray {
+public class ListaComArray<E> {
 
-    private Integer[] array;
+    private E[] array;
     private boolean resizable;
     private int initialCapacity;
     private int counter;
@@ -19,10 +19,10 @@ public class ListaComArray {
         this.resizable = resizable;
         this.initialCapacity = initialCapacity;
         this.counter = 0;
-        this.array = new Integer[initialCapacity];
+        this.array = (E[]) new Object[initialCapacity];
     }
 
-    public boolean add(Integer element) {
+    public boolean add(E element) {
 
         if (counter == array.length) {
             if (resizable) {
@@ -36,7 +36,7 @@ public class ListaComArray {
         return true;
     }
 
-    public boolean add(int index, Integer element) {
+    public boolean add(int index, E element) {
 
         if (index < 0 || index > counter) {
             return false;
@@ -58,40 +58,65 @@ public class ListaComArray {
 
     private void resizeArrayList() {
 
-        Integer novo[] = new Integer[array.length + x];
+        E novo[] = (E[]) new Object[array.length + x];
 
         System.arraycopy(array, 0, novo, 0, counter);
 
         array = novo;
     }
 
-    public Integer remove(int index) {
+    public E remove(int index) {
 
-        if (index == null) {
-            
+        if (index < 0 || index >= counter) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + counter);
+        }
+        E aux = array[index];
+
+        for (int i = index; i < (counter - 1); i++){
+            array[i] = array[i + 1];
         }
 
-
-        return 0;
+        counter--;
+        return aux;
     }
 
-    public boolean removeFirst(Integer element) {
+    public boolean removeFirst(E element) {
+
+        for (int i = 0;i < counter; i++){
+            if (array[i].equals(element)){
+                remove(i);
+                return true;
+            }
+        }
         return false;
     }
 
-    public Integer get(int index) {
-        return 0;
+    public E get(int index) {
+
+        if (index < 0 || index >= counter) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + counter);
+        }
+
+        return array[index];
     }
 
     public void clear() {
         if (resizable) {
-            array = new Integer[initialCapacity];
+            array = (E[]) new Object[initialCapacity];
         }
         counter = 0;
     }
 
-    public Integer set(int index, Integer element) {
-        return 0;
+    public E set(int index, E element) {
+
+        if (index < 0 || index >= counter) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + counter);
+        }
+
+        E aux = array[index];
+        array[index] = element;
+
+        return aux;
     }
 
     public int size() {
@@ -109,40 +134,36 @@ public class ListaComArray {
         return false;
     }
 
-    public int contains(Integer element) {
-        return 0;
+    public boolean contains(E element) {
+        return (indexOf(element) != -1);
     }
 
-    public int indexOf(Integer element) {
+    public int indexOf(E element) {
 
-        if (element == null) {
-            for (int i = 0; i < array.length; i++) {
-                if (array[i] == null) return i;
-            }
-        } else {
-            for (int i = 0; i < array.length; i++) {
-                if (element.equals(array[i])) return i;
+        for (int i = 0;i < counter; i++){
+            if (array[i].equals(element)){
+                return i;
             }
         }
+
         return -1;
     }
 
-public int lastIndexOf(Integer element) {
+public int lastIndexOf(E element) {
 
-    if (element == null) {
-        for (int i = counter; i >= 0; i--) {
-            if (array[i] == null) return i;
-        }
-    } else {
-        for (int i = counter; i >= 0; i--) {
-            if (element.equals(array[i])) return i;
+    for (int i = counter - 1; i >= 0; i++){
+        if (array[i].equals(element)){
+            return i;
         }
     }
-            return -1;
+
+    return -1;
 }
 
-public Integer[] toArray() {
-    return new Integer[0];
+public E[] toArray() {
+    E[] reduzido = (E[]) new Object[counter];
+    System.arraycopy(array, 0, reduzido, 0, counter);
+    return reduzido;
 }
 
 public String toString() {
