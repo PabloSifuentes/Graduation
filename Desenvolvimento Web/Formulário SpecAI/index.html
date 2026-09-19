@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpecAI - Refinamento Inteligente de Requisitos</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<!-- Overlay para mobile -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <div class="logo">
+            <span class="logo-icon">🧠</span>
+            <div class="logo-text">
+                <h2>SpecAI</h2>
+                <span class="logo-subtitle">Engenharia de Requisitos</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-page="dashboard">
+            <span class="nav-icon">📊</span>
+            <span>Dashboard</span>
+            <span class="nav-badge" id="totalCardsBadge">0</span>
+        </a>
+        <a href="#" class="nav-item" data-page="config">
+            <span class="nav-icon">⚡</span>
+            <span>Configurações</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <!-- Botão de recarregar movido para a sidebar -->
+        <button id="refreshSidebarBtn" class="sidebar-refresh-btn">🔄 Recarregar Cards</button>
+
+        <div class="ia-status">
+            <div class="status-indicator online"></div>
+            <div>
+                <small>Motor IA</small>
+                <strong>Operacional</strong>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- Conteúdo Principal -->
+<div class="main-wrapper">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+
+        <div class="nav-search">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Buscar requisitos refinados..." id="searchInput">
+        </div>
+
+        <div class="nav-actions">
+            <div class="pipeline-indicator">
+                <span class="pipeline-dot"></span>
+                <span>IA Processando</span>
+            </div>
+            <button class="btn-new-card" onclick="openNewCardModal()">
+                <span>+</span> Novo Card
+            </button>
+        </div>
+    </nav>
+
+    <!-- Área Principal (Dinâmica via JS) -->
+    <main class="main-content" id="mainContent">
+        <!-- Conteúdo será injetado pelo JavaScript -->
+    </main>
+</div>
+
+<!-- Modal de Detalhes -->
+<div class="modal" id="detailsModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Detalhes do Refinamento</h2>
+            <button class="modal-close" onclick="closeModal()">✕</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+    </div>
+</div>
+
+<!-- Modal de Novo Card -->
+<div class="modal" id="newCardModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Novo Requisito</h2>
+            <button class="modal-close" onclick="closeNewCardModal()">✕</button>
+        </div>
+        <div class="modal-body">
+            <form id="newCardForm" onsubmit="createNewCard(event)">
+                <div class="form-group">
+                    <label>Título do Requisito</label>
+                    <input type="text" id="cardTitle" placeholder="Ex: Implementar autenticação de usuários" required>
+                </div>
+                <div class="form-group">
+                    <label>Descrição Original</label>
+                    <textarea id="cardDescription" rows="3" placeholder="Descreva o requisito como ele é atualmente..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <select id="cardType" required>
+                        <option value="">Selecione o tipo...</option>
+                        <option value="FEATURE">Feature</option>
+                        <option value="BUG">Bug</option>
+                        <option value="MELHORIA">Melhoria</option>
+                        <option value="REFATORACAO">Refatoração</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <span>🧠</span> Gerar Card
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- NOVO MODAL DE LOGS -->
+<div class="modal" id="logsModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>📜 Histórico de Logs</h2>
+            <button class="modal-close" onclick="closeLogsModal()">✕</button>
+        </div>
+        <div class="modal-body" id="logsModalBody">
+            <!-- logs serão inseridos dinamicamente -->
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
