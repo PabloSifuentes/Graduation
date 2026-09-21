@@ -688,10 +688,10 @@ footer ul {
         font-weight: 600;
     }
 
-    /* Aside fixo ao lado do conteúdo */
+    /*fixo ao lado do conteúdo*/
     aside {
         position: sticky;
-        top: 20px;
+        top: 10px;
         align-self: start;
     }
 
