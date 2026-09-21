@@ -1,0 +1,91 @@
+.config-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+@media (min-width: 900px) { .config-grid { grid-template-columns: 1fr 1fr; } }
+
+.config-panel { padding: 24px; }
+.config-panel h3 {
+  font-size: 14.5px;
+  font-weight: 620;
+  margin-bottom: 4px;
+}
+.config-panel .cp-sub { font-size: 12.5px; color: var(--text-muted); margin-bottom: 18px; }
+
+.config-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 0;
+  border-top: 1px solid var(--color-border);
+  gap: 16px;
+}
+.config-row:first-of-type { border-top: none; }
+.config-row .cr-label { font-size: 13.5px; color: var(--text-secondary); }
+.config-row .cr-value { font-size: 13.5px; font-weight: 550; color: var(--text-primary); text-align: right; }
+
+.code-block {
+  background: var(--color-deep);
+  color: var(--color-mint);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  overflow-x: auto;
+  position: relative;
+  line-height: 1.6;
+}
+.code-block pre { margin: 0; white-space: pre; }
+
+.copy-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.install-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.install-step { display: flex; gap: 14px; }
+.install-step .is-num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--color-surface-sunken);
+  color: var(--color-steel);
+  font-size: 12px;
+  font-weight: 650;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.install-step .is-title { font-size: 13.5px; font-weight: 600; margin-bottom: 6px; }
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+.tech-chip {
+  padding: 13px 14px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+}
+.tech-chip .tc-name { font-size: 13px; font-weight: 620; color: var(--text-primary); }
+.tech-chip .tc-role { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+
+.roadmap-list { display: flex; flex-direction: column; gap: 10px; }
+.roadmap-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--color-border-strong);
+  font-size: 13.5px;
+  color: var(--text-secondary);
+}
+.roadmap-item .icon { width: 15px; height: 15px; color: var(--color-steel); }

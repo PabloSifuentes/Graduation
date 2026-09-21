@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<th:block th:fragment="sidebar(active)">
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+      <div class="sb-logo">
+        <span class="sb-logo-mark">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 0-4 4v1a3 3 0 0 0-2 2.8V15a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-4.2A3 3 0 0 0 16 8V7a4 4 0 0 0-4-4Z"/><path d="M9 12h.01M15 12h.01M9 16h6"/></svg>
+        </span>
+        <div class="sb-logo-text">
+          <h2>SpecAI</h2>
+          <span>AI Requirement Intelligence</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Navegação principal">
+
+      <a href="/dashboard" class="nav-item" th:classappend="${active == 'dashboard'} ? 'is-active'">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+        <span>Dashboard</span>
+      </a>
+
+      <a href="/cards" class="nav-item" th:classappend="${active == 'cards'} ? 'is-active'">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h6"/></svg>
+        <span>Cards</span>
+        <span class="nav-item-badge" id="sidebarCardsBadge" th:if="${totalCards} != null" th:text="${totalCards}">0</span>
+      </a>
+
+      <a href="/processamentos" class="nav-item" th:classappend="${active == 'processamentos'} ? 'is-active'">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14.9-4"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-14.9 4"/><path d="M4 20v-4h4"/></svg>
+        <span>Processamentos</span>
+      </a>
+
+      <a href="/logs" class="nav-item" th:classappend="${active == 'logs'} ? 'is-active'">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" opacity="0"/><path d="M6 4h9l5 5v11H6z"/><path d="M15 4v5h5M9 13h6M9 17h6"/></svg>
+        <span>Logs</span>
+      </a>
+
+      <a href="/configuracoes" class="nav-item" th:classappend="${active == 'configuracoes'} ? 'is-active'">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.04 1.56V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.04H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1.04-1.56V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9a1.7 1.7 0 0 0 1.56 1.04H21a2 2 0 1 1 0 4h-.09A1.7 1.7 0 0 0 19.4 15Z"/></svg>
+        <span>Configurações</span>
+      </a>
+
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sb-engine">
+        <span class="sb-engine-dot" aria-hidden="true"></span>
+        <div class="sb-engine-text">
+          <small>AI Engine</small>
+          <strong>Operational</strong>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+</th:block>
+
+</body>
+</html>

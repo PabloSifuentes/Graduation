@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpecAI — Processamentos</title>
+  <link rel="stylesheet" th:href="@{/css/global.css}">
+  <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+  <link rel="stylesheet" th:href="@{/css/navbar.css}">
+  <link rel="stylesheet" th:href="@{/css/processamentos.css}">
+  <link rel="stylesheet" th:href="@{/css/logs.css}">
+  <link rel="stylesheet" th:href="@{/css/footer.css}">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <th:block th:replace="~{fragments/sidebar :: sidebar('processamentos')}"></th:block>
+
+  <div class="main-wrapper">
+
+    <th:block th:replace="~{fragments/navbar :: navbar('Processamentos IA', 'SpecAI / Pipeline')}"></th:block>
+
+    <main class="main-content">
+
+      <div class="page-head">
+        <div>
+          <h1>Processamentos IA</h1>
+          <p>Acompanhe o pipeline de refinamento e o desempenho do motor de IA.</p>
+        </div>
+      </div>
+
+      <section class="proc-summary" aria-label="Resumo de processamentos">
+        <div class="panel proc-stat">
+          <div class="ps-value" id="procTotal">0</div>
+          <div class="ps-label">Processados</div>
+        </div>
+        <div class="panel proc-stat">
+          <div class="ps-value" id="procAvgTime">0s</div>
+          <div class="ps-label">Tempo médio</div>
+        </div>
+        <div class="panel proc-stat">
+          <div class="ps-value" id="procSuccess">0%</div>
+          <div class="ps-label">Sucesso</div>
+        </div>
+        <div class="panel proc-stat">
+          <div class="ps-value" id="procErrors">0</div>
+          <div class="ps-label">Erros</div>
+        </div>
+      </section>
+
+      <section class="panel current-run" id="currentRun" aria-live="polite">
+        <span class="cr-spinner" aria-hidden="true"></span>
+        <span class="cr-text">Processando <strong id="currentRunTitle">—</strong> · analisando requisito e estruturando critérios de aceite</span>
+      </section>
+
+      <section class="panel pipeline-visual" aria-label="Etapas do pipeline">
+        <div class="section-label">Pipeline de processamento</div>
+        <div class="pipeline-row" id="pipelineRow">
+          <!-- populado via processamentos.js -->
+        </div>
+      </section>
+
+      <section aria-label="Histórico de execuções">
+        <div class="section-heading-row">
+          <h2>Execuções recentes</h2>
+        </div>
+        <div class="panel proc-table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Card</th>
+                <th>Qualidade</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="procTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+  </div>
+
+</div>
+
+<th:block th:replace="~{fragments/modals :: newCardModal}"></th:block>
+
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+<script th:src="@{/js/app.js}"></script>
+<script th:src="@{/js/cards.js}"></script>
+<script th:src="@{/js/processamentos.js}"></script>
+</body>
+</html>

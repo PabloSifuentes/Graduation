@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpecAI — Configurações</title>
+  <link rel="stylesheet" th:href="@{/css/global.css}">
+  <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+  <link rel="stylesheet" th:href="@{/css/navbar.css}">
+  <link rel="stylesheet" th:href="@{/css/configuracoes.css}">
+  <link rel="stylesheet" th:href="@{/css/footer.css}">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <th:block th:replace="~{fragments/sidebar :: sidebar('configuracoes')}"></th:block>
+
+  <div class="main-wrapper">
+
+    <th:block th:replace="~{fragments/navbar :: navbar('Configurações', 'SpecAI / Sistema')}"></th:block>
+
+    <main class="main-content">
+
+      <div class="page-head">
+        <div>
+          <h1>Configurações</h1>
+          <p>Ambiente, integração de IA e documentação de uso da API.</p>
+        </div>
+      </div>
+
+      <div class="config-grid">
+
+        <div class="panel config-panel">
+          <h3>Sistema</h3>
+          <p class="cp-sub">Ambiente de execução atual</p>
+          <div class="config-row"><span class="cr-label">URL da API</span><span class="cr-value">localhost:8080</span></div>
+          <div class="config-row"><span class="cr-label">Ambiente</span><span class="cr-value">Desenvolvimento</span></div>
+          <div class="config-row"><span class="cr-label">Versão</span><span class="cr-value">1.0.0</span></div>
+        </div>
+
+        <div class="panel config-panel">
+          <h3>Inteligência Artificial</h3>
+          <p class="cp-sub">Motor de refinamento configurado</p>
+          <div class="config-row"><span class="cr-label">Provedor</span><span class="cr-value">A definir</span></div>
+          <div class="config-row"><span class="cr-label">Status</span><span class="cr-value"><span class="pill pill-success">Operacional</span></span></div>
+          <div class="config-row"><span class="cr-label">Modelo</span><span class="cr-value">A definir</span></div>
+        </div>
+
+        <div class="panel config-panel">
+          <h3>Base URL da API</h3>
+          <p class="cp-sub">Endpoint principal para integração</p>
+          <div class="code-block"><pre id="apiUrlBlock">http://localhost:8080</pre></div>
+          <div class="copy-row">
+            <button class="btn btn-ghost" id="copyApiUrl" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+              Copiar
+            </button>
+          </div>
+        </div>
+
+        <div class="panel config-panel">
+          <h3>Exemplo de requisição</h3>
+          <p class="cp-sub">Payload para criação de um card</p>
+          <div class="code-block"><pre id="jsonExampleBlock">{
+  "tituloOriginal": "Cadastro de usuário",
+  "descricaoOriginal": "Criar tela de cadastro",
+  "tipo": "FEATURE",
+  "status": "PENDENTE"
+}</pre></div>
+          <div class="copy-row">
+            <button class="btn btn-ghost" id="copyJsonExample" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+              Copiar JSON
+            </button>
+          </div>
+        </div>
+
+        <div class="panel config-panel">
+          <h3>Instalação</h3>
+          <p class="cp-sub">Passos para rodar o projeto localmente</p>
+          <div class="install-steps">
+            <div class="install-step">
+              <span class="is-num">1</span>
+              <div><div class="is-title">Clone o repositório</div><div class="code-block"><pre>git clone https://github.com/seu-usuario/specai-api.git</pre></div></div>
+            </div>
+            <div class="install-step">
+              <span class="is-num">2</span>
+              <div><div class="is-title">Entre na pasta</div><div class="code-block"><pre>cd specai-api</pre></div></div>
+            </div>
+            <div class="install-step">
+              <span class="is-num">3</span>
+              <div><div class="is-title">Configure o banco</div><div class="code-block"><pre>spring.datasource.url=jdbc:mysql://localhost:3306/specai
+spring.datasource.username=root
+spring.datasource.password=123456
+spring.jpa.hibernate.ddl-auto=update</pre></div></div>
+            </div>
+            <div class="install-step">
+              <span class="is-num">4</span>
+              <div><div class="is-title">Execute</div><div class="code-block"><pre>./mvnw spring-boot:run</pre></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel config-panel">
+          <h3>Tecnologias</h3>
+          <p class="cp-sub">Stack utilizada no backend</p>
+          <div class="tech-grid">
+            <div class="tech-chip"><div class="tc-name">Java 17+</div><div class="tc-role">Linguagem principal</div></div>
+            <div class="tech-chip"><div class="tc-name">Spring Boot</div><div class="tc-role">Framework backend</div></div>
+            <div class="tech-chip"><div class="tc-name">Spring Data JPA</div><div class="tc-role">Persistência</div></div>
+            <div class="tech-chip"><div class="tc-name">Hibernate</div><div class="tc-role">ORM</div></div>
+            <div class="tech-chip"><div class="tc-name">Lombok</div><div class="tc-role">Boilerplate</div></div>
+            <div class="tech-chip"><div class="tc-name">Jackson</div><div class="tc-role">Serialização JSON</div></div>
+            <div class="tech-chip"><div class="tc-name">MySQL / PostgreSQL</div><div class="tc-role">Banco de dados</div></div>
+            <div class="tech-chip"><div class="tc-name">Maven</div><div class="tc-role">Dependências</div></div>
+          </div>
+        </div>
+
+        <div class="panel config-panel">
+          <h3>Roadmap</h3>
+          <p class="cp-sub">Próximos passos planejados</p>
+          <div class="roadmap-list">
+            <div class="roadmap-item"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Autenticação JWT</div>
+            <div class="roadmap-item"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 0-4 4v1a3 3 0 0 0-2 2.8V15a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-4.2A3 3 0 0 0 16 8V7a4 4 0 0 0-4-4Z"/></svg> Integração com OpenAI / Gemini</div>
+            <div class="roadmap-item"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/></svg> Dashboard de métricas avançado</div>
+            <div class="roadmap-item"><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/></svg> Containerização com Docker</div>
+            <div class="roadmap-item"><svg class="icon" viewBox="0 0 24 24"><path d="M18 10h1a3 3 0 0 1 0 6h-1M6 10H5a3 3 0 0 0 0 6h1M6 10v6M18 10v6M9 4h6v3H9z"/></svg> Deploy em nuvem</div>
+            <div class="roadmap-item"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" opacity="0"/><path d="M6 4h9l5 5v11H6z"/></svg> Documentação Swagger / OpenAPI</div>
+            <div class="roadmap-item"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg> Testes automatizados</div>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+  </div>
+
+</div>
+
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+<script th:src="@{/js/app.js}"></script>
+<script th:src="@{/js/configuracoes.js}"></script>
+</body>
+</html>

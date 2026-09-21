@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<th:block th:fragment="newCardModal">
+<div class="modal" id="newCardModal" role="dialog" aria-modal="true" aria-labelledby="newCardModalTitle">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="newCardModalTitle">Novo Requisito</h2>
+      <button class="icon-btn" id="closeNewCardModal" aria-label="Fechar">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form id="newCardForm">
+        <div class="form-group">
+          <label for="cardTitle">Título do requisito</label>
+          <input type="text" id="cardTitle" name="cardTitle" placeholder="Ex: Implementar autenticação de usuários" required>
+        </div>
+        <div class="form-group">
+          <label for="cardDescription">Descrição original</label>
+          <textarea id="cardDescription" name="cardDescription" rows="4" placeholder="Descreva o requisito como ele é hoje..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="cardType">Tipo</label>
+          <select id="cardType" name="cardType" required>
+            <option value="">Selecione o tipo...</option>
+            <option value="FEATURE">Feature</option>
+            <option value="BUG">Bug</option>
+            <option value="MELHORIA">Melhoria</option>
+            <option value="REFATORACAO">Refatoração</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 3a4 4 0 0 0-4 4v1a3 3 0 0 0-2 2.8V15a4 4 0 0 0 4 4h4a4 4 0 0 0 4-4v-4.2A3 3 0 0 0 16 8V7a4 4 0 0 0-4-4Z"/></svg>
+          Gerar refinamento
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+</th:block>
+
+<th:block th:fragment="detailsModal">
+<div class="modal" id="detailsModal" role="dialog" aria-modal="true" aria-labelledby="detailsModalTitle">
+  <div class="modal-content is-wide">
+    <div class="modal-header">
+      <h2 id="detailsModalTitle">Detalhes do Refinamento</h2>
+      <button class="icon-btn" id="closeDetailsModal" aria-label="Fechar">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- Preenchido via JS a partir dos dados do card selecionado -->
+    </div>
+  </div>
+</div>
+</th:block>
+
+<th:block th:fragment="logsModal">
+<div class="modal" id="logsModal" role="dialog" aria-modal="true" aria-labelledby="logsModalTitle">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="logsModalTitle">Histórico de Logs</h2>
+      <button class="icon-btn" id="closeLogsModal" aria-label="Fechar">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="modal-body" id="logsModalBody">
+      <!-- Preenchido via cards.js (openLogsModal) -->
+    </div>
+  </div>
+</div>
+</th:block>
+
+</body>
+</html>

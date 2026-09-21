@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<th:block th:fragment="navbar(pageTitle, pageCrumb)">
+
+<nav class="navbar">
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="sidebar" aria-expanded="false">
+    <svg class="icon" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+
+  <div class="navbar-context">
+    <span class="nc-page" th:text="${pageTitle}">Dashboard</span>
+    <span class="nc-crumb" th:text="${pageCrumb}">SpecAI / Visão geral</span>
+  </div>
+
+  <label class="navbar-search" for="globalSearch">
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    <input type="search" id="globalSearch" placeholder="Buscar requisitos refinados...">
+  </label>
+
+  <div class="navbar-actions">
+    <span class="ai-status">
+      <span class="ai-status-dot" aria-hidden="true"></span>
+      IA operacional
+    </span>
+
+    <button class="btn btn-primary" id="openNewCardBtn" type="button">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+      Novo Card
+    </button>
+  </div>
+
+</nav>
+
+</th:block>
+
+</body>
+</html>
