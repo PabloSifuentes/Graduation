@@ -1,16 +1,16 @@
 public interface Lista<E> {
 
-    public void add(E element);
-    public void add(int index, E element);
-    public E remove(int index);
-    public boolean removeFirst(E element);
-    public E get(int index);
-    public E set(int index, E element);
-    public void clear();
-    public int size();
-    public boolean isEmpty();
-    public boolean contains(E element);
-    public int indexOf(E element);
-    public int lastIndexOf(E element);
-    public E[] toArray();
+    boolean add(E element);
+    boolean add(int index, E element);
+    E remove(int index);
+    boolean removeFirst(E element);
+    E get(int index);
+    void clear();
+    E set(int index, E element);
+    int size();
+    boolean isEmpty();
+    boolean contains(E element);
+    int indexOf(E element);
+    int lastIndexOf(E element);
+    Object[] toArray();
 }

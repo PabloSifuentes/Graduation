@@ -3,9 +3,9 @@ public class NoLista<E> {
     private E info ;
     private NoLista<E> next;
 
-    public NoLista() {
-        info = null;
-        next = null;
+    public NoLista(E info) {
+        this.info = info;
+        this.next = null;
     }
 
     public E getInfo() {
