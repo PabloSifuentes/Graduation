@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-primaria: #727272;
+    --cor-secundaria: #c0c0c0ef;
+    --gradiente-inicio: #000;
+    --gradiente-fim: #7504b6;
+}
+
+body {
+    background: linear-gradient(135deg, var(--gradiente-inicio), var(--gradiente-fim));
+
+    height: 100vh;
+    margin: 0;
+}
+
+.body h1, h2, p, ul, li {
+    color: white;
+}
+
+.container-principal {
+    display: flex;
+    justify-content: center;
+}
+

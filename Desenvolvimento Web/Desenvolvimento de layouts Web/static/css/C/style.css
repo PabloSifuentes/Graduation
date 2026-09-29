@@ -5,35 +5,50 @@
 }
 
 .container {
-    position: relative;
     display: flex;
     align-items: stretch;
     gap: 10px;
-    width: 100%;
 }
 
 .coluna {
     flex: 1;
+    display: flex;
+    flex-direction: column;
     background-color: brown;
     padding: 15px;
+    border-radius: 8px;
 }
 
-img {
+.coluna img {
     width: 100%;
+    height: 380px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin: 15px 0;
 }
 
-p {
+.coluna p {
     font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .btn {
     position: relative;
     bottom: 0;
-    left: 250px;
     margin-top: auto;
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.btn:hover {
+.coluna .btn {
+margin-top: auto;
+padding: 10px 15px;
+background-color: #ffffff;
+color: black;
+border: none;
+border-radius: 20px;
+cursor: pointer;
+font-weight: bold;
+}
+
+.coluna .btn:hover {
     background-color: #6260ff;
 }
