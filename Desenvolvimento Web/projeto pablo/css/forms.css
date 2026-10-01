@@ -1,0 +1,630 @@
+/* ==========================================================
+   Formulários (contato, login, cadastro) e accordion
+   ========================================================== */
+.form {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+}
+
+.field label,
+.field__label {
+  font-weight: 600;
+  font-size: 0.93rem;
+  color: var(--color-text);
+}
+
+.field__hint {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.field__optional {
+  font-weight: 400;
+  color: var(--color-muted);
+}
+
+.input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 1rem;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1rem;
+  transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease), background-color var(--dur-fast) var(--ease);
+}
+
+textarea.input {
+  min-height: 140px;
+  padding: 0.9rem 1rem;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+select.input {
+  appearance: none;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235F6673' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 18px;
+}
+
+.input::placeholder {
+  color: #8A919E;
+}
+
+.input:hover {
+  border-color: #A9B1C0;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary-light);
+  box-shadow: 0 0 0 4px rgba(26, 82, 220, 0.16);
+}
+
+.input[aria-invalid="true"] {
+  border-color: var(--color-danger-dark);
+  box-shadow: 0 0 0 3px rgba(251, 44, 54, 0.12);
+}
+
+.input.is-valid {
+  border-color: var(--color-success);
+}
+
+.field__error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--color-danger-dark);
+}
+
+.field__error:empty {
+  display: none;
+}
+
+.field__error .icon {
+  width: 16px;
+  height: 16px;
+  margin-top: 0.15em;
+}
+
+/* Campo com ícone e botão interno */
+.input-group {
+  position: relative;
+}
+
+.input-group > .icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  width: 19px;
+  height: 19px;
+  transform: translateY(-50%);
+  color: #8A919E;
+  pointer-events: none;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.input-group .input {
+  padding-left: 2.85rem;
+}
+
+.input-group--action .input {
+  padding-right: 3.4rem;
+}
+
+.input-group:focus-within > .icon {
+  color: var(--color-primary-light);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  color: #8A919E;
+}
+
+.password-toggle:hover {
+  color: var(--color-text);
+}
+
+.password-toggle .icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mensagem de status do formulário */
+.form-status {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  padding: 0.9rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status .icon {
+  margin-top: 0.1em;
+}
+
+.form-status--success {
+  background: rgba(30, 158, 98, 0.1);
+  border-color: rgba(30, 158, 98, 0.35);
+  color: #11643D;
+}
+
+.form-status--error {
+  background: rgba(251, 44, 54, 0.08);
+  border-color: rgba(251, 44, 54, 0.35);
+  color: var(--color-danger-dark);
+}
+
+.form-status--info {
+  background: rgba(26, 82, 220, 0.08);
+  border-color: rgba(26, 82, 220, 0.3);
+  color: var(--color-primary);
+}
+
+.form-note {
+  font-size: 0.86rem;
+  color: var(--color-muted);
+}
+
+.btn.is-loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.btn.is-loading::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Painel do formulário de contato */
+.form-panel {
+  padding: clamp(1.5rem, 3.5vw, 2.75rem);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-panel h2 {
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  letter-spacing: -0.03em;
+}
+
+.form-panel > p {
+  margin-top: 0.6rem;
+  margin-bottom: 1.8rem;
+  color: var(--color-muted);
+}
+
+/* ---------- Accordion (FAQ) ---------- */
+.accordion {
+  border-top: 1px solid var(--color-line-strong);
+}
+
+.accordion__item {
+  border-bottom: 1px solid var(--color-line-strong);
+}
+
+.accordion__heading {
+  font-size: inherit;
+  letter-spacing: 0;
+}
+
+.accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.4rem 0;
+  text-align: left;
+  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.accordion__trigger:hover {
+  color: var(--color-primary);
+}
+
+.accordion__sign {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  transition: transform var(--dur) var(--ease), background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.accordion__sign .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.accordion__trigger[aria-expanded="true"] .accordion__sign {
+  transform: rotate(45deg);
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: #fff;
+}
+
+.accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur) var(--ease);
+}
+
+.accordion__panel > div {
+  overflow: hidden;
+}
+
+.accordion__panel p {
+  padding-bottom: 1.5rem;
+  max-width: 64ch;
+  color: var(--color-muted);
+}
+
+.accordion__item.is-open .accordion__panel {
+  grid-template-rows: 1fr;
+}
+
+/* Sem JS, o conteúdo continua acessível */
+.no-js .accordion__panel {
+  grid-template-rows: 1fr;
+}
+
+/* ==========================================================
+   Login e cadastro
+   ========================================================== */
+.auth {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  overflow: clip; /* corta a atmosfera sem impedir o position: sticky */
+  min-height: 100svh;
+  padding: calc(var(--nav-h) + clamp(2rem, 5vw, 4rem)) 0 clamp(4rem, 8vw, 6rem);
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+.auth__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 480px);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.auth__inner--wide {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 600px);
+}
+
+.auth__intro h1 {
+  font-size: var(--fs-h1);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  max-width: 14ch;
+}
+
+.auth__intro .lead {
+  margin-top: 1.4rem;
+  color: var(--color-on-dark-muted);
+}
+
+.auth__help {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line-dark);
+  max-width: 440px;
+}
+
+.auth__help p {
+  color: var(--color-on-dark-muted);
+  font-size: 0.97rem;
+}
+
+.auth__help .btn {
+  margin-top: 1rem;
+}
+
+.auth-card {
+  position: relative;
+  padding: clamp(1.5rem, 4vw, 2.6rem);
+  border: 1px solid var(--color-line-dark);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(20, 38, 82, 0.72), rgba(10, 25, 56, 0.82));
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset, 0 40px 90px -40px rgba(0, 0, 0, 0.85);
+}
+
+.auth-card__logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: 0 auto 1.25rem;
+  box-shadow: 0 0 24px -4px rgba(26, 82, 220, 0.6);
+}
+
+.auth-card h2 {
+  font-size: clamp(1.6rem, 1.3rem + 1vw, 2rem);
+  letter-spacing: -0.035em;
+  text-align: center;
+}
+
+.auth-card__sub {
+  text-align: center;
+  margin-top: 0.4rem;
+  margin-bottom: 1.8rem;
+  color: var(--color-on-dark-muted);
+}
+
+.auth-card .field label {
+  color: var(--color-on-dark);
+}
+
+.auth-card .input {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(156, 180, 235, 0.24);
+  color: var(--color-on-dark);
+}
+
+.auth-card .input::placeholder {
+  color: rgba(166, 179, 209, 0.6);
+}
+
+.auth-card .input:hover {
+  border-color: rgba(156, 180, 235, 0.45);
+}
+
+.auth-card .input:focus {
+  border-color: #6E95FF;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 4px rgba(78, 134, 255, 0.2);
+}
+
+.auth-card .input[aria-invalid="true"] {
+  border-color: #FF6B73;
+  box-shadow: 0 0 0 3px rgba(251, 44, 54, 0.18);
+}
+
+.auth-card .input.is-valid {
+  border-color: rgba(52, 199, 123, 0.7);
+}
+
+.auth-card .input-group > .icon,
+.auth-card .password-toggle {
+  color: rgba(166, 179, 209, 0.75);
+}
+
+.auth-card .password-toggle:hover {
+  color: #fff;
+}
+
+.auth-card .input-group:focus-within > .icon {
+  color: #8FB0FF;
+}
+
+.auth-card .field__error {
+  color: #FF9AA0;
+}
+
+.auth-card .field__hint,
+.auth-card .form-note {
+  color: var(--color-on-dark-muted);
+}
+
+.auth-card .form-status--error {
+  color: #FFC1C5;
+  background: rgba(251, 44, 54, 0.12);
+}
+
+.auth-card .form-status--success {
+  color: #A8F0C9;
+  background: rgba(30, 158, 98, 0.15);
+}
+
+.auth-card .form-status--info {
+  color: #CFDCFF;
+  background: rgba(78, 134, 255, 0.12);
+}
+
+.auth-card__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.92rem;
+}
+
+.auth-card__switch {
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--color-line-dark);
+  text-align: center;
+  color: var(--color-on-dark-muted);
+  font-size: 0.95rem;
+}
+
+.auth-card__switch a,
+.auth-card__row a {
+  color: #8FB0FF;
+  font-weight: 600;
+}
+
+.auth-card__switch a:hover,
+.auth-card__row a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Seletor Pessoa Física / Empresa */
+.segmented {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  margin-bottom: 1.8rem;
+  border: 1px solid var(--color-line-dark);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.segmented__thumb {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-light);
+  box-shadow: 0 8px 20px -8px rgba(26, 82, 220, 0.9);
+  transition: transform 380ms var(--ease);
+}
+
+.segmented[data-active="pj"] .segmented__thumb {
+  transform: translateX(100%);
+}
+
+.segmented__btn {
+  position: relative;
+  z-index: 1;
+  min-height: 44px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-on-dark-muted);
+  border-radius: var(--radius-sm);
+  transition: color var(--dur) var(--ease);
+}
+
+.segmented__btn[aria-pressed="true"] {
+  color: #fff;
+}
+
+.field-group[hidden] {
+  display: none;
+}
+
+.field-group {
+  display: grid;
+  gap: 1.15rem;
+  animation: fade-in 0.35s var(--ease);
+}
+
+.strength {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin-top: 0.15rem;
+}
+
+.strength span {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(156, 180, 235, 0.2);
+  transition: background-color var(--dur) var(--ease);
+}
+
+.strength[data-level="1"] span:nth-child(-n + 1) { background: #FF6B73; }
+.strength[data-level="2"] span:nth-child(-n + 2) { background: #FFB547; }
+.strength[data-level="3"] span:nth-child(-n + 3) { background: #6E95FF; }
+.strength[data-level="4"] span { background: #34C77B; }
+
+.checkbox {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--color-on-dark-muted);
+  cursor: pointer;
+}
+
+.checkbox input {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.1rem;
+  accent-color: var(--color-primary-light);
+}
+
+.checkbox a {
+  color: #8FB0FF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+fieldset.field-group {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.auth-card .form-note a {
+  color: #8FB0FF;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Texto lateral fixo no centro da tela (desktop).
+   A coluna da esquerda tem sempre a altura da tela, independente do card,
+   então trocar Pessoa Física ↔ Empresa não muda a posição do texto. */
+@media (min-width: 1025px) {
+  .auth__inner {
+    align-items: start;
+  }
+
+  .auth__intro {
+    position: sticky;
+    top: var(--nav-h);
+    min-height: calc(100vh - var(--nav-h));
+    min-height: calc(100svh - var(--nav-h));
+    margin-top: calc(-1 * clamp(2rem, 5vw, 4rem)); /* anula o respiro do topo da seção */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,297 @@
+/* ==========================================================
+   Cards e listas utilitárias
+   Cantos retos, linhas finas, fundo branco.
+   ========================================================== */
+
+/* ---------- Grade de serviços ---------- */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--color-line);
+  border-left: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.service-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  padding: clamp(1.5rem, 1.1rem + 1vw, 2.2rem);
+  border-right: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  background: var(--color-surface);
+  transition: background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+
+/* barra de luz no topo ao passar o mouse */
+.service-card::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: -1px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary-light), #8FB0FF);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms var(--ease);
+}
+
+.service-card:hover,
+.service-card:focus-within {
+  z-index: 1;
+  box-shadow: 0 0 0 1px var(--color-primary-light), var(--shadow-md);
+}
+
+.service-card:hover::before,
+.service-card:focus-within::before {
+  transform: scaleX(1);
+}
+
+.service-card__icon {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-sm);
+  background: var(--metal-dark);
+  color: #CFE0FF;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 10px 20px -12px rgba(7, 20, 47, 0.7);
+}
+
+.service-card__icon .icon {
+  width: 26px;
+  height: 26px;
+  transition: transform 500ms var(--ease);
+}
+
+/* microanimação: o ícone "gira" como uma chave na fechadura */
+.service-card:hover .service-card__icon .icon {
+  transform: rotate(-18deg);
+}
+
+.service-card h3 {
+  margin-top: 2.1rem;
+}
+
+.service-card p {
+  margin-top: 0.7rem;
+  color: var(--color-muted);
+  font-size: 0.98rem;
+}
+
+.service-card .link-more {
+  margin-top: auto;
+  padding-top: 1.6rem;
+  font-size: 0.95rem;
+}
+
+/* área clicável do card inteiro */
+.service-card .link-more::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.service-card--urgent .service-card__icon {
+  background: linear-gradient(160deg, #5A1218 0%, #2A0A10 100%);
+  color: #FFD3D6;
+}
+
+.tag-24h {
+  position: absolute;
+  top: clamp(1.5rem, 1.1rem + 1vw, 2.2rem);
+  right: clamp(1.5rem, 1.1rem + 1vw, 2.2rem);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-tech);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-danger-dark);
+}
+
+/* ---------- Linhas de recurso (lista utilitária) ---------- */
+.feature-rows {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.feature-row__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+  background: var(--color-surface);
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.feature-row__icon .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.feature-row:hover .feature-row__icon {
+  border-color: var(--color-primary-light);
+  color: var(--color-primary-light);
+}
+
+.feature-row h3 {
+  font-size: 1.15rem;
+}
+
+.feature-row p {
+  margin-top: 0.4rem;
+  color: var(--color-muted);
+}
+
+.section--dark .feature-rows,
+.section--dark .feature-row {
+  border-color: var(--color-line-dark);
+}
+
+.section--dark .feature-row__icon {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--color-line-dark);
+  color: #8FB0FF;
+}
+
+.section--dark .feature-row p {
+  color: var(--color-on-dark-muted);
+}
+
+/* ---------- Grade de itens (produtos / categorias) ---------- */
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1px;
+  list-style: none;
+  padding: 0;
+  background: var(--color-line);
+  border: 1px solid var(--color-line);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.6rem;
+  background: var(--color-surface);
+}
+
+.item .icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-primary);
+}
+
+.item h3 {
+  font-size: 1.1rem;
+}
+
+.item p {
+  color: var(--color-muted);
+  font-size: 0.96rem;
+}
+
+/* ---------- Lista de contato ---------- */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  border-top: 1px solid var(--color-line-strong);
+}
+
+.contact-list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--color-line-strong);
+}
+
+.contact-list .icon {
+  width: 22px;
+  height: 22px;
+  margin-top: 0.15rem;
+  color: var(--color-primary);
+}
+
+.contact-list dt,
+.contact-list .label {
+  font-family: var(--font-tech);
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.contact-list .value {
+  display: block;
+  margin-top: 0.15rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.contact-list a.value:hover {
+  color: var(--color-primary);
+}
+
+.section--dark .contact-list,
+.section--dark .contact-list li {
+  border-color: var(--color-line-dark);
+}
+
+.section--dark .contact-list .label {
+  color: var(--color-on-dark-muted);
+}
+
+.section--dark .contact-list .value {
+  color: var(--color-on-dark);
+}
+
+.section--dark .contact-list .icon {
+  color: #8FB0FF;
+}
+
+/* ---------- Painel (card escuro) ---------- */
+.panel {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.panel--dark {
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  border-color: var(--color-ink);
+}
+
+.panel--dark p {
+  color: var(--color-on-dark-muted);
+}
+
+.panel h3 + p {
+  margin-top: 0.6rem;
+}
+
+.panel .btn-row {
+  margin-top: 1.5rem;
+}

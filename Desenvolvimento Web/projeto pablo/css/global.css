@@ -1,0 +1,570 @@
+/* ==========================================================
+   Base, tipografia, layout e componentes primitivos
+   ========================================================== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-background);
+  overflow-x: hidden;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--color-primary-light);
+  color: #fff;
+}
+
+/* Foco visível e consistente */
+:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+.on-dark :focus-visible,
+.section--dark :focus-visible,
+.site-header :focus-visible,
+.site-footer :focus-visible,
+.drawer :focus-visible {
+  outline-color: #8FB0FF;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 999;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  color: var(--color-ink);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--container-width) + var(--container-pad) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.container--narrow {
+  max-width: calc(880px + var(--container-pad) * 2);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-padding);
+}
+
+.section--light {
+  background: var(--color-background);
+}
+
+.section--white {
+  background: var(--color-surface);
+}
+
+.section--dark {
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.section--deep {
+  background: var(--color-primary-dark);
+  color: var(--color-on-dark);
+}
+
+.section--tight {
+  padding-block: clamp(3rem, 2rem + 4vw, 5.5rem);
+}
+
+/* ---------- Tipografia ---------- */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: inherit;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.section-head {
+  max-width: 780px;
+  margin-bottom: clamp(2.5rem, 1.8rem + 2.5vw, 4.25rem);
+}
+
+.section-head h2,
+.h2 {
+  font-size: var(--fs-h2);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.section-head p,
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  color: var(--color-muted);
+  max-width: 60ch;
+}
+
+.section-head p {
+  margin-top: 1.25rem;
+}
+
+.section--dark .section-head p,
+.section--deep .section-head p,
+.on-dark .lead {
+  color: var(--color-on-dark-muted);
+}
+
+.section-head--split {
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1.5rem 4rem;
+  align-items: end;
+}
+
+.section-head--split p {
+  margin-top: 0;
+}
+
+.section-head--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-head--center p {
+  margin-inline: auto;
+}
+
+/* Rótulo técnico — usado só quando carrega informação */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-tech);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  letter-spacing: 0;
+}
+
+.kicker::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+}
+
+.section--dark .kicker,
+.section--deep .kicker,
+.on-dark .kicker {
+  color: #8FB0FF;
+}
+
+.prose {
+  max-width: 68ch;
+}
+
+.prose > * + * {
+  margin-top: 1.1em;
+}
+
+.prose h2 {
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
+  margin-top: 2.2em;
+}
+
+.prose h3 {
+  margin-top: 1.8em;
+}
+
+.prose ul {
+  padding-left: 1.2rem;
+}
+
+.prose li + li {
+  margin-top: 0.4em;
+}
+
+.prose a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+.tech {
+  font-family: var(--font-tech);
+}
+
+/* ---------- Ícones ---------- */
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon--lg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+/* ---------- Botões ---------- */
+.btn {
+  --btn-bg: transparent;
+  --btn-fg: inherit;
+  --btn-border: transparent;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65em;
+  min-height: 52px;
+  padding: 0 1.5rem;
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius-md);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.005em;
+  text-align: center;
+  white-space: nowrap;
+  transition:
+    background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+/* Reflexo metálico que atravessa o botão */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.28) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 750ms var(--ease);
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  transform: translateX(120%);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn .icon {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.btn--primary {
+  --btn-bg: var(--color-primary-light);
+  --btn-fg: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 10px 30px -12px rgba(26, 82, 220, 0.8);
+}
+
+.btn--primary:hover {
+  --btn-bg: #1645BC;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 14px 36px -12px rgba(26, 82, 220, 0.95);
+}
+
+.btn--danger {
+  --btn-bg: var(--color-danger-dark);
+  --btn-fg: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 10px 30px -12px rgba(251, 44, 54, 0.75);
+}
+
+.btn--danger:hover {
+  --btn-bg: #A90F18;
+}
+
+.btn--ghost {
+  --btn-border: rgba(190, 208, 245, 0.32);
+  --btn-fg: var(--color-on-dark);
+  --btn-bg: rgba(255, 255, 255, 0.02);
+}
+
+.btn--ghost:hover {
+  --btn-border: rgba(190, 208, 245, 0.7);
+  --btn-bg: rgba(255, 255, 255, 0.07);
+}
+
+.btn--outline {
+  --btn-border: var(--color-line-strong);
+  --btn-fg: var(--color-ink);
+  --btn-bg: transparent;
+}
+
+.btn--outline:hover {
+  --btn-border: var(--color-primary);
+  --btn-fg: var(--color-primary);
+}
+
+.btn--light {
+  --btn-bg: #fff;
+  --btn-fg: var(--color-ink);
+}
+
+.btn--light:hover {
+  --btn-bg: #E8EEFC;
+}
+
+.btn--sm {
+  min-height: 42px;
+  padding: 0 1rem;
+  font-size: 0.95rem;
+}
+
+.btn--lg {
+  min-height: 58px;
+  padding: 0 1.9rem;
+  font-size: 1.05rem;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Link de ação com seta */
+.link-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: color var(--dur) var(--ease), gap var(--dur) var(--ease);
+}
+
+.link-more .icon {
+  width: 1.05em;
+  height: 1.05em;
+  transition: transform var(--dur) var(--ease);
+}
+
+.link-more:hover {
+  color: var(--color-primary-light);
+}
+
+.link-more:hover .icon {
+  transform: translateX(4px);
+}
+
+.section--dark .link-more,
+.on-dark .link-more {
+  color: #8FB0FF;
+}
+
+/* ---------- Selo Chaveiro 24H ---------- */
+.badge-24h {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.9rem 0.45rem 0.7rem;
+  border: 1px solid rgba(251, 44, 54, 0.45);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(90deg, rgba(251, 44, 54, 0.18), rgba(251, 44, 54, 0.04));
+  color: #FFE3E5;
+  font-family: var(--font-tech);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.badge-24h:hover {
+  border-color: rgba(251, 44, 54, 0.8);
+}
+
+.pulse-dot {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-danger);
+  flex: none;
+}
+
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--color-danger);
+  animation: pulse-ring 2s var(--ease) infinite;
+}
+
+.pulse-dot--blue,
+.pulse-dot--blue::after {
+  background: #4E86FF;
+}
+
+/* ---------- Divisor em perfil de segredo de chave ----------
+   A borda entre seções escuras e claras reproduz o "segredo"
+   (os cortes) de uma chave. --bitting-fill = cor da próxima seção. */
+.bitting {
+  --bitting-h: clamp(30px, 4.2vw, 60px);
+  --bitting-shape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0 64V20h128l28 30 28-30h146l18 18 18-18h150l34 34 34-34h170l18 16 18-16h132l30 28 30-28h150l22 22 22-22h146l26 26 26-26h66v44z'/%3E%3C/svg%3E");
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: var(--bitting-h);
+  pointer-events: none;
+  z-index: 2;
+  filter: drop-shadow(0 -3px 10px rgba(26, 82, 220, 0.45));
+}
+
+.bitting::before,
+.bitting::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  -webkit-mask: var(--bitting-shape) center bottom / max(100%, 1100px) 100% no-repeat;
+  mask: var(--bitting-shape) center bottom / max(100%, 1100px) 100% no-repeat;
+}
+
+/* linha de "laser" que contorna o perfil */
+.bitting::before {
+  background: linear-gradient(90deg, rgba(26, 82, 220, 0.2), #4E86FF 30%, #A9C2FF 55%, #4E86FF 80%, rgba(26, 82, 220, 0.2));
+  transform: translateY(-2px);
+  animation: laser-cut 1.6s var(--ease-out) 0.5s both;
+}
+
+.bitting::after {
+  background: var(--bitting-fill, var(--color-background));
+}
+
+.bitting--to-white {
+  --bitting-fill: var(--color-surface);
+}
+
+/* No topo de uma seção escura: espelha o perfil e preenche
+   com a cor da seção anterior (clara). */
+.bitting--top {
+  top: -1px;
+  bottom: auto;
+  transform: scaleY(-1);
+  --bitting-fill: var(--color-surface);
+}
+
+.bitting--top.bitting--from-light {
+  --bitting-fill: var(--color-background);
+}
+
+.bitting--static::before {
+  animation: none;
+}
+
+/* ---------- Mídia ---------- */
+.media-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--color-ink);
+}
+
+.media-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Utilitários ---------- */
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.stack > * + * {
+  margin-top: 1rem;
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.check-list li {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+}
+
+.check-list .icon {
+  color: var(--color-primary-light);
+  margin-top: 0.2em;
+}
+
+.section--dark .check-list .icon {
+  color: #6E95FF;
+}
+
+.section-head--tight {
+  margin-bottom: 2rem;
+}

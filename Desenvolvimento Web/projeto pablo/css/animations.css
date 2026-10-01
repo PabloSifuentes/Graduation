@@ -1,38 +1,116 @@
-/* Animations Classes */
-[data-anime] {
-    opacity: 0;
-    transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+/* ==========================================================
+   Animações — discretas, com prefers-reduced-motion respeitado
+   ========================================================== */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.7; }
+  70%, 100% { transform: scale(2.8); opacity: 0; }
 }
 
-[data-anime="fade-up"] {
-    transform: translateY(40px);
+@keyframes laser-cut {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
 }
 
-[data-anime="fade-in"] {
-    transform: translateY(0);
+@keyframes aurora-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(3%, -2%, 0) scale(1.05); }
+  100% { transform: translate3d(-2%, 2%, 0) scale(1.02); }
 }
 
-[data-anime="scale"] {
-    transform: scale(0.95);
+@keyframes particles-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-18px); }
 }
 
-[data-anime].animate {
-    opacity: 1;
-    transform: translate(0) scale(1);
+@keyframes ring-rotate {
+  to { transform: rotate(360deg); }
 }
 
-/* Reduces motion based on user preference */
+@keyframes bar-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Sequência de entrada do hero (um único momento orquestrado) */
+.js .hero [data-hero] {
+  opacity: 0;
+  animation: rise 900ms var(--ease) forwards;
+}
+
+.js .hero [data-hero="1"] { animation-delay: 80ms; }
+.js .hero [data-hero="2"] { animation-delay: 200ms; }
+.js .hero [data-hero="3"] { animation-delay: 340ms; }
+.js .hero [data-hero="4"] { animation-delay: 480ms; }
+.js .hero [data-hero="5"] { animation-delay: 640ms; }
+.js .hero [data-hero="6"] { animation-delay: 820ms; }
+
+/* Revelação ao rolar (IntersectionObserver em js/animations.js) */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 800ms var(--ease), transform 800ms var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js [data-reveal="fade"] {
+  transform: none;
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Parallax leve controlado por JS via --parallax */
+[data-parallax] {
+  transform: translate3d(0, var(--parallax, 0px), 0);
+  will-change: transform;
+}
+
+/* ---------- Movimento reduzido ---------- */
 @media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+  html {
+    scroll-behavior: auto;
+  }
 
-    [data-anime] {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .js .hero [data-hero],
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-parallax] {
+    transform: none;
+  }
+
+  .pulse-dot::after,
+  .atmo__aurora,
+  .atmo__particles,
+  .auto-stage__ring {
+    animation: none !important;
+  }
 }

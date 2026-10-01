@@ -1,18 +1,45 @@
-const CONFIG = {
-    empresa: {
-        nome: "Casa das Chaves",
-        telefone: "(47) 3322-1100", // Placeholder (Blumenau/SC)
-        whatsapp: "5547999999999",   // Digite apenas números, com código do país e DDD
-        email: "contato@casadaschaves.com.br",
-        endereco: "Rua XV de Novembro, 1000 - Centro, Blumenau - SC",
-        horario: "Seg a Sex: 08h às 18h | Sáb: 08h às 12h"
-    },
-    redesSociais: {
-        instagram: "https://instagram.com/casadaschaves",
-        facebook: "https://facebook.com/casadaschaves"
-    },
-    mapa: {
-        // Embed do Google Maps (Src do Iframe)
-        url: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d748.1656445483885!2d-49.08751976551954!3d-26.87505685421929!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94df1ef943c1bf71%3A0x6d000eae29fb50b4!2sCHAVEIRO%2024%20HORAS%20CASA%20DAS%20CHAVES%2C%20BAIRRO%20ITOUPAVA%20NORTE.!5e0!3m2!1spt-BR!2sbr!4v1789504438942!5m2!1spt-BR!2sbr"
-    }
+/* ==========================================================
+   Configuração central — Casa das Chaves
+   Mantém a mesma ideia do config.js original: dados que mudam
+   ficam aqui. (Os textos estáticos das páginas também trazem
+   esses dados no HTML, para SEO e para funcionar sem JS.)
+   ========================================================== */
+window.CONFIG = {
+  empresa: {
+    nome: "Casa das Chaves",
+    telefone: "(47) 99601-1659",
+    telefoneLink: "+5547996011659",
+    whatsapp: "5547996011659", // apenas números: país + DDD + número
+    endereco: "Rua Dois de Setembro, 4405 - Itoupava Norte, Blumenau - SC, 89053-200",
+    horario: "Seg a Sex: 8h às 18h | Sáb: 8h às 12h"
+  },
+
+  whatsappMensagemPadrao: "Olá! Gostaria de saber mais sobre os serviços da Casa das Chaves.",
+
+  redesSociais: {
+    instagram: "https://www.instagram.com/_casadaschaves_/"
+  },
+
+  /* ----------------------------------------------------------
+     Integração de autenticação
+     Os arquivos js/scriptLogin.js e js/scriptCadastro.js citados
+     nas páginas antigas não estavam na pasta. Quando o backend
+     estiver pronto, preencha os endpoints abaixo OU registre
+     seus próprios handlers em window.CasaAuth (veja js/auth.js).
+     Enquanto vazios, os formulários validam os dados e avisam
+     que o acesso ainda não está disponível — nada é salvo.
+     ---------------------------------------------------------- */
+  auth: {
+    loginEndpoint: "",      // ex.: "/api/auth/login"
+    cadastroEndpoint: "",   // ex.: "/api/auth/cadastro"
+    redirectAposLogin: "../index.html",
+    redirectAposCadastro: "login.html?cadastro=ok"
+  }
+};
+
+/* Monta um link de WhatsApp com mensagem opcional */
+window.waLink = function (mensagem) {
+  var texto = mensagem || window.CONFIG.whatsappMensagemPadrao;
+  return "https://api.whatsapp.com/send?phone=" + window.CONFIG.empresa.whatsapp +
+    "&text=" + encodeURIComponent(texto);
 };

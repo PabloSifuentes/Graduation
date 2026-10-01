@@ -1,188 +1,95 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. POPULAR CONFIGURAÇÕES (CONFIG.js)
-    document.querySelectorAll('.config-telefone').forEach(el => el.textContent = CONFIG.empresa.telefone);
-    document.querySelectorAll('.config-endereco').forEach(el => el.textContent = CONFIG.empresa.endereco);
-    document.querySelectorAll('.config-horario').forEach(el => el.textContent = CONFIG.empresa.horario);
-    document.querySelectorAll('.config-whatsapp-text').forEach(el => el.textContent = CONFIG.empresa.telefone);
-    
-    document.getElementById('link-instagram').href = CONFIG.redesSociais.instagram;
-    document.getElementById('link-facebook').href = CONFIG.redesSociais.facebook;
-    document.getElementById('map-iframe').src = CONFIG.mapa.url;
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+/* ==========================================================
+   Comportamentos gerais: ano no rodapé, formulário de contato
+   (envia pelo WhatsApp, como no site anterior) e mapa.
+   ========================================================== */
+(function () {
+  "use strict";
 
-    // Link do WhatsApp (Direto)
-    const whatsAppUrl = `https://wa.me/${CONFIG.empresa.whatsapp}`;
-    document.querySelectorAll('.btn-whatsapp-direct').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.open(whatsAppUrl, '_blank');
-        });
-    });
+  /* Ano atual no rodapé */
+  document.querySelectorAll("[data-year]").forEach(function (el) {
+    el.textContent = new Date().getFullYear();
+  });
 
-    // 2. MENU MOBILE E SCROLL HEADER
-    const btnMobile = document.getElementById('btn-mobile');
-    const nav = document.getElementById('nav');
-    const header = document.getElementById('header');
-    
-    function toggleMenu() {
-        nav.classList.toggle('active');
-        const isActive = nav.classList.contains('active');
-        btnMobile.setAttribute('aria-expanded', isActive);
-        
-        // Animando hamburger
-        const hamburger = document.getElementById('hamburger');
-        if(isActive) {
-            hamburger.style.borderTopColor = 'transparent';
-            hamburger.style.setProperty('--after-transform', 'rotate(135deg)');
-            hamburger.style.setProperty('--before-transform', 'rotate(-135deg)');
-        } else {
-            hamburger.style.borderTopColor = 'var(--text-primary)';
-            hamburger.style.removeProperty('--after-transform');
-            hamburger.style.removeProperty('--before-transform');
-        }
+  /* ---------- Formulário de contato → WhatsApp ---------- */
+  var form = document.querySelector("[data-contact-form]");
+  if (form) {
+    var status = form.querySelector("[data-form-status]");
+    var fields = {
+      nome: form.querySelector("#contato-nome"),
+      telefone: form.querySelector("#contato-telefone"),
+      assunto: form.querySelector("#contato-assunto"),
+      mensagem: form.querySelector("#contato-mensagem")
+    };
+
+    var messages = {
+      nome: "Informe seu nome.",
+      telefone: "Informe um telefone com DDD, por exemplo (47) 99999-9999.",
+      mensagem: "Escreva uma mensagem com pelo menos 10 caracteres."
+    };
+
+    function setError(input, text) {
+      var error = document.getElementById(input.id + "-erro");
+      input.setAttribute("aria-invalid", text ? "true" : "false");
+      if (error) error.textContent = text || "";
     }
-    
-    btnMobile.addEventListener('click', toggleMenu);
-    nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            if(window.innerWidth <= 768) toggleMenu();
-        });
-    });
 
-    // 4. RENDERIZAR PRODUTOS (PRODUCTS.js)
-    const productsGrid = document.getElementById('products-grid');
-    
-    function renderProducts(category = 'Todos') {
-        productsGrid.innerHTML = '';
-        
-        const filtered = category === 'Todos' 
-            ? PRODUCTS_DATA 
-            : PRODUCTS_DATA.filter(p => p.categoria === category);
-            
-        filtered.forEach(prod => {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            card.innerHTML = `
-                <img src="${prod.imagem}" alt="${prod.nome}" class="product-img" loading="lazy">
-                <div class="product-info">
-                    <span class="category-tag">${prod.categoria}</span>
-                    <h3>${prod.nome}</h3>
-                    <p>${prod.descricao.substring(0, 60)}...</p>
-                    <button class="btn btn-secondary w-100 btn-saiba-mais">Ver detalhes</button>
-                </div>
-            `;
-            
-            // Evento para abrir modal
-            card.addEventListener('click', () => openModal(prod));
-            productsGrid.appendChild(card);
-        });
+    function validate() {
+      var ok = true;
+      var digits = fields.telefone.value.replace(/\D/g, "");
+
+      if (fields.nome.value.trim().length < 2) { setError(fields.nome, messages.nome); ok = false; }
+      else setError(fields.nome, "");
+
+      if (digits.length < 10 || digits.length > 11) { setError(fields.telefone, messages.telefone); ok = false; }
+      else setError(fields.telefone, "");
+
+      if (fields.mensagem.value.trim().length < 10) { setError(fields.mensagem, messages.mensagem); ok = false; }
+      else setError(fields.mensagem, "");
+
+      return ok;
     }
-    
-    renderProducts();
 
-    // Filtros
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            renderProducts(btn.dataset.filter);
-        });
+    // máscara simples de telefone
+    fields.telefone.addEventListener("input", function () {
+      var d = this.value.replace(/\D/g, "").slice(0, 11);
+      var out = d;
+      if (d.length > 2) out = "(" + d.slice(0, 2) + ") " + d.slice(2);
+      if (d.length > 7) out = "(" + d.slice(0, 2) + ") " + d.slice(2, d.length - 4) + "-" + d.slice(-4);
+      this.value = out;
     });
 
-    // 5. MODAL DE PRODUTO
-    const modal = document.getElementById('product-modal');
-    const closeBtn = document.querySelector('.close-modal');
-    
-    function openModal(produto) {
-        document.getElementById('modal-img').src = produto.imagem;
-        document.getElementById('modal-title').textContent = produto.nome;
-        document.getElementById('modal-category').textContent = produto.categoria;
-        document.getElementById('modal-desc').textContent = produto.descricao;
-        
-        const whatsBtn = document.getElementById('modal-btn');
-        whatsBtn.onclick = () => {
-            const msg = encodeURIComponent(`Olá! Gostaria de saber mais sobre o produto: ${produto.nome}.`);
-            window.open(`https://wa.me/${CONFIG.empresa.whatsapp}?text=${msg}`, '_blank');
-        };
-        
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-    
-    function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-    
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if(e.target === modal) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-        if(e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      status.className = "form-status";
+      status.textContent = "";
+
+      if (!validate()) {
+        status.classList.add("form-status--error");
+        status.textContent = "Revise os campos destacados para continuar.";
+        var firstInvalid = form.querySelector('[aria-invalid="true"]');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      var texto = "Olá! Me chamo " + fields.nome.value.trim() + ".\n" +
+        "Telefone: " + fields.telefone.value.trim() + "\n" +
+        (fields.assunto && fields.assunto.value ? "Assunto: " + fields.assunto.value + "\n" : "") +
+        "Mensagem: " + fields.mensagem.value.trim();
+
+      window.open(window.waLink(texto), "_blank", "noopener");
+
+      status.classList.add("form-status--success");
+      status.textContent = "Abrimos o WhatsApp com sua mensagem. Se não abriu, toque em \"Falar no WhatsApp\".";
+      form.reset();
     });
 
-    // 6. SCROLL & ANIMAÇÕES & PROGRESS BAR
-    const progressBar = document.getElementById('progress-bar');
-    const backToTop = document.getElementById('back-to-top');
-    
-    window.addEventListener('scroll', () => {
-        // Header
-        if (window.scrollY > 50) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-        
-        // Progress Bar
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        progressBar.style.width = (winScroll / height) * 100 + "%";
-        
-        // Back to top
-        if (window.scrollY > 500) backToTop.classList.add('visible');
-        else backToTop.classList.remove('visible');
+    // limpa o erro enquanto a pessoa corrige
+    Object.keys(fields).forEach(function (key) {
+      var input = fields[key];
+      if (!input) return;
+      input.addEventListener("blur", function () {
+        if (input.getAttribute("aria-invalid") === "true") validate();
+      });
     });
-
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Intersection Observer (Animações de Entrada)
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-
-    document.querySelectorAll('[data-anime]').forEach(el => observer.observe(el));
-
-    // 7. FORMULÁRIO DE CONTATO
-    const form = document.getElementById('contact-form');
-    const feedbackMsg = document.getElementById('form-feedback');
-    
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const nome = document.getElementById('nome').value;
-        const telefone = document.getElementById('telefone').value;
-        const mensagem = document.getElementById('mensagem').value;
-        
-        if(nome && telefone && mensagem) {
-            // Sucesso visual
-            feedbackMsg.style.color = 'green';
-            feedbackMsg.textContent = 'Mensagem pronta para envio!';
-            
-            // Redireciona para WhatsApp com os dados
-            const text = encodeURIComponent(`Olá, me chamo ${nome}. Telefone: ${telefone}. Mensagem: ${mensagem}`);
-            window.open(`https://wa.me/${CONFIG.empresa.whatsapp}?text=${text}`, '_blank');
-            form.reset();
-            
-            setTimeout(() => { feedbackMsg.textContent = ''; }, 3000);
-        } else {
-            feedbackMsg.style.color = 'red';
-            feedbackMsg.textContent = 'Preencha todos os campos.';
-        }
-    });
-});
+  }
+})();

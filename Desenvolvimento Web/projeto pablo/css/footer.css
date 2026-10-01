@@ -1,0 +1,133 @@
+/* ==========================================================
+   Rodapé
+   ========================================================== */
+.site-footer {
+  position: relative;
+  background: var(--color-primary-dark);
+  color: var(--color-on-dark-muted);
+  font-size: 0.97rem;
+}
+
+.footer__main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr));
+  gap: 3rem 2rem;
+  padding-block: clamp(3.5rem, 6vw, 5.5rem) 3rem;
+}
+
+.footer__brand p {
+  margin-top: 1.25rem;
+  max-width: 36ch;
+}
+
+.footer__address {
+  margin-top: 1.5rem;
+  font-style: normal;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.footer__address a {
+  color: var(--color-on-dark);
+  font-weight: 500;
+}
+
+.footer__address a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer__title {
+  margin-bottom: 1.1rem;
+  font-family: var(--font-tech);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: #fff;
+}
+
+.footer__links {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.footer__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 36px;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.footer__links a:hover {
+  color: #fff;
+}
+
+.footer__links .icon {
+  width: 18px;
+  height: 18px;
+  color: #8FB0FF;
+}
+
+.footer__social {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer__social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-line-dark);
+  border-radius: var(--radius-sm);
+  color: var(--color-on-dark);
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
+}
+
+.footer__social a:hover {
+  border-color: rgba(190, 208, 245, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  position: relative;
+  padding-block: 1.5rem;
+  font-size: 0.88rem;
+}
+
+.footer__bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: var(--container-pad);
+  right: var(--container-pad);
+  height: 1px;
+  background: var(--color-line-dark);
+}
+
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  list-style: none;
+  padding: 0;
+}
+
+.footer__legal a:hover {
+  color: #fff;
+}
+
+/* espaço para o botão flutuante não cobrir o rodapé no mobile */
+.footer__spacer {
+  height: 0;
+}

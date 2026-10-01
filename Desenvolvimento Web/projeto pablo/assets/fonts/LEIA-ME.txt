@@ -1,0 +1,1 @@
+Coloque aqui os arquivos .woff2 se quiser hospedar as fontes localmente (veja o README).

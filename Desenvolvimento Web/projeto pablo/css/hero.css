@@ -1,0 +1,356 @@
+/* ==========================================================
+   Hero da home + cabeçalho das páginas internas
+   ========================================================== */
+.hero,
+.page-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+/* Camadas de atmosfera compartilhadas */
+.atmo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.atmo__aurora {
+  position: absolute;
+  inset: -25% -10%;
+  background:
+    radial-gradient(38% 32% at 18% 28%, rgba(26, 82, 220, 0.42), transparent 70%),
+    radial-gradient(28% 26% at 62% 78%, rgba(44, 82, 162, 0.38), transparent 70%),
+    radial-gradient(24% 18% at 48% 8%, rgba(110, 160, 255, 0.16), transparent 70%);
+  filter: blur(28px);
+  animation: aurora-drift 26s ease-in-out infinite alternate;
+}
+
+.atmo__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(156, 180, 235, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(156, 180, 235, 0.07) 1px, transparent 1px);
+  background-size: 76px 76px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 30% 45%, #000 10%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 30% 45%, #000 10%, transparent 75%);
+}
+
+.atmo__particles {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.4px 1.4px at 12% 22%, rgba(200, 220, 255, 0.75), transparent),
+    radial-gradient(1.2px 1.2px at 28% 68%, rgba(200, 220, 255, 0.5), transparent),
+    radial-gradient(1.6px 1.6px at 44% 34%, rgba(200, 220, 255, 0.55), transparent),
+    radial-gradient(1.2px 1.2px at 58% 82%, rgba(200, 220, 255, 0.45), transparent),
+    radial-gradient(1.4px 1.4px at 71% 18%, rgba(200, 220, 255, 0.6), transparent),
+    radial-gradient(1.1px 1.1px at 86% 56%, rgba(200, 220, 255, 0.45), transparent),
+    radial-gradient(1.3px 1.3px at 93% 30%, rgba(200, 220, 255, 0.5), transparent);
+  animation: particles-float 18s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+
+/* ---------- Hero da home ---------- */
+.hero {
+  min-height: min(100svh, 940px);
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--nav-h) + clamp(2.5rem, 5vw, 4.5rem));
+  padding-bottom: clamp(6rem, 11vw, 9.5rem);
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero__media picture,
+.hero__media img {
+  width: 100%;
+  height: 100%;
+}
+
+.hero__media img {
+  object-fit: cover;
+  object-position: 78% 50%;
+}
+
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, var(--color-ink) 0%, rgba(7, 20, 47, 0.94) 30%, rgba(7, 20, 47, 0.6) 56%, rgba(7, 20, 47, 0.18) 100%),
+    linear-gradient(0deg, var(--color-ink) 0%, transparent 35%),
+    linear-gradient(180deg, rgba(7, 20, 47, 0.6) 0%, transparent 25%);
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 3rem;
+}
+
+.hero__content {
+  max-width: 760px;
+}
+
+.hero__title {
+  margin-top: 1.6rem;
+  font-size: var(--fs-display);
+  line-height: 0.98;
+  letter-spacing: -0.048em;
+  font-weight: 700;
+  max-width: 15ch;
+  /* acabamento metálico sutil no título */
+  background: linear-gradient(178deg, #FFFFFF 0%, #FFFFFF 38%, #D9E3F7 62%, #9DB0D8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero__lead {
+  margin-top: 1.6rem;
+  max-width: 50ch;
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  color: var(--color-on-dark-muted);
+}
+
+.hero__actions {
+  margin-top: 2.4rem;
+}
+
+.hero__facts {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 2.2rem;
+  list-style: none;
+  padding: 0;
+  font-family: var(--font-tech);
+  font-size: 0.93rem;
+  color: var(--color-on-dark-muted);
+}
+
+.hero__facts li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.hero__facts .icon {
+  color: #6E95FF;
+}
+
+.hero__facts strong {
+  color: var(--color-on-dark);
+  font-weight: 500;
+}
+
+/* Painel técnico — leitura da linha automotiva */
+.tech-panel {
+  width: 300px;
+  padding: 1.1rem 1.2rem 1.2rem;
+  border: 1px solid var(--color-line-dark);
+  border-radius: var(--radius-sm);
+  background: rgba(7, 20, 47, 0.58);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  font-family: var(--font-tech);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.8);
+}
+
+.tech-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--color-line-dark);
+  font-size: 0.92rem;
+  color: var(--color-on-dark);
+}
+
+.tech-panel__head .icon {
+  color: #8FB0FF;
+}
+
+.tech-panel__list {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.9rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.tech-panel__row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.4rem 1rem;
+  font-size: 0.86rem;
+  color: var(--color-on-dark-muted);
+}
+
+.tech-panel__bar {
+  grid-column: 1 / -1;
+  height: 3px;
+  background: rgba(156, 180, 235, 0.14);
+  overflow: hidden;
+}
+
+.tech-panel__bar span {
+  display: block;
+  height: 100%;
+  width: var(--w, 100%);
+  background: linear-gradient(90deg, #1A52DC, #8FB0FF);
+  box-shadow: 0 0 10px rgba(78, 134, 255, 0.8);
+  transform-origin: left;
+  animation: bar-fill 1.4s var(--ease-out) both;
+  animation-delay: var(--d, 0.8s);
+}
+
+.tech-panel__state {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #BFD1FF;
+}
+
+.tech-panel__state::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4E86FF;
+  box-shadow: 0 0 8px #4E86FF;
+}
+
+.tech-panel__foot {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--color-on-dark-muted);
+}
+
+/* ---------- Hero das páginas internas ---------- */
+.page-hero {
+  padding-top: calc(var(--nav-h) + clamp(3rem, 6vw, 5.5rem));
+  padding-bottom: clamp(5.5rem, 10vw, 8.5rem);
+}
+
+.page-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.page-hero__inner--single {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 900px;
+}
+
+.page-hero h1 {
+  font-size: var(--fs-h1);
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  max-width: 18ch;
+}
+
+.page-hero__lead {
+  margin-top: 1.4rem;
+  max-width: 56ch;
+  font-size: var(--fs-lead);
+  color: var(--color-on-dark-muted);
+}
+
+.page-hero .btn-row {
+  margin-top: 2.2rem;
+}
+
+.page-hero .badge-24h {
+  margin-bottom: 1.5rem;
+}
+
+.page-hero__media {
+  position: relative;
+}
+
+.page-hero__media img {
+  width: 100%;
+  height: auto;
+}
+
+.page-hero__media--photo {
+  aspect-ratio: 4 / 5;
+  max-height: 520px;
+  justify-self: end;
+  width: min(100%, 420px);
+  border: 1px solid var(--color-line-dark);
+}
+
+.page-hero__media--photo img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero__icon {
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  width: clamp(180px, 22vw, 280px);
+  aspect-ratio: 1;
+  border: 1px solid var(--color-line-dark);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(143, 176, 255, 0.25), transparent 60%),
+    var(--metal-dark);
+  box-shadow: 0 0 0 14px rgba(26, 82, 220, 0.06), 0 0 0 28px rgba(26, 82, 220, 0.04), 0 40px 80px -30px rgba(26, 82, 220, 0.6);
+  color: #CFE0FF;
+}
+
+.page-hero__icon .icon {
+  width: 42%;
+  height: 42%;
+  stroke-width: 1.1;
+}
+
+.breadcrumb {
+  margin-bottom: 1.6rem;
+  font-family: var(--font-tech);
+  font-size: 0.88rem;
+  color: var(--color-on-dark-muted);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  margin-right: 0.4rem;
+  opacity: 0.5;
+}
+
+.breadcrumb a:hover {
+  color: #fff;
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--color-on-dark);
+}
+
+.tech-panel__row:nth-child(1) .tech-panel__bar span { --d: 0.9s; }
+.tech-panel__row:nth-child(2) .tech-panel__bar span { --d: 1.1s; }
+.tech-panel__row:nth-child(3) .tech-panel__bar span { --d: 1.3s; }
