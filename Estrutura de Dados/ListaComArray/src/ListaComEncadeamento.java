@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class ListaComEncadeamento<E> implements Lista<E> {
 
     private NoLista<E> first;
@@ -157,6 +159,40 @@ public class ListaComEncadeamento<E> implements Lista<E> {
             i++;
         }
         return ultimo;
+    }
+
+    //PROVA
+    public void concatenar(Lista<E> outra) {
+
+       if (outra == null) {
+           return;
+       }
+
+       for (int i = 0; i < outra.size(); i++) {
+           this.add(outra.get(i));
+       }
+    }
+
+    //PROVA
+    public boolean comparar(ListaComEncadeamento<E> outra) {
+
+        if (outra == null) {
+            return false;
+        }
+        if (this.counter != outra.counter){
+            return false;
+        }
+
+        NoLista<E> atualEsta = this.first;
+        NoLista<E> atualOutra = outra.first;
+
+        while (atualEsta != null && atualOutra != null) {
+
+            if (atualEsta. == null;)
+        }
+
+        return false;
+
     }
 
     @Override

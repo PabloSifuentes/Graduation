@@ -72,7 +72,7 @@ public class ListaComArray<E> {
         }
         E aux = array[index];
 
-        for (int i = index; i < (counter - 1); i++){
+        for (int i = index; i < (counter - 1); i++) {
             array[i] = array[i + 1];
         }
 
@@ -82,8 +82,8 @@ public class ListaComArray<E> {
 
     public boolean removeFirst(E element) {
 
-        for (int i = 0;i < counter; i++){
-            if (array[i].equals(element)){
+        for (int i = 0; i < counter; i++) {
+            if (array[i].equals(element)) {
                 remove(i);
                 return true;
             }
@@ -140,8 +140,8 @@ public class ListaComArray<E> {
 
     public int indexOf(E element) {
 
-        for (int i = 0;i < counter; i++){
-            if (array[i].equals(element)){
+        for (int i = 0; i < counter; i++) {
+            if (array[i].equals(element)) {
                 return i;
             }
         }
@@ -149,42 +149,70 @@ public class ListaComArray<E> {
         return -1;
     }
 
-public int lastIndexOf(E element) {
+    public int lastIndexOf(E element) {
 
-    for (int i = counter - 1; i >= 0; i++){
-        if (array[i].equals(element)){
-            return i;
+        for (int i = counter - 1; i >= 0; i++) {
+            if (array[i].equals(element)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    //PROVA
+    public void inverter() {
+
+        for (int i = 0; i < this.counter / 2; i++) {
+            int indiceOposto = this.counter - 1 - i;
+
+            E tempo = array[i];
+            array[i] = array[indiceOposto];
+            array[indiceOposto] = tempo;
         }
     }
 
-    return -1;
-}
+    //PROVA
+    public int contadorOcorrencias(E elemento) {
+        int contador = 0;
 
-public E[] toArray() {
-    E[] reduzido = (E[]) new Object[counter];
-    System.arraycopy(array, 0, reduzido, 0, counter);
-    return reduzido;
-}
+        for (int i = 0; i < this.counter; i++){
+            if (elemento == null){
+                if (array[i] == null){
+                    contador++;
+                }
+            } else if
 
-public String toString() {
-    String myarray1 = "[ ";
-    for (int i = 0; i < counter; i++) {
-        if (i != (counter - 1)) {
-            myarray1 += array[i] + ", ";
-        } else {
-            myarray1 += array[i] + " ]";
+
         }
+
     }
-    String myarray2 = "[ ";
-    for (int i = 0; i < array.length; i++) {
-        if (i != (array.length - 1)) {
-            myarray2 += array[i] + ", ";
-        } else {
-            myarray2 += array[i] + " ]";
+
+    public E[] toArray() {
+        E[] reduzido = (E[]) new Object[counter];
+        System.arraycopy(array, 0, reduzido, 0, counter);
+        return reduzido;
+    }
+
+    public String toString() {
+        String myarray1 = "[ ";
+        for (int i = 0; i < counter; i++) {
+            if (i != (counter - 1)) {
+                myarray1 += array[i] + ", ";
+            } else {
+                myarray1 += array[i] + " ]";
+            }
         }
+        String myarray2 = "[ ";
+        for (int i = 0; i < array.length; i++) {
+            if (i != (array.length - 1)) {
+                myarray2 += array[i] + ", ";
+            } else {
+                myarray2 += array[i] + " ]";
+            }
+        }
+        return "@@@\n" + myarray1 + "\n" + myarray2;
     }
-    return "@@@\n" + myarray1 + "\n" + myarray2;
-}
 }
 
 
