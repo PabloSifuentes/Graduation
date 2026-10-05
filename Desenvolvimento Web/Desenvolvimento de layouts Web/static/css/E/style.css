@@ -15,12 +15,13 @@ header {
     display: flex;
     justify-content: center;
     margin: 20px;
+    text-align: center;
+    background-color: #5e5d5db4;
 }
 
 body {
     background: linear-gradient(135deg, var(--gradiente-inicio), var(--gradiente-fim));
     font-family: Georgia, 'Times New Roman', Times, serif;
-    height: 100vh;
     margin: 0;
 }
 
@@ -30,12 +31,8 @@ body {
 
 .container-principal {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 100px;
-}
-
-.card1 {
-    flex: 3;
 }
 
 .card1 a {
@@ -53,7 +50,7 @@ body {
 }
 
 .card2 {
-    flex: 7;
+    background-color: #727272;
 }
 
 .card2 a {
@@ -67,5 +64,19 @@ body {
 }
 
 .card2 a:hover {
+    background: linear-gradient(90deg, #2575fc, #689cfc);
+}
+
+.card3 a {
+    display: inline-block;
+    padding: 12px 24px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    background: linear-gradient(90deg, --cor-primaria, --cor-secundaria);
+    transition: 0.3s;
+}
+
+.card3 a:hover {
     background: linear-gradient(90deg, #2575fc, #689cfc);
 }
