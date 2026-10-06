@@ -1,0 +1,477 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: white;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.cabecalho {
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 90px;
+
+    background: #e50070;
+    color: white;
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    font-style: italic;
+
+    margin-right: 60px;
+}
+
+
+/* MENU */
+
+nav ul {
+    display: flex;
+    gap: 30px;
+
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 20px;
+}
+
+
+/* BREADCRUMB */
+
+.breadcrumb {
+    font-size: 12px;
+    color: #999;
+
+    margin-bottom: 40px;
+}
+
+.breadcrumb strong {
+    color: #d50065;
+}
+
+
+/* =========================
+   PRODUTO
+========================= */
+
+.produto {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 45px;
+}
+
+
+/* =========================
+   GALERIA
+========================= */
+
+.galeria {
+    display: grid;
+
+    grid-template-columns: 60px 1fr;
+
+    gap: 20px;
+}
+
+
+/* MINIATURAS */
+
+.miniaturas {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.miniaturas img {
+    width: 55px;
+    height: 55px;
+
+    object-fit: cover;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    cursor: pointer;
+}
+
+.miniaturas img:first-child {
+    border: 1px solid #e50070;
+}
+
+
+/* IMAGEM PRINCIPAL */
+
+.imagem-principal {
+    position: relative;
+
+    height: 420px;
+
+    background: #f5f5f5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 4px;
+}
+
+.imagem-principal img {
+    width: 90%;
+    height: 90%;
+
+    object-fit: contain;
+}
+
+
+/* DESCONTO */
+
+.desconto {
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+
+    background: #c90059;
+
+    color: white;
+
+    padding: 7px 10px;
+
+    border-radius: 4px;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
+.informacoes h1 {
+    font-size: 22px;
+    line-height: 1.3;
+
+    margin-bottom: 5px;
+}
+
+.codigo {
+    font-size: 11px;
+    color: #999;
+
+    margin-bottom: 25px;
+}
+
+
+/* PREÇO */
+
+.preco {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 5px;
+}
+
+.preco-antigo {
+    color: #e50070;
+    text-decoration: line-through;
+
+    font-size: 14px;
+}
+
+.preco strong {
+    color: #c90059;
+
+    font-size: 24px;
+}
+
+.parcelamento {
+    font-size: 12px;
+
+    color: #555;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   CORES
+========================= */
+
+.opcao {
+    margin-bottom: 20px;
+}
+
+.opcao h3 {
+    font-size: 14px;
+    font-weight: normal;
+
+    margin-bottom: 10px;
+}
+
+.cores {
+    display: flex;
+    gap: 8px;
+}
+
+.cores button {
+    width: 42px;
+    height: 42px;
+
+    padding: 2px;
+
+    border: 1px solid #ddd;
+
+    background: white;
+
+    border-radius: 5px;
+}
+
+.cores button.selecionado {
+    border: 1px solid #e50070;
+}
+
+.cores img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 3px;
+}
+
+.opcao p {
+    font-size: 11px;
+    color: #999;
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   TAMANHOS
+========================= */
+
+.tamanhos {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.tamanhos button {
+    border: none;
+
+    background: #eee;
+
+    padding: 9px 12px;
+
+    border-radius: 4px;
+
+    color: #999;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.tamanhos button.selecionado {
+    background: white;
+
+    border: 1px solid #e50070;
+
+    color: #e50070;
+}
+
+
+/* =========================
+   BOTÃO COMPRAR
+========================= */
+
+.comprar {
+    width: 100%;
+
+    border: none;
+
+    background: #c90059;
+
+    color: white;
+
+    padding: 13px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    margin: 5px 0 25px;
+}
+
+.comprar:hover {
+    background: #a9004b;
+}
+
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
+.descricao {
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+
+    padding: 12px 5px;
+}
+
+.descricao h2 {
+    font-size: 14px;
+    font-weight: normal;
+
+    margin-bottom: 12px;
+}
+
+.descricao p {
+    font-size: 11px;
+    line-height: 1.5;
+
+    color: #777;
+}
+
+
+/* =========================
+   BENEFÍCIOS
+========================= */
+
+.beneficios {
+    margin-top: 20px;
+}
+
+.beneficios > h2 {
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: normal;
+
+    margin-bottom: 15px;
+}
+
+.beneficios-grid {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 15px;
+}
+
+.beneficio {
+    min-height: 115px;
+
+    background: #13b985;
+
+    border-radius: 22px;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 10px;
+}
+
+.icone {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: #a5e7d4;
+
+    color: #13b985;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+
+    margin-bottom: 10px;
+}
+
+.beneficio strong {
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 800px) {
+
+    .cabecalho {
+        padding: 0 20px;
+    }
+
+    nav ul {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .produto {
+        grid-template-columns: 1fr;
+    }
+
+    .beneficios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

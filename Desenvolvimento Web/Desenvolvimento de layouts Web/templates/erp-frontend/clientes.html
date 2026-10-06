@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gerenciamento e cadastro de clientes do ERP System.">
+    <title>Clientes | ERP System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- ===================== SIDEBAR ===================== -->
+        <aside class="sidebar">
+            <a class="marca" href="index.html" aria-label="ERP System — página inicial">
+                <span class="marca-simbolo" aria-hidden="true">E</span>
+                <span class="marca-nome">ERP System</span>
+            </a>
+
+            <nav aria-label="Menu principal">
+                <ul class="menu">
+                    <li>
+                        <a class="menu-link" href="index.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />
+                            </svg>
+                            <span class="menu-texto">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link ativo" href="clientes.html" aria-current="page">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="9" cy="8" r="4" />
+                                <path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1" />
+                                <path d="M16 4.1a4 4 0 0 1 0 7.8" />
+                                <path d="M22 21v-1a6 6 0 0 0-4-5.6" />
+                            </svg>
+                            <span class="menu-texto">Clientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link" href="produtos.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M21 8 12 3 3 8v8l9 5 9-5z" />
+                                <path d="m3 8 9 5 9-5" />
+                                <path d="M12 13v8" />
+                            </svg>
+                            <span class="menu-texto">Produtos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link" href="relatorios.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 3v18h18" />
+                                <path d="M8 16v-3M13 16V9M18 16V6" />
+                            </svg>
+                            <span class="menu-texto">Relatórios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link" href="configuracoes.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="3" />
+                                <path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1" />
+                            </svg>
+                            <span class="menu-texto">Configurações</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <p class="sidebar-rodape">Versão 1.0 · Protótipo</p>
+        </aside>
+
+        <!-- ===================== ÁREA PRINCIPAL ===================== -->
+        <div class="area-principal">
+            <main class="conteudo">
+
+                <header class="cabecalho">
+                    <div>
+                        <h1>Clientes</h1>
+                        <p class="subtitulo">Consulte e gerencie os clientes cadastrados</p>
+                    </div>
+                </header>
+
+                <!-- Lista de clientes -->
+                <section class="painel" aria-labelledby="titulo-lista">
+                    <h2 id="titulo-lista" class="visualmente-oculto">Lista de clientes</h2>
+
+                    <div class="barra-ferramentas">
+                        <form class="busca" role="search" action="clientes.html">
+                            <div class="campo-busca">
+                                <label for="pesquisa" class="visualmente-oculto">Pesquisar cliente</label>
+                                <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="11" cy="11" r="7" />
+                                    <path d="m20 20-3.5-3.5" />
+                                </svg>
+                                <input type="search" id="pesquisa" name="pesquisa" placeholder="Pesquisar cliente...">
+                            </div>
+                            <button type="submit" class="botao botao--contorno">Pesquisar</button>
+                        </form>
+
+                        <a class="botao botao--principal" href="#cadastro">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 5v14M5 12h14" />
+                            </svg>
+                            Novo Cliente
+                        </a>
+                    </div>
+
+                    <div class="tabela-container">
+                        <table class="tabela">
+                            <caption class="visualmente-oculto">Clientes cadastrados no sistema</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Telefone</th>
+                                    <th scope="col">Cidade</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col"><span class="visualmente-oculto">Ações</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="cliente"><span class="avatar" aria-hidden="true">JS</span>João Silva</span></td>
+                                    <td>joao@email.com</td>
+                                    <td>(47) 99999-1234</td>
+                                    <td>Blumenau – SC</td>
+                                    <td><span class="selo selo--ativo">Ativo</span></td>
+                                    <td><a class="link-acao" href="#cadastro">Editar<span class="visualmente-oculto"> João Silva</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="cliente"><span class="avatar" aria-hidden="true">MS</span>Maria Souza</span></td>
+                                    <td>maria@email.com</td>
+                                    <td>(47) 98888-5678</td>
+                                    <td>Joinville – SC</td>
+                                    <td><span class="selo selo--ativo">Ativo</span></td>
+                                    <td><a class="link-acao" href="#cadastro">Editar<span class="visualmente-oculto"> Maria Souza</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="cliente"><span class="avatar" aria-hidden="true">CP</span>Carlos Pereira</span></td>
+                                    <td>carlos@email.com</td>
+                                    <td>(47) 97777-4321</td>
+                                    <td>Gaspar – SC</td>
+                                    <td><span class="selo selo--alerta">Pendente</span></td>
+                                    <td><a class="link-acao" href="#cadastro">Editar<span class="visualmente-oculto"> Carlos Pereira</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="cliente"><span class="avatar" aria-hidden="true">AL</span>Ana Lima</span></td>
+                                    <td>ana.lima@email.com</td>
+                                    <td>(47) 96666-8765</td>
+                                    <td>Itajaí – SC</td>
+                                    <td><span class="selo selo--ativo">Ativo</span></td>
+                                    <td><a class="link-acao" href="#cadastro">Editar<span class="visualmente-oculto"> Ana Lima</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="cliente"><span class="avatar" aria-hidden="true">RO</span>Rafael Oliveira</span></td>
+                                    <td>rafael@email.com</td>
+                                    <td>(47) 95555-2468</td>
+                                    <td>Pomerode – SC</td>
+                                    <td><span class="selo selo--neutro">Inativo</span></td>
+                                    <td><a class="link-acao" href="#cadastro">Editar<span class="visualmente-oculto"> Rafael Oliveira</span></a></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="cliente"><span class="avatar" aria-hidden="true">BC</span>Beatriz Costa</span></td>
+                                    <td>beatriz@email.com</td>
+                                    <td>(47) 94444-1357</td>
+                                    <td>Brusque – SC</td>
+                                    <td><span class="selo selo--ativo">Ativo</span></td>
+                                    <td><a class="link-acao" href="#cadastro">Editar<span class="visualmente-oculto"> Beatriz Costa</span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="tabela-rodape">Exibindo 6 de 1.248 clientes</p>
+                </section>
+
+                <!-- Cadastro de cliente -->
+                <section class="painel" id="cadastro" aria-labelledby="titulo-cadastro">
+                    <div class="painel-cabecalho">
+                        <div>
+                            <h2 id="titulo-cadastro" class="painel-titulo">Cadastro de Cliente</h2>
+                            <p class="painel-descricao">Campos marcados com <span class="obrigatorio">*</span> são obrigatórios</p>
+                        </div>
+                    </div>
+
+                    <form class="formulario" action="clientes.html" method="post">
+                        <div class="campo campo--inteiro">
+                            <label for="nome">Nome do Cliente <span class="obrigatorio" aria-hidden="true">*</span></label>
+                            <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" autocomplete="name" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="email">E-mail <span class="obrigatorio" aria-hidden="true">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="nome@empresa.com" autocomplete="email" required>
+                        </div>
+
+                        <div class="campo">
+                            <label for="telefone">Telefone <span class="obrigatorio" aria-hidden="true">*</span></label>
+                            <input type="tel" id="telefone" name="telefone" placeholder="(47) 99999-9999" autocomplete="tel" required>
+                        </div>
+
+                        <div class="campo campo--inteiro">
+                            <label for="endereco">Endereço</label>
+                            <textarea id="endereco" name="endereco" rows="3" placeholder="Rua, número, bairro, cidade – UF" autocomplete="street-address"></textarea>
+                        </div>
+
+                        <div class="formulario-acoes">
+                            <button type="reset" class="botao botao--contorno">Cancelar</button>
+                            <button type="submit" class="botao botao--principal">Salvar</button>
+                        </div>
+                    </form>
+                </section>
+
+            </main>
+
+            <footer class="rodape">
+                <p>© 2026 ERP System — Protótipo acadêmico desenvolvido com HTML5 e CSS3.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

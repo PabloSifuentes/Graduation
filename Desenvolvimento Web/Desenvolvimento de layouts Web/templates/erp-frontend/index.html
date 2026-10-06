@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard do ERP System — visão geral do sistema.">
+    <title>Dashboard | ERP System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- ===================== SIDEBAR ===================== -->
+        <aside class="sidebar">
+            <a class="marca" href="index.html" aria-label="ERP System — página inicial">
+                <span class="marca-simbolo" aria-hidden="true">E</span>
+                <span class="marca-nome">ERP System</span>
+            </a>
+
+            <nav aria-label="Menu principal">
+                <ul class="menu">
+                    <li>
+                        <a class="menu-link ativo" href="index.html" aria-current="page">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />
+                            </svg>
+                            <span class="menu-texto">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link" href="clientes.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="9" cy="8" r="4" />
+                                <path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1" />
+                                <path d="M16 4.1a4 4 0 0 1 0 7.8" />
+                                <path d="M22 21v-1a6 6 0 0 0-4-5.6" />
+                            </svg>
+                            <span class="menu-texto">Clientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link" href="produtos.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M21 8 12 3 3 8v8l9 5 9-5z" />
+                                <path d="m3 8 9 5 9-5" />
+                                <path d="M12 13v8" />
+                            </svg>
+                            <span class="menu-texto">Produtos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link" href="relatorios.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 3v18h18" />
+                                <path d="M8 16v-3M13 16V9M18 16V6" />
+                            </svg>
+                            <span class="menu-texto">Relatórios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link" href="configuracoes.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="3" />
+                                <path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1" />
+                            </svg>
+                            <span class="menu-texto">Configurações</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <p class="sidebar-rodape">Versão 1.0 · Protótipo</p>
+        </aside>
+
+        <!-- ===================== ÁREA PRINCIPAL ===================== -->
+        <div class="area-principal">
+            <main class="conteudo">
+
+                <header class="cabecalho">
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p class="subtitulo">Visão geral do sistema</p>
+                    </div>
+
+                    <div class="cabecalho-acoes">
+                        <a class="botao botao--contorno" href="index.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                <path d="m16 17 5-5-5-5M21 12H9" />
+                            </svg>
+                            Logout
+                        </a>
+                    </div>
+                </header>
+
+                <!-- Cards de resumo -->
+                <section class="cards" aria-label="Resumo do sistema">
+                    <article class="card">
+                        <span class="card-icone" aria-hidden="true">
+                            <svg class="icone" viewBox="0 0 24 24">
+                                <circle cx="12" cy="8" r="4" />
+                                <path d="M4 21v-1a7 7 0 0 1 16 0v1" />
+                            </svg>
+                        </span>
+                        <h2 class="card-titulo">Total de Clientes</h2>
+                        <p class="card-valor">1.248</p>
+                        <p class="card-info"><strong>+8%</strong> em relação ao mês anterior</p>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-icone" aria-hidden="true">
+                            <svg class="icone" viewBox="0 0 24 24">
+                                <path d="M21 8 12 3 3 8v8l9 5 9-5z" />
+                                <path d="m3 8 9 5 9-5" />
+                                <path d="M12 13v8" />
+                            </svg>
+                        </span>
+                        <h2 class="card-titulo">Produtos em Estoque</h2>
+                        <p class="card-valor">856</p>
+                        <p class="card-info">Distribuídos em 42 categorias</p>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-icone" aria-hidden="true">
+                            <svg class="icone" viewBox="0 0 24 24">
+                                <path d="M6 7h12l1 14H5z" />
+                                <path d="M9 7V5a3 3 0 0 1 6 0v2" />
+                            </svg>
+                        </span>
+                        <h2 class="card-titulo">Vendas do Mês</h2>
+                        <p class="card-valor">R$ 48.520,00</p>
+                        <p class="card-info"><strong>+12%</strong> em relação ao mês anterior</p>
+                    </article>
+                </section>
+
+                <div class="grade-paineis">
+
+                    <!-- Gráfico de vendas por mês -->
+                    <section class="painel">
+                        <div class="painel-cabecalho">
+                            <div>
+                                <h2 class="painel-titulo">Vendas por mês</h2>
+                                <p class="painel-descricao">Valores em milhares de reais (R$ mil) — 2026</p>
+                            </div>
+                        </div>
+
+                        <figure class="grafico" aria-label="Gráfico de vendas por mês">
+                            <ul class="grafico-eixo-y" aria-hidden="true">
+                                <li>100</li>
+                                <li>80</li>
+                                <li>60</li>
+                                <li>40</li>
+                                <li>20</li>
+                                <li>0</li>
+                            </ul>
+
+                            <ul class="grafico-barras">
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-40"><span class="visualmente-oculto">R$ 40 mil</span></span></span>
+                                    <span class="grafico-rotulo">Jan</span>
+                                </li>
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-50"><span class="visualmente-oculto">R$ 50 mil</span></span></span>
+                                    <span class="grafico-rotulo">Fev</span>
+                                </li>
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-60"><span class="visualmente-oculto">R$ 60 mil</span></span></span>
+                                    <span class="grafico-rotulo">Mar</span>
+                                </li>
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-45"><span class="visualmente-oculto">R$ 45 mil</span></span></span>
+                                    <span class="grafico-rotulo">Abr</span>
+                                </li>
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-65"><span class="visualmente-oculto">R$ 65 mil</span></span></span>
+                                    <span class="grafico-rotulo">Mai</span>
+                                </li>
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-60"><span class="visualmente-oculto">R$ 60 mil</span></span></span>
+                                    <span class="grafico-rotulo">Jun</span>
+                                </li>
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-80"><span class="visualmente-oculto">R$ 80 mil</span></span></span>
+                                    <span class="grafico-rotulo">Jul</span>
+                                </li>
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-65"><span class="visualmente-oculto">R$ 65 mil</span></span></span>
+                                    <span class="grafico-rotulo">Ago</span>
+                                </li>
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-85"><span class="visualmente-oculto">R$ 85 mil</span></span></span>
+                                    <span class="grafico-rotulo">Set</span>
+                                </li>
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-70"><span class="visualmente-oculto">R$ 70 mil</span></span></span>
+                                    <span class="grafico-rotulo">Out</span>
+                                </li>
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-75"><span class="visualmente-oculto">R$ 75 mil</span></span></span>
+                                    <span class="grafico-rotulo">Nov</span>
+                                </li>
+                                <li class="grafico-coluna">
+                                    <span class="grafico-trilho"><span class="barra altura-95"><span class="visualmente-oculto">R$ 95 mil</span></span></span>
+                                    <span class="grafico-rotulo">Dez</span>
+                                </li>
+                            </ul>
+                        </figure>
+                    </section>
+
+                    <!-- Atividades recentes -->
+                    <section class="painel">
+                        <div class="painel-cabecalho">
+                            <h2 class="painel-titulo">Atividades recentes</h2>
+                        </div>
+
+                        <ul class="atividades">
+                            <li class="atividade">
+                                <span class="atividade-icone" aria-hidden="true">
+                                    <svg class="icone" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="8" r="4" />
+                                        <path d="M4 21v-1a7 7 0 0 1 16 0v1" />
+                                    </svg>
+                                </span>
+                                <p class="atividade-texto">
+                                    Novo cliente cadastrado: <strong>Maria Souza</strong>
+                                    <span class="atividade-tempo">há 15 minutos</span>
+                                </p>
+                            </li>
+                            <li class="atividade">
+                                <span class="atividade-icone" aria-hidden="true">
+                                    <svg class="icone" viewBox="0 0 24 24">
+                                        <path d="M6 7h12l1 14H5z" />
+                                        <path d="M9 7V5a3 3 0 0 1 6 0v2" />
+                                    </svg>
+                                </span>
+                                <p class="atividade-texto">
+                                    Venda concluída: <strong>R$ 3.499,00</strong>
+                                    <span class="atividade-tempo">há 1 hora</span>
+                                </p>
+                            </li>
+                            <li class="atividade">
+                                <span class="atividade-icone" aria-hidden="true">
+                                    <svg class="icone" viewBox="0 0 24 24">
+                                        <path d="M21 8 12 3 3 8v8l9 5 9-5z" />
+                                        <path d="m3 8 9 5 9-5" />
+                                        <path d="M12 13v8" />
+                                    </svg>
+                                </span>
+                                <p class="atividade-texto">
+                                    Estoque baixo: <strong>Teclado Mecânico</strong>
+                                    <span class="atividade-tempo">há 3 horas</span>
+                                </p>
+                            </li>
+                            <li class="atividade">
+                                <span class="atividade-icone" aria-hidden="true">
+                                    <svg class="icone" viewBox="0 0 24 24">
+                                        <path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z" />
+                                        <path d="M14 3v5h5" />
+                                    </svg>
+                                </span>
+                                <p class="atividade-texto">
+                                    Relatório mensal gerado
+                                    <span class="atividade-tempo">ontem</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </section>
+
+                </div>
+            </main>
+
+            <footer class="rodape">
+                <p>© 2026 ERP System — Protótipo acadêmico desenvolvido com HTML5 e CSS3.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

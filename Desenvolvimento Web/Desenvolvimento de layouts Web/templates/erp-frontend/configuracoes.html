@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Configurações da empresa e preferências do ERP System.">
+    <title>Configurações | ERP System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="app">
+
+        <!-- ===================== SIDEBAR ===================== -->
+        <aside class="sidebar">
+            <a class="marca" href="index.html" aria-label="ERP System — página inicial">
+                <span class="marca-simbolo" aria-hidden="true">E</span>
+                <span class="marca-nome">ERP System</span>
+            </a>
+
+            <nav aria-label="Menu principal">
+                <ul class="menu">
+                    <li>
+                        <a class="menu-link" href="index.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />
+                            </svg>
+                            <span class="menu-texto">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link" href="clientes.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="9" cy="8" r="4" />
+                                <path d="M2 21v-1a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6v1" />
+                                <path d="M16 4.1a4 4 0 0 1 0 7.8" />
+                                <path d="M22 21v-1a6 6 0 0 0-4-5.6" />
+                            </svg>
+                            <span class="menu-texto">Clientes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link" href="produtos.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M21 8 12 3 3 8v8l9 5 9-5z" />
+                                <path d="m3 8 9 5 9-5" />
+                                <path d="M12 13v8" />
+                            </svg>
+                            <span class="menu-texto">Produtos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link" href="relatorios.html">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 3v18h18" />
+                                <path d="M8 16v-3M13 16V9M18 16V6" />
+                            </svg>
+                            <span class="menu-texto">Relatórios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="menu-link ativo" href="configuracoes.html" aria-current="page">
+                            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="3" />
+                                <path d="M12 2v3M12 19v3M4.9 4.9 7 7M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1 7 17M17 7l2.1-2.1" />
+                            </svg>
+                            <span class="menu-texto">Configurações</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <p class="sidebar-rodape">Versão 1.0 · Protótipo</p>
+        </aside>
+
+        <!-- ===================== ÁREA PRINCIPAL ===================== -->
+        <div class="area-principal">
+            <main class="conteudo">
+
+                <header class="cabecalho">
+                    <div>
+                        <h1>Configurações</h1>
+                        <p class="subtitulo">Dados da empresa e preferências do sistema</p>
+                    </div>
+                </header>
+
+                <form class="config" action="configuracoes.html" method="post">
+
+                    <!-- Informações da empresa -->
+                    <section class="painel" aria-labelledby="titulo-empresa">
+                        <div class="painel-cabecalho">
+                            <div>
+                                <h2 id="titulo-empresa" class="painel-titulo">Informações da empresa</h2>
+                                <p class="painel-descricao">Esses dados aparecem nos relatórios e documentos emitidos</p>
+                            </div>
+                        </div>
+
+                        <div class="formulario">
+                            <div class="campo">
+                                <label for="empresa">Nome da empresa</label>
+                                <input type="text" id="empresa" name="empresa" value="Tech Soluções Ltda." autocomplete="organization">
+                            </div>
+
+                            <div class="campo">
+                                <label for="cnpj">CNPJ</label>
+                                <input type="text" id="cnpj" name="cnpj" value="12.345.678/0001-90">
+                            </div>
+
+                            <div class="campo">
+                                <label for="email-empresa">E-mail</label>
+                                <input type="email" id="email-empresa" name="email" value="contato@techsolucoes.com.br" autocomplete="email">
+                            </div>
+
+                            <div class="campo">
+                                <label for="telefone-empresa">Telefone</label>
+                                <input type="tel" id="telefone-empresa" name="telefone" value="(47) 3333-4444" autocomplete="tel">
+                            </div>
+
+                            <div class="campo campo--inteiro">
+                                <label for="endereco-empresa">Endereço</label>
+                                <textarea id="endereco-empresa" name="endereco" rows="2">Rua XV de Novembro, 1000 – Centro, Blumenau – SC</textarea>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Preferências visuais -->
+                    <section class="painel" aria-labelledby="titulo-preferencias">
+                        <div class="painel-cabecalho">
+                            <div>
+                                <h2 id="titulo-preferencias" class="painel-titulo">Preferências visuais</h2>
+                                <p class="painel-descricao">Personalize a aparência do sistema</p>
+                            </div>
+                        </div>
+
+                        <fieldset>
+                            <legend>Tema</legend>
+                            <div class="grupo-opcoes">
+                                <label class="opcao">
+                                    <input type="radio" name="tema" value="claro" checked>
+                                    Claro
+                                </label>
+                                <label class="opcao">
+                                    <input type="radio" name="tema" value="escuro">
+                                    Escuro
+                                </label>
+                                <label class="opcao">
+                                    <input type="radio" name="tema" value="sistema">
+                                    Igual ao sistema
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <hr class="separador">
+
+                        <fieldset>
+                            <legend>Cor de destaque</legend>
+                            <div class="grupo-opcoes">
+                                <label class="opcao">
+                                    <input type="radio" name="cor" value="azul" checked>
+                                    <span class="amostra amostra--azul" aria-hidden="true"></span>
+                                    Azul
+                                </label>
+                                <label class="opcao">
+                                    <input type="radio" name="cor" value="verde">
+                                    <span class="amostra amostra--verde" aria-hidden="true"></span>
+                                    Verde
+                                </label>
+                                <label class="opcao">
+                                    <input type="radio" name="cor" value="roxo">
+                                    <span class="amostra amostra--roxo" aria-hidden="true"></span>
+                                    Roxo
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <hr class="separador">
+
+                        <fieldset>
+                            <legend>Outras opções</legend>
+                            <div class="lista-checagem">
+                                <label class="checagem">
+                                    <input type="checkbox" name="animacoes" checked>
+                                    <span>
+                                        Animações da interface
+                                        <small>Exibe transições suaves ao carregar as páginas</small>
+                                    </span>
+                                </label>
+                                <label class="checagem">
+                                    <input type="checkbox" name="menu-compacto">
+                                    <span>
+                                        Menu lateral compacto
+                                        <small>Mostra somente os ícones no menu</small>
+                                    </span>
+                                </label>
+                                <label class="checagem">
+                                    <input type="checkbox" name="notificacoes" checked>
+                                    <span>
+                                        Notificações por e-mail
+                                        <small>Avisos de estoque baixo e relatórios gerados</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </fieldset>
+                    </section>
+
+                    <div class="acoes-pagina">
+                        <button type="reset" class="botao botao--contorno">Cancelar</button>
+                        <button type="submit" class="botao botao--principal">Salvar alterações</button>
+                    </div>
+                </form>
+
+            </main>
+
+            <footer class="rodape">
+                <p>© 2026 ERP System — Protótipo acadêmico desenvolvido com HTML5 e CSS3.</p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
