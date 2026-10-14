@@ -1,0 +1,186 @@
+/*VARIÁVEIS*/
+:root {
+    --color-primary: #4f46e5;
+    --color-secondary: #4338ca;
+    --color-background: #eef2ff;
+    --color-card: rgba(255, 255, 255, 0.7);
+    --color-text: #1e1b4b;
+    --color-muted: #6b7280;
+    --color-border: rgba(255, 255, 255, 0.8);
+
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+
+    --radius: 16px;
+    --shadow: 0 8px 24px rgba(30, 27, 75, 0.08);
+    --shadow-strong: 0 16px 40px rgba(30, 27, 75, 0.18);
+    --transition: 0.3s ease;
+}
+
+/*BASE*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding: var(--spacing-xl) var(--spacing-md);
+    font-family: system-ui, "Segoe UI", Arial, sans-serif;
+    color: var(--color-text);
+    /* Fundo em degradê para o efeito de vidro aparecer */
+    background: linear-gradient(135deg, #e0e7ff, #f5f3ff 50%, #dbeafe);
+}
+
+.topo {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.topo h1 {
+    font-size: 2.2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.topo p {
+    color: var(--color-muted);
+}
+
+/*GRID DOS PLANOS*/
+.pricing {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+/*CARD*/
+.pricing-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background-color: #ffffff; 
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    .pricing-card {
+        background-color: var(--color-card);
+        backdrop-filter: blur(10px);
+    }
+}
+
+.pricing-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-strong);
+}
+
+/* Card central*/
+.pricing-card:nth-child(2) {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-strong);
+    border: 2px solid var(--color-primary);
+}
+
+.pricing-card:nth-child(2):hover {
+    transform: scale(1.05) translateY(-6px);
+}
+
+.tag {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    background-color: var(--color-primary);
+}
+
+.pricing-card h2 {
+    font-size: 1.25rem;
+}
+
+.price span {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.price small {
+    color: var(--color-muted);
+}
+
+/*BENEFÍCIOS*/
+.pricing-card ul {
+    list-style: none;
+    padding: var(--spacing-md) 0 0;
+    border-top: 1px solid rgba(30, 27, 75, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.pricing-card li::before {
+    content: "✓";
+    margin-right: var(--spacing-sm);
+    font-weight: 700;
+    color: #059669;
+}
+
+.pricing-card li[aria-disabled="true"] {
+    color: var(--color-muted);
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.pricing-card li[aria-disabled="true"]::before {
+    content: "✕";
+    color: #dc2626;
+}
+
+/*BOTÃO*/
+.pricing-card button {
+    margin-top: auto; 
+    padding: 12px;
+    border: none;
+    border-radius: calc(var(--radius) / 2);
+    font: inherit;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: var(--color-primary);
+    cursor: pointer;
+    transition: background-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.pricing-card button:hover {
+    background-color: var(--color-secondary);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+    transform: translateY(-2px);
+}
+
+.pricing-card button:focus-visible {
+    outline: 3px solid var(--color-text);
+    outline-offset: 3px;
+}
+
+/*RESPONSIVIDADE*/
+@media (max-width: 800px) {
+    .pricing {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+
+    .pricing-card:nth-child(2),
+    .pricing-card:nth-child(2):hover {
+        transform: none;
+    }
+}
