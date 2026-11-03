@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>Dashboard de Varejo</title>
+</head>
+
+<body>
+
+    <main class="dashboard">
+
+        <div class="painel">
+
+
+            <section class="card card-vendas">
+                <h2>Vendas</h2>
+
+                <div class="indicador">
+                    <div class="indicador-valor">$297K</div>
+                    <div class="indicador-periodo">este mês</div>
+                    <div class="variacao positivo">▲ US$ 16K em relação ao mês anterior</div>
+                </div>
+
+                <div class="indicador">
+                    <div class="indicador-valor">$9.6K</div>
+                    <div class="indicador-periodo">hoje</div>
+                </div>
+
+                <div class="indicador">
+                    <div class="indicador-valor">$20.6K</div>
+                    <div class="indicador-periodo">ontem</div>
+                </div>
+            </section>
+
+            <section class="card card-deals">
+                <h2>As melhores ofertas desse mês</h2>
+
+                <table class="tabela-deals">
+                    <tbody>
+                        <tr>
+                            <td>NIKE</td>
+                            <td>$8,600</td>
+                        </tr>
+                        <tr>
+                            <td>PUMMA</td>
+                            <td>$8,500</td>
+                        </tr>
+                        <tr>
+                            <td>ADIDAS</td>
+                            <td>$7,540</td>
+                        </tr>
+                        <tr>
+                            <td>BEAGLE</td>
+                            <td>$7,530</td>
+                        </tr>
+                        <tr>
+                            <td>ÖUS</td>
+                            <td>$4,655</td>
+                        </tr>
+                        <tr>
+                            <td>NEW BALANC</td>
+                            <td>$4,215</td>
+                        </tr>
+                        <tr>
+                            <td>VANS</td>
+                            <td>$3,58</td>
+                        </tr>
+                        <tr>
+                            <td>HOCKS</td>
+                            <td>$2,660</td>
+                        </tr>
+                        <tr>
+                            <td>QIX</td>
+                            <td>$1,989</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+
+            <section class="card card-social">
+                <h2>Social Seguidores</h2>
+
+                <div class="indicadores-linha">
+
+                    <div class="indicador">
+                        <div class="indicador-valor">$19.5K</div>
+                        <div class="indicador-periodo">Instagram</div>
+                        <div class="variacao positivo">▲ 11 por dia</div>
+                    </div>
+
+                    <div class="indicador">
+                        <div class="indicador-valor">$10.5K</div>
+                        <div class="indicador-periodo">Twitter</div>
+                        <div class="variacao positivo">▲ 22 por dia</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="card card-website">
+                <h2>Website (últimos 7 dias)</h2>
+
+                <div class="indicadores-linha">
+
+                    <div class="indicador">
+                        <div class="indicador-valor">$28.2K</div>
+                        <div class="indicador-periodo">Usuários</div>
+                        <div class="variacao positivo">▲ 1,6 mil em relação à semana passada</div>
+                    </div>
+
+                    <div class="indicador">
+                        <div class="indicador-valor">226</div>
+                        <div class="indicador-periodo">Consultas</div>
+                        <div class="variacao negativo">▼ 28 em relação à semana passada</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="card card-nps">
+                <h2>NPS (nos últimos 30 dias)</h2>
+
+                <div id="gauge_chart" class="chart chart-gauge"></div>
+                <div id="gauge_valor" class="gauge-valor"></div>
+            </section>
+
+            <section class="card card-feedback">
+                <h2>Feedbacks recentes</h2>
+
+                <ul class="lista-feedback">
+
+                    <li>
+                        <span class="feedback-icone"></span>
+                        <div>
+                            <div class="feedback-texto">OK</div>
+                            <div class="feedback-tempo">Há 22 dias</div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="feedback-icone"></span>
+                        <div>
+                            <div class="feedback-texto">Muito bom!</div>
+                            <div class="feedback-tempo">Há 2 semanas</div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <span class="feedback-icone"></span>
+                        <div>
+                            <div class="feedback-texto">muito util, material extremamente bom!</div>
+                            <div class="feedback-tempo">Há 3 meses</div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="card card-mapa">
+
+                <h2>Usuário Ativos</h2>
+
+                <div id="geochart-colors" class="chart chart-geografico"></div>
+
+                <p id="mapa_total" class="mapa-total"></p>
+
+            </section>
+
+        </div>
+
+        <section class="card card-grafico">
+
+            <h2>Vendas e Despesas</h2>
+
+            <div id="curve_chart" class="chart chart-linhas">
+            </div>
+
+        </section>
+
+        <section class="card card-galeria">
+
+            <h2>Parcerias</h2>
+
+            <div class="galeria">
+
+                <button id="galeria_anterior" class="galeria-seta" aria-label="Anterior">‹</button>
+
+                <div id="galeria_pista" class="galeria-pista">
+                    <div class="galeria-item">Nike</div>
+                    <div class="galeria-item">Puma</div>
+                    <div class="galeria-item">öus</div>
+                    <div class="galeria-item">Adidas</div>
+                    <div class="galeria-item">QIX</div>
+                    <div class="galeria-item">HOCKS</div>
+                    <div class="galeria-item">New Balance</div>
+                    <div class="galeria-item">Beagle</div>
+                    <div class="galeria-item">Vans</div>
+                </div>
+
+                <button id="galeria_proximo" class="galeria-seta" aria-label="Próximo">›</button>
+
+            </div>
+
+            <div id="galeria_pontos" class="galeria-pontos"></div>
+
+        </section>
+
+    </main>
+
+    <footer class="rodape">
+
+        <span class="rodape-status">
+
+            <svg class="icone-folha" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 19C5 10 10 5 19 5c0 9-5 14-14 14Z" />
+                <path d="M5 19L13 11" />
+            </svg>
+
+            Painel de acompanhamento diário
+        </span>
+
+        <span class="radape-hora">
+            <span class="status-ponto"></span>
+            <span>13:33</span>
+        </span>
+    </footer>
+
+
+    <script src="/static/js/script.js"></script>
+
+</body>
+
+</html>

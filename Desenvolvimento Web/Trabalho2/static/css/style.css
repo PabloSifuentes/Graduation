@@ -10,12 +10,55 @@ body {
     color: #E5E7EB;
 }
 
+/* pagina: painel principal */
 .dashboard {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     gap: 14px;
 }
 
+/* painel principal */
+.painel {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "vendas deals    social  website"
+        "vendas deals    mapa    mapa"
+        "nps   feedback mapa    mapa";
+    gap: 14px;
+}
+
+.card-vendas {
+    grid-area: vendas;
+}
+
+.card-deals {
+    grid-area: deals;
+}
+
+.card-social {
+    grid-area: social;
+}
+
+.card-website {
+    grid-area: website;
+}
+
+.card-nps {
+    grid-area: nps;
+}
+
+.card-feedback {
+    grid-area: feedback;
+}
+
+.card-mapa {
+    grid-area: mapa;
+}
+
+/* Base */
 .card {
     background: #27294F;
     border-radius: 12px;
@@ -23,21 +66,271 @@ body {
     min-width: 0;
 }
 
-.card-mapa {
-    width: 100%;
-}
-
-.card-mapa h2 {
-    font-size: 20px;
+.card h2 {
+    font-size: 14px;
     font-weight: 600;
-    margin: 0 0 16px;
+    margin: 0 0 12px;
     color: #E5E7EB;
 }
 
-#mapa {
+.chart {
     width: 100%;
-    height: 500px;
-    background: #27294F;
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* indicadores */
+.indicador-valor {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #E5E7EB;
+}
+
+.indicador-periodo {
+    margin-top: 2px;
+    font-size: 13px;
+    color: #C5C7D6;
+}
+
+.variacao {
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.positivo {
+    color: #22C55E;
+}
+
+.negativo {
+    color: #EF4444;
+}
+
+.indicadores-linha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+}
+
+/* vendas */
+.card-vendas {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-vendas .indicador-valor {
+    font-size: 40px;
+}
+
+/* ofertas */
+.tabela-deals {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.tabela-deals td {
+    padding: 8px 0;
+    border-bottom: 1px solid #3A3D6B;
+}
+
+.tabela-deals tr:last-child td {
+    border-bottom: none;
+}
+
+.tabela-deals td:last-child {
+    text-align: right;
+}
+
+/* NPS */
+.card-nps {
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-gauge {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gauge-valor {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* feedbeack */
+.lista-feedback {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lista-feedback li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.lista-feedback li:last-child {
+    margin-bottom: 0;
+}
+
+.feedback-icone {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3B82F6;
+}
+
+.feedback-texto {
+    font-size: 13px;
+    color: #E5E7EB;
+}
+
+.feedback-tempo {
+    margin-top: 2px;
+    font-size: 11px;
+    color: #C5C7D6;
+}
+
+
+/* usuarios ativos (mapa) */
+.card-mapa {
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-geografico {
+    flex: 1;
+    min-height: 320px;
+}
+
+.mapa-total {
+    margin: 10px 0 0;
+    font-size: 13px;
+    text-align: right;
+    color: #C5C7D6;
+}
+
+.chart-linhas {
+    height: 360px;
+}
+
+.galeria {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* galeria */
+.galeria-pista {
+    --visiveis: 4;
+    --espaco: 12px;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    gap: var(--espaco);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.galeria-pista::-webkit-scrollbar {
+    display: none;
+}
+
+.galeria-item {
+    flex: 0 0 calc((100% - (var(--visiveis) - 1) * var(--espaco)) / var(--visiveis));
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E5E7EB;
+    color: #02fd6b;
     border-radius: 8px;
-    overflow: hidden;
+    font-size: 20px;
+    font-weight: 700;
+    scroll-snap-align: start;
+}
+
+.galeria-seta {
+    flex-shrink: 0;
+    padding: 0 4px;
+    background: none;
+    border: none;
+    color: #E5E7EB;
+    font-size: 36px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.galeria-seta:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.galeria-pontos {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.ponto {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 2px solid #E5E7EB;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+}
+
+.ponto.ativo {
+    background: #E5E7EB;
+}
+
+/* Footer */
+.rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 14px;
+    padding: 0 4px;
+    font-size: 14px;
+    color: #C5C7D6;
+}
+
+.status-ponto {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: #22C55E;
+}
+
+.icone-folha {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: #22C55E;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.rodape-status,
+.rodape-hora {
+    display: flex;
+    align-items: center;
 }
