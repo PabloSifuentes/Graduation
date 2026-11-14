@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>Fuga na Estrada — Jogo 2D</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="stage">
+    <canvas id="game"></canvas>
+
+    <!-- HUD -->
+    <div class="hud hidden" id="hud">
+      <div class="item">
+        <span class="label">Distância</span>
+        <span class="value" id="score">0 m</span>
+      </div>
+      <div class="item center">
+        <span class="label">Velocidade</span>
+        <span class="value speed" id="speed">0 km/h</span>
+      </div>
+      <div class="item right">
+        <span class="label">Pontos</span>
+        <span class="value rings" id="rings">0</span>
+      </div>
+    </div>
+
+    <button class="pause-btn hidden" id="pauseBtn" aria-label="Pausar">❚❚</button>
+
+    <div class="touch-controls hidden" id="touchControls">
+      <button class="touch-btn" id="btnLeft" aria-label="Esquerda">◀</button>
+      <button class="touch-btn" id="btnRight" aria-label="Direita">▶</button>
+    </div>
+
+    <!-- MENU PRINCIPAL -->
+    <div class="overlay" id="mainMenuOverlay">
+      <div class="panel">
+        <div class="badge">RACING 2D</div>
+        <h1>FUGA<br>NA ESTRADA</h1>
+        <p>Desvie dos carros, colete anéis dourados e sobreviva o máximo que puder.</p>
+        <p class="hint">Setas ↑ ↓ ← → para se movimentar</p>
+        <button class="btn" data-action="play">JOGAR</button>
+        <button class="btn btn-secondary" data-action="open-shop">LOJA</button>
+        <button class="btn btn-secondary" data-action="open-settings">CONFIGURAÇÕES</button>
+        <button class="btn btn-secondary" data-action="open-records">RECORDES</button>
+        <p class="best-line">
+          Recorde (<span id="menuDiffLabel">Médio</span>): <strong id="menuBest">0 m</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- PAUSA -->
+    <div class="overlay hidden" id="pauseOverlay">
+      <div class="panel">
+        <h1>PAUSADO</h1>
+        <button class="btn" data-action="resume">VOLTAR AO JOGO</button>
+        <button class="btn btn-secondary" data-action="open-settings">CONFIGURAÇÕES</button>
+        <button class="btn btn-secondary" data-action="go-menu">MENU PRINCIPAL</button>
+      </div>
+    </div>
+
+    <!-- LOJA -->
+    <div class="overlay hidden" id="shopOverlay">
+      <div class="panel panel-wide">
+        <div class="panel-header">
+          <h2>LOJA</h2>
+          <button class="close-btn" data-action="close-shop" aria-label="Fechar">✕</button>
+        </div>
+        <div class="shop-balance">
+          <span>Saldo</span>
+          <strong id="shopCoins">0</strong>
+          <span>💰</span>
+        </div>
+        <div class="shop-list" id="shopList"></div>
+        <button class="btn" data-action="close-shop">VOLTAR</button>
+      </div>
+    </div>
+
+    <!-- CONFIGURAÇÕES -->
+    <div class="overlay hidden" id="settingsOverlay">
+      <div class="panel panel-wide">
+        <div class="panel-header">
+          <h2>CONFIGURAÇÕES</h2>
+          <button class="close-btn" data-action="close-settings" aria-label="Fechar">✕</button>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="general">GERAL</button>
+          <button class="tab" data-tab="maps">MAPAS</button>
+          <button class="tab" data-tab="climate">HORÁRIO</button>
+          <button class="tab" data-tab="audio">ÁUDIO</button>
+        </div>
+        <div class="tab-panels">
+          <div class="tab-panel active" data-panel="general">
+            <h3>Dificuldade</h3>
+            <div class="option-group" id="difficultyGroup">
+              <button class="option-btn" data-diff="low"><strong>FÁCIL</strong><small>Mais lento, menos carros, mais
+                  espaço</small></button>
+              <button class="option-btn" data-diff="medium"><strong>MÉDIO</strong><small>Equilibrado e
+                  progressivo</small></button>
+              <button class="option-btn" data-diff="hardcore"><strong>HARDCORE</strong><small>Veloz, denso, sem margem
+                  para erro</small></button>
+            </div>
+            <h3>Preferências</h3>
+            <label class="toggle-row">
+              <span>Efeitos de tela (tremor)</span>
+              <input type="checkbox" id="prefShake" checked />
+            </label>
+            <h3>Zona de Perigo</h3>
+            <div class="danger-zone">
+              <p class="danger-text">Apaga todo o progresso: pontuações, moedas, recordes e skins desbloqueadas. Não
+                pode ser desfeito.</p>
+              <button class="btn btn-danger" data-action="reset-game">RESETAR JOGO</button>
+            </div>
+          </div>
+          <div class="tab-panel" data-panel="maps">
+            <h3>Mapa</h3>
+            <div class="option-group" id="mapGroup">
+              <button class="option-btn map-btn" data-map="snow"><span class="map-preview map-preview-snow"></span>
+                <div><strong>NEVE</strong><small>Inverno congelante</small></div>
+              </button>
+              <button class="option-btn map-btn" data-map="desert"><span class="map-preview map-preview-desert"></span>
+                <div><strong>DESERTO</strong><small>Dunas escaldantes</small></div>
+              </button>
+              <button class="option-btn map-btn" data-map="jungle"><span class="map-preview map-preview-jungle"></span>
+                <div><strong>MATAGAL</strong><small>Amazônia densa</small></div>
+              </button>
+            </div>
+          </div>
+          <div class="tab-panel" data-panel="climate">
+            <h3>Período do dia</h3>
+            <div class="option-group" id="timeGroup">
+              <button class="option-btn" data-time="day"><strong>DIA</strong><small>Céu claro, iluminação
+                  natural</small></button>
+              <button class="option-btn" data-time="evening"><strong>TARDE</strong><small>Pôr do sol, tons
+                  quentes</small></button>
+              <button class="option-btn" data-time="night"><strong>NOITE</strong><small>Faróis acesos e cenário
+                  escuro</small></button>
+            </div>
+          </div>
+          <div class="tab-panel" data-panel="audio">
+            <div class="slider-row">
+              <label>Música <span class="slider-val" id="musicVal">40%</span></label>
+              <input type="range" id="musicSlider" min="0" max="100" value="40" />
+            </div>
+            <div class="slider-row">
+              <label>Efeitos sonoros <span class="slider-val" id="sfxVal">70%</span></label>
+              <input type="range" id="sfxSlider" min="0" max="100" value="70" />
+            </div>
+            <div class="slider-row">
+              <label>Motor do carro <span class="slider-val" id="engineVal">60%</span></label>
+              <input type="range" id="engineSlider" min="0" max="100" value="60" />
+            </div>
+            <p class="hint">Todos os sons são gerados em tempo real via Web Audio API.</p>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <button class="btn btn-secondary" data-action="reset-defaults">RESTAURAR PADRÕES</button>
+          <button class="btn" data-action="save-settings">SALVAR</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECORDES -->
+    <div class="overlay hidden" id="recordsOverlay">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>RECORDES</h2>
+          <button class="close-btn" data-action="close-records" aria-label="Fechar">✕</button>
+        </div>
+        <div class="records-list" id="recordsList"></div>
+        <button class="btn" data-action="close-records">VOLTAR</button>
+      </div>
+    </div>
+
+    <!-- GAME OVER -->
+    <div class="overlay hidden" id="gameOverOverlay">
+      <div class="panel">
+        <div class="badge danger">BATEU!</div>
+        <h1>FIM DE JOGO</h1>
+        <div class="stats">
+          <div class="stat"><span>Distância</span><strong id="finalScore">0 m</strong></div>
+          <div class="stat"><span>Recorde</span><strong id="finalBest">0 m</strong></div>
+          <div class="stat"><span>Pontos</span><strong id="finalRings">0</strong></div>
+        </div>
+        <p class="best-line">Dificuldade: <strong id="finalDiff">Médio</strong></p>
+        <button class="btn" data-action="play">JOGAR NOVAMENTE</button>
+        <button class="btn btn-secondary" data-action="go-menu">MENU PRINCIPAL</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
