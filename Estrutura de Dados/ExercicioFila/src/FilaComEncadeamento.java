@@ -54,10 +54,16 @@ public class FilaComEncadeamento implements Fila {
 
     @Override
     public String toString() {
-        return "FilaComEncadeamento{" +
-                "first=" + first +
-                ", last=" + last +
-                ", counter=" + counter +
-                '}';
+        String myarray1 = "INI [";
+        NoLista aux = first;
+        while (aux != null) {
+            myarray1 += aux.getInfo();
+            if (aux.getNext() != null) {
+                myarray1 += ", ";
+            }
+            aux = aux.getNext();
+        }
+        myarray1 += "] FIM";
+        return myarray1;
     }
 }
