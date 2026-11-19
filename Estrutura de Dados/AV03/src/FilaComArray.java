@@ -10,6 +10,7 @@ public class FilaComArray implements Fila {
     public FilaComArray() {
         this(new Integer[10], true);
     }
+
     public FilaComArray(Integer[] array) {
         this(array, false);
     }

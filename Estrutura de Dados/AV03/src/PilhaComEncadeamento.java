@@ -1,6 +1,6 @@
 import java.util.EmptyStackException;
 
-public class PilhaComEncadeamento implements Pilha{
+public class PilhaComEncadeamento implements Pilha {
 
     private NoLista topNode;
     private int counter;
@@ -11,19 +11,19 @@ public class PilhaComEncadeamento implements Pilha{
     }
 
     @Override
-    public void push(Integer element){
-    NoLista node = new NoLista(null, null);
-    node.setInfo(element);
-    if (topNode != null){
-        node.setNext(topNode);
-    }
-    this.topNode = node;
-    counter++;
+    public void push(Integer element) {
+        NoLista node = new NoLista(null, null);
+        node.setInfo(element);
+        if (topNode != null) {
+            node.setNext(topNode);
+        }
+        this.topNode = node;
+        counter++;
     }
 
     @Override
-    public Integer pop(){
-        if (counter == 0){
+    public Integer pop() {
+        if (counter == 0) {
             throw new EmptyStackException();
         }
         Integer info = topNode.getInfo();
@@ -33,28 +33,28 @@ public class PilhaComEncadeamento implements Pilha{
     }
 
     @Override
-    public Integer top(){
-    if (counter == 0) {
-        throw new EmptyStackException();
-    }
-    Integer info = topNode.getInfo();
-    return info;
-    }
-
-    @Override
-    public void clear(){
-    topNode = null;
-    counter = 0;
+    public Integer top() {
+        if (counter == 0) {
+            throw new EmptyStackException();
+        }
+        Integer info = topNode.getInfo();
+        return info;
     }
 
     @Override
-    public boolean isEmpty(){
-    return (counter == 0);
+    public void clear() {
+        topNode = null;
+        counter = 0;
     }
 
     @Override
-    public int size(){
-    return counter;
+    public boolean isEmpty() {
+        return (counter == 0);
+    }
+
+    @Override
+    public int size() {
+        return counter;
     }
 
     @Override

@@ -10,8 +10,8 @@ public class TesteDaFila {
         minhaFila.add(44);
         minhaFila.add(50);
         System.out.println(minhaFila);
-        System.out.println("Quem saiu da fila: " +minhaFila.remove());
-        System.out.println("Quem saiu da fila: " +minhaFila.remove());
+        System.out.println("Quem saiu da fila: " + minhaFila.remove());
+        System.out.println("Quem saiu da fila: " + minhaFila.remove());
         System.out.println(minhaFila);
     }
 }

@@ -17,9 +17,11 @@ public class PilhaComArray implements Pilha {
         this.counter = 0;
         this.topIndex = -1;
     }
+
     public PilhaComArray(Integer[] array) {
         this(array, false);
     }
+
     public PilhaComArray(Integer[] array, boolean resizable) {
         if (array == null) {
             throw new IllegalArgumentException("Array não pode ser nulo!");

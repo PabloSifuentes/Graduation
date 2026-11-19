@@ -10,9 +10,9 @@ public class TesteDaPilha {
         minhaPilha.push(44);
         minhaPilha.push(50);
         System.out.println(minhaPilha);
-        System.out.println("Quem saiu da pilha: " +minhaPilha.pop());
+        System.out.println("Quem saiu da pilha: " + minhaPilha.pop());
         System.out.println(minhaPilha);
-        System.out.println("Quem está no topo: " +minhaPilha.top());
+        System.out.println("Quem está no topo: " + minhaPilha.top());
         System.out.println(minhaPilha);
     }
 }

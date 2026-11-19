@@ -8,9 +8,9 @@ public class FilaComEncadeamento implements Fila {
     }
 
     @Override
-    public void add(Integer valor){
+    public void add(Integer valor) {
         NoLista novo = new NoLista(valor);
-        if (isEmpty()){
+        if (isEmpty()) {
             first = novo;
         } else {
             last.setNext(novo);
@@ -20,8 +20,8 @@ public class FilaComEncadeamento implements Fila {
     }
 
     @Override
-    public Integer remove(){
-        if (isEmpty()){
+    public Integer remove() {
+        if (isEmpty()) {
             throw new IllegalStateException("A fila está vazia.");
         }
 
@@ -29,27 +29,27 @@ public class FilaComEncadeamento implements Fila {
         first = first.getNext();
         counter--;
 
-        if (first == null){
+        if (first == null) {
             last = null;
         }
         return valorRemovido;
     }
 
     @Override
-    public void clear(){
+    public void clear() {
         this.first = null;
         this.last = null;
         this.counter = 0;
     }
 
     @Override
-    public boolean isEmpty(){
-    return first == null;
+    public boolean isEmpty() {
+        return first == null;
     }
 
     @Override
-    public int size(){
-    return counter;
+    public int size() {
+        return counter;
     }
 
     @Override

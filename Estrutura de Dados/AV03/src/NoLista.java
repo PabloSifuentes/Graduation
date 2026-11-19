@@ -3,7 +3,7 @@ public class NoLista {
     private Integer info;
     private NoLista next;
 
-    public NoLista(){
+    public NoLista() {
     }
 
     public NoLista(Integer valor) {
